@@ -1,0 +1,109 @@
+.landing,
+.landing * {
+  box-sizing: border-box;
+}
+.landing {
+  background: #f2efe7;
+  height: 852px;
+  position: relative;
+  overflow: hidden;
+}
+.div {
+  color: #343434;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 167px;
+  top: 742px;
+}
+.rectangle-108 {
+  background: #343434;
+  border-radius: 5px;
+  width: 329px;
+  height: 58px;
+  position: absolute;
+  left: calc(50% - 164.5px);
+  top: 666px;
+}
+.div2 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-5Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 22.5px);
+  top: 683px;
+}
+.group-3 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-103 {
+  background: #d9d9d9;
+  border-radius: 10px;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  left: 152px;
+  top: 600px;
+}
+.rectangle-104 {
+  background: #343434;
+  border-radius: 10px;
+  width: 32px;
+  height: 13px;
+  position: absolute;
+  left: 171px;
+  top: 600px;
+}
+.rectangle-106 {
+  background: #d9d9d9;
+  border-radius: 10px;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  left: 209px;
+  top: 600px;
+}
+.rectangle-107 {
+  background: #d9d9d9;
+  border-radius: 10px;
+  width: 13px;
+  height: 13px;
+  position: absolute;
+  left: 228px;
+  top: 600px;
+}
+.div3 {
+  color: #343434;
+  text-align: center;
+  font-family: var(--headline-m-font-family, "Pretendard-Bold", sans-serif);
+  font-size: var(--headline-m-font-size, 22px);
+  font-weight: var(--headline-m-font-weight, 700);
+  position: absolute;
+  left: calc(50% - 94.5px);
+  top: calc(50% - 173px);
+}
+.bbezzi {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Black", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  position: absolute;
+  left: calc(50% - 98.5px);
+  top: calc(50% - 254px);
+}
+.div4 {
+  color: #343434;
+  text-align: center;
+  font-family: var(--headline-m-font-family, "Pretendard-Bold", sans-serif);
+  font-size: var(--headline-m-font-size, 22px);
+  font-weight: var(--headline-m-font-weight, 700);
+  position: absolute;
+  left: calc(50% - 165.5px);
+  top: calc(50% - 142px);
+}

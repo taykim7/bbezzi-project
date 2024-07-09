@@ -1,0 +1,421 @@
+.chart-nodata,
+.chart-nodata * {
+  box-sizing: border-box;
+}
+.chart-nodata {
+  background: #f2efe7;
+  height: 852px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-2 {
+  background: #343434;
+  border-radius: 10px;
+  width: 34px;
+  height: 19px;
+  position: absolute;
+  left: 225px;
+  top: 104px;
+}
+.ellipse-1 {
+  background: #fff9eb;
+  border-radius: 50%;
+  width: 45px;
+  height: 44px;
+  position: absolute;
+  left: 40px;
+  top: 132px;
+}
+.ellipse-2 {
+  background: #343434;
+  border-radius: 50%;
+  width: 45px;
+  height: 44px;
+  position: absolute;
+  left: 85px;
+  top: 132px;
+}
+.ellipse-3 {
+  background: #343434;
+  border-radius: 50%;
+  width: 45px;
+  height: 44px;
+  position: absolute;
+  left: 130px;
+  top: 132px;
+}
+.ellipse-4 {
+  background: #fff9eb;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  left: 175px;
+  top: 132px;
+}
+.ellipse-6 {
+  background: #fff9eb;
+  border-radius: 50%;
+  width: 45px;
+  height: 44px;
+  position: absolute;
+  left: 264px;
+  top: 132px;
+}
+.ellipse-7 {
+  background: #fff9eb;
+  border-radius: 50%;
+  width: 45px;
+  height: 44px;
+  position: absolute;
+  left: 309px;
+  top: 132px;
+}
+._28 {
+  color: #1e1e1e;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 54px;
+  top: 145px;
+}
+.mon {
+  color: #343434;
+  text-align: center;
+  font-family: "NixgonfontsV20-M", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 47px;
+  top: 106px;
+}
+.group-2 {
+  position: absolute;
+  inset: 0;
+}
+._2024 {
+  color: #343434;
+  text-align: left;
+  font-family: "Pretendard-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 148px;
+  top: 60px;
+}
+._7 {
+  color: #343434;
+  text-align: left;
+  font-family: "Pretendard-ExtraBold", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  position: absolute;
+  left: 217px;
+  top: 60px;
+}
+._29 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 99px;
+  top: 145px;
+}
+.tue {
+  color: #343434;
+  text-align: center;
+  font-family: "NixgonfontsV20-M", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 95px;
+  top: 106px;
+}
+._30 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 144px;
+  top: 145px;
+}
+.wed {
+  color: #343434;
+  text-align: center;
+  font-family: "NixgonfontsV20-M", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 137px;
+  top: 106px;
+}
+._31 {
+  color: #1e1e1e;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 189px;
+  top: 145px;
+}
+.thu {
+  color: #343434;
+  text-align: center;
+  font-family: "NixgonfontsV20-M", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 185px;
+  top: 106px;
+}
+._2 {
+  color: #1e1e1e;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 282px;
+  top: 145px;
+}
+.sat {
+  color: #343434;
+  text-align: center;
+  font-family: "NixgonfontsV20-M", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 276px;
+  top: 106px;
+}
+._3 {
+  color: #1e1e1e;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 327px;
+  top: 145px;
+}
+.sun {
+  color: #343434;
+  text-align: center;
+  font-family: "NixgonfontsV20-M", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 323px;
+  top: 106px;
+}
+.ellipse-5 {
+  background: #343434;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #343434;
+  border-width: 2px;
+  width: 45px;
+  height: 44px;
+  position: absolute;
+  left: 219px;
+  top: 131px;
+}
+._1 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-9Black", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 237px;
+  top: 144px;
+}
+.fri {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "NixgonfontsV20-B", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 232px;
+  top: 106px;
+}
+.vector-2 {
+  width: 389.5px;
+  height: 0px;
+  position: absolute;
+  left: calc(50% - 194.5px);
+  top: 204px;
+  overflow: visible;
+}
+.div {
+  color: #343434;
+  text-align: left;
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: calc(50% - 163.5px);
+  top: 230px;
+}
+.rectangle-1 {
+  background: #343434;
+  border-radius: 5px;
+  width: 70px;
+  height: 28px;
+  position: absolute;
+  left: 33px;
+  top: 265px;
+}
+.rectangle-79 {
+  background: #fff9eb;
+  border-radius: 5px;
+  width: 70px;
+  height: 28px;
+  position: absolute;
+  left: 119px;
+  top: 265px;
+}
+.rectangle-80 {
+  background: #fff9eb;
+  border-radius: 5px;
+  width: 70px;
+  height: 28px;
+  position: absolute;
+  left: 205px;
+  top: 265px;
+}
+.rectangle-81 {
+  background: #fff9eb;
+  border-radius: 5px;
+  width: 70px;
+  height: 28px;
+  position: absolute;
+  left: 291px;
+  top: 265px;
+}
+._12 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  position: absolute;
+  left: 58px;
+  top: 270px;
+}
+._6 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Light", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  position: absolute;
+  left: 137px;
+  top: 270px;
+}
+._13 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Light", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  position: absolute;
+  left: 310px;
+  top: 270px;
+}
+._14 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Light", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  position: absolute;
+  left: 224px;
+  top: 270px;
+}
+.div2 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: calc(50% - 90.5px);
+  top: 440px;
+}
+.rectangle-77 {
+  background: #343434;
+  width: 421px;
+  height: 139px;
+  position: absolute;
+  left: calc(50% - 197.5px);
+  top: 750px;
+}
+.div3 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-5Medium", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 95px;
+  top: 799px;
+}
+.div4 {
+  color: #848383;
+  text-align: center;
+  font-family: "Freesentation-5Medium", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  position: absolute;
+  left: 305px;
+  top: 799px;
+}
+.group-1 {
+  width: 91.33%;
+  height: 2.1%;
+  position: absolute;
+  right: 4.36%;
+  left: 4.31%;
+  bottom: 80.95%;
+  top: 16.96%;
+  overflow: visible;
+}
+.vector {
+  width: 3.82%;
+  height: 2%;
+  position: absolute;
+  right: 64.38%;
+  left: 31.81%;
+  bottom: 90.61%;
+  top: 7.39%;
+  overflow: visible;
+}
+.vector2 {
+  width: 4.58%;
+  height: 2.35%;
+  position: absolute;
+  right: 72.01%;
+  left: 23.41%;
+  bottom: 7.39%;
+  top: 90.26%;
+  overflow: visible;
+}
+.vector3 {
+  width: 4.58%;
+  height: 2.35%;
+  position: absolute;
+  right: 17.05%;
+  left: 78.37%;
+  bottom: 7.39%;
+  top: 90.26%;
+  overflow: visible;
+}

@@ -1,0 +1,49 @@
+.join-success,
+.join-success * {
+  box-sizing: border-box;
+}
+.join-success {
+  background: #f2efe7;
+  height: 852px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-108 {
+  background: #343434;
+  border-radius: 5px;
+  width: 329px;
+  height: 58px;
+  position: absolute;
+  left: calc(50% - 164.5px);
+  top: 666px;
+}
+.div {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-5Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 30.5px);
+  top: 683px;
+}
+.div2 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  left: calc(50% - 111.5px);
+  top: calc(50% - 207px);
+}
+.div3 {
+  color: #ff5353;
+  text-align: center;
+  font-family: "Pretendard-Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 40.5px);
+  top: calc(50% - 238px);
+}

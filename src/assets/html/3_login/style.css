@@ -1,0 +1,143 @@
+.login,
+.login * {
+  box-sizing: border-box;
+}
+.login {
+  background: #f2efe7;
+  height: 852px;
+  position: relative;
+  overflow: hidden;
+}
+.div {
+  color: #343434;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 113.5px);
+  top: 734px;
+}
+.div2 {
+  color: #343434;
+  text-align: center;
+  font-family: "Freesentation-4Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - -27.5px);
+  top: 734px;
+}
+.rectangle-108 {
+  background: #343434;
+  border-radius: 5px;
+  width: 329px;
+  height: 58px;
+  position: absolute;
+  left: calc(50% - 164.5px);
+  top: 666px;
+}
+.div3 {
+  color: #f2efe7;
+  text-align: center;
+  font-family: "Freesentation-5Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: calc(50% - 22.5px);
+  top: 683px;
+}
+.group-5 {
+  position: absolute;
+  inset: 0;
+}
+.div4 {
+  color: #bababa;
+  text-align: left;
+  font-family: "Pretendard-Light", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  position: absolute;
+  left: 32px;
+  top: 504px;
+}
+.div5 {
+  color: #343434;
+  text-align: left;
+  font-family: "Pretendard-SemiBold", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  left: 32px;
+  top: 464px;
+}
+.vector-4 {
+  width: 329px;
+  height: 0px;
+  position: absolute;
+  left: calc(50% - 164.5px);
+  top: 529px;
+  overflow: visible;
+}
+.group-6 {
+  position: absolute;
+  inset: 0;
+}
+.div6 {
+  color: #bababa;
+  text-align: left;
+  font-family: "Pretendard-Light", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  position: absolute;
+  left: 32px;
+  top: 597px;
+}
+.div7 {
+  color: #343434;
+  text-align: left;
+  font-family: "Pretendard-SemiBold", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  left: 32px;
+  top: 557px;
+}
+.vector-5 {
+  width: 329px;
+  height: 0px;
+  position: absolute;
+  left: calc(50% - 164.5px);
+  top: 622px;
+  overflow: visible;
+}
+.div8 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: calc(50% - 85.5px);
+  top: calc(50% - 173px);
+}
+.div9 {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: calc(50% - 150.5px);
+  top: calc(50% - 142px);
+}
+.group-10 {
+  width: 47.07%;
+  height: 7.98%;
+  position: absolute;
+  right: 26.46%;
+  left: 26.46%;
+  bottom: 73.59%;
+  top: 18.43%;
+  overflow: visible;
+}
