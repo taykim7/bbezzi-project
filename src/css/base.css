@@ -314,10 +314,8 @@ input[type='radio'] + label {
 
 /* 공통 css */
 .container {
-  background-color: rgb(79, 235, 100);
-  padding-top: 70px;
-  align-items: center;
-  height: calc(100vh - 70px);
+  background-color: #969696;
+  height: calc(100vh);
 }
 
 /* 드래그 방지*/
