@@ -8,34 +8,89 @@
   position: relative;
   overflow: hidden;
 }
-.div {
-  color: #343434;
-  text-align: center;
-  font-family: "Freesentation-4Regular", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
+.component-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 329px;
   position: absolute;
-  left: 167px;
-  top: 742px;
+  left: calc(50% - 163.5px);
+  bottom: 101px;
 }
-.rectangle-108 {
-  background: #343434;
+.group-42 {
+  flex-shrink: 0;
+  width: 329px;
+  height: 58px;
+  position: static;
+}
+.rectangle-110 {
+  background: var(--gray1, #343434);
   border-radius: 5px;
   width: 329px;
   height: 58px;
   position: absolute;
   left: calc(50% - 164.5px);
-  top: 666px;
+  top: calc(50% - 42.5px);
+}
+.btn-1 {
+  color: var(--gray4, #e8e8e8);
+  text-align: center;
+  font-family: var(--button-l-font-family, "Pretendard-Bold", sans-serif);
+  font-size: var(--button-l-font-size, 16px);
+  font-weight: var(--button-l-font-weight, 700);
+  position: absolute;
+  right: 44.98%;
+  left: 44.98%;
+  width: 10.03%;
+  bottom: 54.12%;
+  top: 23.53%;
+  height: 22.35%;
+}
+.btn-3 {
+  color: var(--gray1, #343434);
+  text-align: center;
+  font-family: var(--button-m-font-family, "Pretendard-Medium", sans-serif);
+  font-size: var(--button-m-font-size, 14px);
+  font-weight: var(--button-m-font-weight, 500);
+  position: relative;
+  align-self: stretch;
+  height: 17px;
+}
+.bbezzi {
+  color: #343434;
+  text-align: center;
+  font-family: "Pretendard-Black", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  position: absolute;
+  left: calc(50% - 98.5px);
+  top: 172px;
+}
+.group-34 {
+  position: absolute;
+  inset: 0;
+}
+.div {
+  color: #343434;
+  text-align: center;
+  font-family: var(--headline-m-font-family, "Pretendard-Bold", sans-serif);
+  font-size: var(--headline-m-font-size, 22px);
+  font-weight: var(--headline-m-font-weight, 700);
+  position: absolute;
+  left: calc(50% - 94.5px);
+  top: 253px;
 }
 .div2 {
-  color: #f2efe7;
+  color: #343434;
   text-align: center;
-  font-family: "Freesentation-5Medium", sans-serif;
-  font-size: 20px;
-  font-weight: 400;
+  font-family: var(--headline-m-font-family, "Pretendard-Bold", sans-serif);
+  font-size: var(--headline-m-font-size, 22px);
+  font-weight: var(--headline-m-font-weight, 700);
   position: absolute;
-  left: calc(50% - 22.5px);
-  top: 683px;
+  left: calc(50% - 165.5px);
+  top: 284px;
 }
 .group-3 {
   position: absolute;
@@ -47,8 +102,8 @@
   width: 13px;
   height: 13px;
   position: absolute;
-  left: 152px;
-  top: 600px;
+  left: calc(50% - 44.5px);
+  top: calc(50% - -174px);
 }
 .rectangle-104 {
   background: #343434;
@@ -56,8 +111,8 @@
   width: 32px;
   height: 13px;
   position: absolute;
-  left: 171px;
-  top: 600px;
+  left: calc(50% - 25.5px);
+  top: calc(50% - -174px);
 }
 .rectangle-106 {
   background: #d9d9d9;
@@ -65,8 +120,8 @@
   width: 13px;
   height: 13px;
   position: absolute;
-  left: 209px;
-  top: 600px;
+  left: calc(50% - -12.5px);
+  top: calc(50% - -174px);
 }
 .rectangle-107 {
   background: #d9d9d9;
@@ -74,36 +129,6 @@
   width: 13px;
   height: 13px;
   position: absolute;
-  left: 228px;
-  top: 600px;
-}
-.div3 {
-  color: #343434;
-  text-align: center;
-  font-family: var(--headline-m-font-family, "Pretendard-Bold", sans-serif);
-  font-size: var(--headline-m-font-size, 22px);
-  font-weight: var(--headline-m-font-weight, 700);
-  position: absolute;
-  left: calc(50% - 94.5px);
-  top: calc(50% - 173px);
-}
-.bbezzi {
-  color: #343434;
-  text-align: center;
-  font-family: "Pretendard-Black", sans-serif;
-  font-size: 60px;
-  font-weight: 900;
-  position: absolute;
-  left: calc(50% - 98.5px);
-  top: calc(50% - 254px);
-}
-.div4 {
-  color: #343434;
-  text-align: center;
-  font-family: var(--headline-m-font-family, "Pretendard-Bold", sans-serif);
-  font-size: var(--headline-m-font-size, 22px);
-  font-weight: var(--headline-m-font-weight, 700);
-  position: absolute;
-  left: calc(50% - 165.5px);
-  top: calc(50% - 142px);
+  left: calc(50% - -31.5px);
+  top: calc(50% - -174px);
 }
