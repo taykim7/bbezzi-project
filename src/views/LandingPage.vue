@@ -13,12 +13,20 @@
         <!-- <div class="rectangle-110"></div> -->
         <!-- <div class="btn-1">로그인</div> -->
       </div>
-      <button class="btn-3">회원가입</button>
+      <button class="btn-3" @click="movePage">회원가입</button>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const movePage = () => {
+  router.push({
+    name: 'JoinPage'
+  })
+}
+</script>
 
 <style scoped>
 /* Figma Styles of your File */
@@ -102,7 +110,6 @@
 }
 .landing {
   background: #f2efe7;
-  width: 50%;
   height: 100%;
   position: relative;
   overflow: hidden;
