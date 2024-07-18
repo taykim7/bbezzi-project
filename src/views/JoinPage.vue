@@ -47,11 +47,19 @@
     <img class="vector2" src="../html/vector1.svg" />
     <button class="div14">보기</button>
 
-    <button class="rectangle-108">회원가입</button>
+    <button class="rectangle-108" @click="movePage">회원가입</button>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const movePage = () => {
+  router.push({
+    name: 'JoinSuccessPage'
+  })
+}
+</script>
 
 <style scoped>
 /* Figma Styles of your File */
