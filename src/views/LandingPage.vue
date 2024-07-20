@@ -9,7 +9,7 @@
     <div class="rectangle-107"></div>
     <div class="component-1">
       <div class="group-42">
-        <button class="rectangle-110">로그인</button>
+        <button class="rectangle-110" @click="moveLoginPage">로그인</button>
         <!-- <div class="rectangle-110"></div> -->
         <!-- <div class="btn-1">로그인</div> -->
       </div>
@@ -24,6 +24,11 @@ const router = useRouter()
 const movePage = () => {
   router.push({
     name: 'JoinPage'
+  })
+}
+const moveLoginPage = () => {
+  router.push({
+    name: 'LoginPage'
   })
 }
 </script>

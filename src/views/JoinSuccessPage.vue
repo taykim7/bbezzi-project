@@ -4,14 +4,22 @@
     <div class="div2">가입 완료!</div>
     <div class="component-1">
       <div class="group-42">
-        <button class="rectangle-110">시작하기</button>
+        <button class="rectangle-110" @click="movePage">시작하기</button>
         <!-- <div class="btn-1">시작하기</div> -->
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const movePage = () => {
+  router.push({
+    name: 'LoginPage'
+  })
+}
+</script>
 
 <style scoped>
 /* Figma Styles of your File */
