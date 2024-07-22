@@ -1,43 +1,69 @@
 <template>
   <div class="join">
-    <div class="div2">회원가입</div>
+    <div class="title">회원가입</div>
 
-    <div class="div10">아이디(이메일)</div>
-    <input type="text" class="div9" placeholder="이메일 주소" />
-    <img class="vector-3" src="../html/vector-30.svg" />
-    <button class="rectangle-111">중복확인</button>
+    <!-- 입력 항목 -->
+    <div class="input-wrap">
+      <div class="input-items">
+        <div class="mb40">
+          <div class="input-title">아이디(이메일)</div>
+          <div class="input-contents">
+            <input type="text" class="input-item" placeholder="이메일 주소" />
+            <button class="input-btn">중복확인</button>
+          </div>
+        </div>
+        <div class="mb40">
+          <div class="input-title">비밀번호</div>
+          <div class="input-contents">
+            <input type="text" class="input-item" placeholder="비밀번호" />
+          </div>
+        </div>
+        <div class="mb40">
+          <div class="input-title">비밀번호 확인</div>
+          <div class="input-contents">
+            <input type="text" class="input-item" placeholder="비밀번호 확인" />
+          </div>
+        </div>
+        <div class="mb40">
+          <div class="input-title">닉네임</div>
+          <div class="input-contents">
+            <input type="text" class="input-item" placeholder="닉네임" />
+          </div>
+        </div>
+      </div>
 
-    <div class="div4">비밀번호</div>
-    <input type="text" class="div3" placeholder="비밀번호" />
-    <img class="vector-4" src="../html/vector-40.svg" />
-
-    <div class="div6">비밀번호 확인</div>
-    <input type="text" class="div5" placeholder="비밀번호 확인" />
-    <img class="vector-5" src="../html/vector-50.svg" />
-
-    <div class="div8">닉네임</div>
-    <input type="text" class="div7" placeholder="닉네임을 입력하세요" />
-    <img class="vector-6" src="../html/vector-60.svg" />
-
-    <div class="div16">
-      <input type="checkbox" id="1" name="scales" checked />
-      <label for="1">모두 동의합니다.</label>
+      <!-- 체크 항목 -->
+      <div class="check-items">
+        <div class="mb4">
+          <div class="check-all">
+            <div>
+              <input type="checkbox" id="all" name="check-all" checked />
+              <label for="all">모두 동의합니다.</label>
+            </div>
+          </div>
+        </div>
+        <div class="mb4">
+          <div class="check-item">
+            <div>
+              <input type="checkbox" id="check-1" name="check-1" checked />
+              <label for="check-1">이용약관 동의</label>
+            </div>
+            <button class="check-btn">보기</button>
+          </div>
+        </div>
+        <div class="mb4">
+          <div class="check-item">
+            <div>
+              <input type="checkbox" id="check-2" name="check-2" checked />
+              <label for="check-2">개인정보 처리방침 동의</label>
+            </div>
+            <button class="check-btn">보기</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="div12">
-      <input type="checkbox" id="2" name="scales" checked />
-      <label for="2">이용약관 동의</label>
-    </div>
-    <img class="vector" src="../html/vector0.svg" />
-    <button class="div15">보기</button>
-
-    <div class="div13">
-      <input type="checkbox" id="3" name="scales" checked />
-      <label for="3">개인정보 처리방침 동의</label>
-    </div>
-    <img class="vector2" src="../html/vector1.svg" />
-    <button class="div14">보기</button>
-
+    <!-- TODO 버튼 컴포넌트화 -->
     <button class="rectangle-108" @click="movePage">회원가입</button>
   </div>
 </template>
@@ -53,19 +79,131 @@ const movePage = () => {
 </script>
 
 <style scoped>
-.join,
-.join * {
-  box-sizing: border-box;
-}
 .join {
-  background: #f2efe7;
-  height: 852px;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.group-31 {
-  position: absolute;
-  inset: 0;
+.title {
+  color: #343434;
+  text-align: center;
+  font-family: 'Pretendard-ExtraBold', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.input-wrap {
+  /* background-color: rgb(243, 255, 71); */
+  width: 100%;
+}
+.input-wrap .input-items {
+  padding: 0 30px 0 30px;
+}
+.input-wrap .input-items .input-title {
+  color: #343434;
+  text-align: left;
+  font-family: 'Pretendard-SemiBold', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+.input-wrap .input-items .input-contents {
+  display: flex;
+  justify-content: space-between;
+}
+.input-wrap .input-items .input-contents .input-item {
+  color: #343434;
+  text-align: left;
+  font-family: 'Pretendard-Light', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+
+  border-width: 0 0 1px;
+  background: transparent;
+  width: 100%;
+  padding: 5px 0 5px 0;
+}
+.input-wrap .input-items .input-contents .input-item::placeholder {
+  color: #bababa;
+}
+.input-wrap .input-items .input-contents .input-btn {
+  color: var(--gray4, #ff5353);
+  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
+  font-size: 15px;
+  font-weight: 300;
+
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #ff5353;
+  border-width: 1px;
+  width: 130px;
+  height: 35px;
+}
+.input-wrap .check-items {
+  padding: 0 30px 0 30px;
+}
+.input-wrap .check-items .check-all {
+}
+.input-wrap .check-items .check-all input[type='checkbox'] + label {
+  color: #bababa;
+  text-align: left;
+  font-family: 'Pretendard-SemiBold', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+.input-wrap .check-items .check-all input[type='checkbox'] + label::before {
+  content: '';
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #bababa;
+  border-width: 1px;
+
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+
+  margin-right: 10px;
+}
+.input-wrap .check-items .check-all input[type='checkbox']:checked + label::before {
+  background-color: #343434;
+}
+.input-wrap .check-items .check-item {
+  display: flex;
+  justify-content: space-between;
+}
+.input-wrap .check-items .check-item input[type='checkbox'] + label {
+  color: #bababa;
+  text-align: left;
+  font-family: 'Pretendard-Light', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+.input-wrap .check-items .check-item input[type='checkbox'] + label::before {
+  content: '';
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #bababa;
+  border-width: 1px;
+
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+
+  margin-right: 10px;
+}
+.input-wrap .check-items .check-item input[type='checkbox']:checked + label::before {
+  background-color: #343434;
+}
+.input-wrap .check-items .check-item .check-btn {
+  color: #343434;
+  text-align: right;
+  font-family: 'Pretendard-Light', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
 }
 .rectangle-108 {
   background: #343434;
@@ -81,365 +219,5 @@ const movePage = () => {
   font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
   font-size: var(--button-l-font-size, 16px);
   font-weight: var(--button-l-font-weight, 700);
-}
-.group-2 {
-  position: absolute;
-  inset: 0;
-}
-.div2 {
-  color: #343434;
-  text-align: center;
-  font-family: 'Pretendard-ExtraBold', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  position: absolute;
-  left: calc(50% - 35.5px);
-  top: calc(50% - 336px);
-}
-.group-5 {
-  position: absolute;
-  inset: 0;
-}
-.div3 {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 122px);
-
-  border-width: 0 0 1px;
-  background: transparent;
-}
-.div3::placeholder {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-}
-.div4 {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 162px);
-}
-.vector-4 {
-  width: 329px;
-  height: 0px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 97px);
-  overflow: visible;
-}
-.group-6 {
-  position: absolute;
-  inset: 0;
-}
-.div5 {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 29px);
-
-  border-width: 0 0 1px;
-  background: transparent;
-}
-.div5::placeholder {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-}
-.div6 {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 69px);
-}
-.vector-5 {
-  width: 329px;
-  height: 0px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 4px);
-  overflow: visible;
-}
-.group-7 {
-  position: absolute;
-  inset: 0;
-}
-.div7 {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -64px);
-
-  border-width: 0 0 1px;
-  background: transparent;
-}
-.div7::placeholder {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-}
-.div8 {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -24px);
-}
-.vector-6 {
-  width: 329px;
-  height: 0px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -89px);
-  overflow: visible;
-}
-.group-4 {
-  position: absolute;
-  inset: 0;
-}
-.div9 {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 215px);
-
-  border-width: 0 0 1px;
-  background: transparent;
-}
-.div9::placeholder {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-}
-.div10 {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 255px);
-}
-.vector-3 {
-  width: 240px;
-  height: 0px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - 190px);
-  overflow: visible;
-}
-.rectangle-111 {
-  border-radius: 30px;
-  border-style: solid;
-  border-color: #ff5353;
-  border-width: 1px;
-  width: 88px;
-  height: 35px;
-  position: absolute;
-  left: calc(50% - -76.5px);
-  top: calc(50% - 225px);
-
-  color: var(--gray4, #ff5353);
-  text-align: center;
-  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
-  font-size: 15px;
-  font-weight: 300;
-}
-.group-8 {
-  position: absolute;
-  inset: 0;
-}
-.div12 input[type='checkbox'] + label {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 146.5px);
-  top: calc(50% - -157px);
-}
-.div12 input[type='checkbox'] + label::before {
-  content: '';
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #bababa;
-  border-width: 1px;
-  width: 12px;
-  height: 12px;
-
-  position: absolute;
-  left: -22px;
-  top: 6px;
-  /* left: calc(50% - 164.5px);
-  top: calc(50% - -123px); */
-}
-.div12 input[type='checkbox']:checked + label::before {
-  background-color: red;
-}
-.div13 input[type='checkbox'] + label {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 146.5px);
-  top: calc(50% - -182px);
-}
-.div13 input[type='checkbox'] + label::before {
-  content: '';
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #bababa;
-  border-width: 1px;
-  width: 12px;
-  height: 12px;
-
-  position: absolute;
-  left: -22px;
-  top: 6px;
-  /* left: calc(50% - 164.5px);
-  top: calc(50% - -123px); */
-}
-.div13 input[type='checkbox']:checked + label::before {
-  background-color: red;
-}
-.div14 {
-  color: #343434;
-  text-align: right;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - -124.5px);
-  top: calc(50% - -182px);
-}
-.div15 {
-  color: #343434;
-  text-align: right;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - -124.5px);
-  top: calc(50% - -157px);
-}
-.div16 input[type='checkbox'] + label {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 146.5px);
-  top: calc(50% - -117px);
-}
-.div16 input[type='checkbox'] + label::before {
-  content: '';
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #343434;
-  border-width: 1px;
-  width: 12px;
-  height: 12px;
-
-  position: absolute;
-  left: -22px;
-  top: 6px;
-  /* left: calc(50% - 164.5px);
-  top: calc(50% - -123px); */
-}
-.div16 input[type='checkbox']:checked + label::before {
-  background-color: red;
-}
-/* .rectangle-112 {
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #343434;
-  border-width: 1px;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -123px);
-} */
-/* .rectangle-113 {
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #bababa;
-  border-width: 1px;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -160px);
-} */
-/* .rectangle-114 {
-  border-radius: 10px;
-  border-style: solid;
-  border-color: #bababa;
-  border-width: 1px;
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -185px);
-} */
-.vector {
-  width: 6px;
-  height: 10px;
-  position: absolute;
-  left: calc(50% - -161.5px);
-  top: calc(50% - -196px);
-  overflow: visible;
-}
-.vector2 {
-  width: 6px;
-  height: 10px;
-  position: absolute;
-  left: calc(50% - -161.5px);
-  top: calc(50% - -171px);
-  overflow: visible;
 }
 </style>
