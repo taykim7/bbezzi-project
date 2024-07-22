@@ -1,14 +1,29 @@
 <template>
   <div class="login">
-    <div class="bbezzi">bbezzi</div>
-    <div class="div6">매일 체중을 기록하고,</div>
-    <div class="div5">시간에 따른 변화를 한눈에 확인하세요.</div>
-    <div class="div4">아이디(이메일)</div>
-    <input type="text" class="div3" placeholder="이메일 주소" />
-    <img class="vector-4" src="/src/assets/html/3_login/vector-40.svg" />
-    <div class="div2">비밀번호</div>
-    <input type="text" class="div" placeholder="비밀번호" />
-    <img class="vector-5" src="/src/assets/html/3_login/vector-50.svg" />
+    <div class="logo">bbezzi</div>
+    <div class="intro-text">
+      <p>매일 체중을 기록하고,<br />시간에 따른 변화를 한눈에 확인하세요.</p>
+    </div>
+
+    <!-- 입력 항목 -->
+    <div class="input-wrap">
+      <div class="input-items">
+        <div class="mb40">
+          <div class="input-title">아이디(이메일)</div>
+          <div class="input-contents">
+            <input type="text" class="input-item" placeholder="이메일 주소" />
+          </div>
+        </div>
+        <div class="mb40">
+          <div class="input-title">비밀번호</div>
+          <div class="input-contents">
+            <input type="text" class="input-item" placeholder="비밀번호" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO 버튼 컴포넌트화 -->
     <div class="component-1">
       <div class="frame-34">
         <div class="group-42">
@@ -26,15 +41,63 @@
 <script setup></script>
 
 <style scoped>
-.login,
-.login * {
-  box-sizing: border-box;
-}
 .login {
-  background: #f2efe7;
-  height: 852px;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo {
+  color: #343434;
+  text-align: center;
+  font-family: 'Pretendard-Black', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+
+  margin-top: 10rem;
+}
+.intro-text {
+  text-align: center;
+  font-family: var(--headline-m-font-family, 'Pretendard-Bold', sans-serif);
+  font-size: 2rem;
+  font-weight: var(--headline-m-font-weight, 700);
+  color: #343434;
+
+  margin-bottom: 10rem;
+}
+.input-wrap {
+  width: 100%;
+}
+.input-wrap .input-items {
+  padding: 0 30px 0 30px;
+}
+.input-wrap .input-items .input-title {
+  color: #343434;
+  text-align: left;
+  font-family: 'Pretendard-SemiBold', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+.input-wrap .input-items .input-contents {
+  display: flex;
+  justify-content: space-between;
+}
+.input-wrap .input-items .input-contents .input-item {
+  color: #343434;
+  text-align: left;
+  font-family: 'Pretendard-Light', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+
+  border-width: 0 0 1px;
+  background: transparent;
+  width: 100%;
+  padding: 5px 0 5px 0;
+}
+.input-wrap .input-items .input-contents .input-item::placeholder {
+  color: #bababa;
 }
 .component-1 {
   padding: 10px;
@@ -45,7 +108,6 @@
   justify-content: center;
   width: 329px;
   position: absolute;
-  left: calc(50% - 164.5px);
   bottom: 101px;
 }
 .frame-34 {
@@ -83,20 +145,6 @@
   font-size: var(--button-l-font-size, 16px);
   font-weight: var(--button-l-font-weight, 700);
 }
-.btn-1 {
-  color: var(--gray4, #e8e8e8);
-  text-align: center;
-  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
-  font-size: var(--button-l-font-size, 16px);
-  font-weight: var(--button-l-font-weight, 700);
-  position: absolute;
-  right: 43.77%;
-  left: 43.47%;
-  width: 12.77%;
-  bottom: 54.12%;
-  top: 23.53%;
-  height: 22.35%;
-}
 .group-43 {
   flex-shrink: 0;
   width: 251px;
@@ -130,121 +178,5 @@
   bottom: 0%;
   top: 80%;
   height: 20%;
-}
-.group-6 {
-  position: absolute;
-  inset: 0;
-}
-.vector-5 {
-  width: 329px;
-  height: 0px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -196px);
-  overflow: visible;
-}
-.div {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -171px);
-
-  border-width: 0 0 1px;
-  background: transparent;
-}
-.div::placeholder {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-}
-.div2 {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -131px);
-}
-.group-5 {
-  position: absolute;
-  inset: 0;
-}
-.vector-4 {
-  width: 329px;
-  height: 0px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -103px);
-  overflow: visible;
-}
-.div3 {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -78px);
-
-  border-width: 0 0 1px;
-  background: transparent;
-}
-.div3::placeholder {
-  color: #bababa;
-  text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
-  font-size: 15px;
-  font-weight: 300;
-  position: absolute;
-}
-.div4 {
-  color: #343434;
-  text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: calc(50% - -38px);
-}
-.div5 {
-  color: #343434;
-  text-align: center;
-  font-family: var(--headline-m-font-family, 'Pretendard-Bold', sans-serif);
-  font-size: var(--headline-m-font-size, 22px);
-  font-weight: var(--headline-m-font-weight, 700);
-  position: absolute;
-  left: calc(50% - 165.5px);
-  top: 284px;
-}
-.div6 {
-  color: #343434;
-  text-align: center;
-  font-family: var(--headline-m-font-family, 'Pretendard-Bold', sans-serif);
-  font-size: var(--headline-m-font-size, 22px);
-  font-weight: var(--headline-m-font-weight, 700);
-  position: absolute;
-  left: calc(50% - 93.5px);
-  top: 253px;
-}
-.bbezzi {
-  color: #343434;
-  text-align: center;
-  font-family: 'Pretendard-Black', sans-serif;
-  font-size: 60px;
-  font-weight: 900;
-  position: absolute;
-  left: calc(50% - 97.5px);
-  top: 172px;
 }
 </style>
