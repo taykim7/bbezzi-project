@@ -1,7 +1,11 @@
 <template>
   <div class="join-success">
-    <div class="div">김테이님, 환영해요</div>
-    <div class="div2">가입 완료!</div>
+    <div class="welcome-text">
+      <p>김테이님, 환영해요</p>
+      <h1>가입 완료!</h1>
+    </div>
+
+    <!-- TODO 버튼 컴포넌트화 -->
     <div class="component-1">
       <div class="group-42">
         <button class="rectangle-110" @click="movePage">시작하기</button>
@@ -21,15 +25,26 @@ const movePage = () => {
 </script>
 
 <style scoped>
-.join-success,
-.join-success * {
-  box-sizing: border-box;
-}
 .join-success {
-  background: #f2efe7;
-  height: 852px;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.welcome-text {
+  text-align: center;
+  font-family: var(--headline-m-font-family, 'Pretendard-Bold', sans-serif);
+
+  margin-top: 20rem;
+}
+.welcome-text > p {
+  color: #ff5353;
+  font-size: 2rem;
+  font-weight: 500;
+}
+.welcome-text > h1 {
+  color: #343434;
+  font-size: 3rem;
+  font-weight: 700;
 }
 .component-1 {
   padding: 10px;
@@ -40,7 +55,7 @@ const movePage = () => {
   justify-content: center;
   position: absolute;
   left: calc(50% - 164.5px);
-  bottom: 128px;
+  bottom: 111px;
 }
 .group-42 {
   flex-shrink: 0;
@@ -78,25 +93,5 @@ const movePage = () => {
   bottom: 32.76%;
   top: 34.48%;
   height: 32.76%;
-}
-.div {
-  color: #343434;
-  text-align: center;
-  font-family: 'Pretendard-Bold', sans-serif;
-  font-size: 30px;
-  font-weight: 700;
-  position: absolute;
-  left: calc(50% - 111.5px);
-  top: calc(50% - 207px);
-}
-.div2 {
-  color: #ff5353;
-  text-align: center;
-  font-family: 'Pretendard-Medium', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  position: absolute;
-  left: calc(50% - 40.5px);
-  top: calc(50% - 238px);
 }
 </style>
