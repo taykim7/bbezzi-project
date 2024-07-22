@@ -3,35 +3,27 @@
     <div class="div2">회원가입</div>
 
     <div class="div10">아이디(이메일)</div>
-    <!-- <div class="div9">이메일 주소</div> -->
     <input type="text" class="div9" placeholder="이메일 주소" />
     <img class="vector-3" src="../html/vector-30.svg" />
-    <!-- <div class="div11">중복확인</div> -->
-    <!-- <div class="rectangle-111"></div> -->
     <button class="rectangle-111">중복확인</button>
 
     <div class="div4">비밀번호</div>
-    <!-- <div class="div3">비밀번호</div> -->
     <input type="text" class="div3" placeholder="비밀번호" />
     <img class="vector-4" src="../html/vector-40.svg" />
 
     <div class="div6">비밀번호 확인</div>
-    <!-- <div class="div5">비밀번호 확인</div> -->
     <input type="text" class="div5" placeholder="비밀번호 확인" />
     <img class="vector-5" src="../html/vector-50.svg" />
 
     <div class="div8">닉네임</div>
-    <!-- <div class="div7">닉네임을 입력하세요</div> -->
     <input type="text" class="div7" placeholder="닉네임을 입력하세요" />
     <img class="vector-6" src="../html/vector-60.svg" />
 
-    <!-- <div class="rectangle-112"></div> -->
     <div class="div16">
       <input type="checkbox" id="1" name="scales" checked />
       <label for="1">모두 동의합니다.</label>
     </div>
 
-    <!-- <div class="rectangle-113"></div> -->
     <div class="div12">
       <input type="checkbox" id="2" name="scales" checked />
       <label for="2">이용약관 동의</label>
@@ -39,7 +31,6 @@
     <img class="vector" src="../html/vector0.svg" />
     <button class="div15">보기</button>
 
-    <!-- <div class="rectangle-114"></div> -->
     <div class="div13">
       <input type="checkbox" id="3" name="scales" checked />
       <label for="3">개인정보 처리방침 동의</label>
@@ -62,81 +53,6 @@ const movePage = () => {
 </script>
 
 <style scoped>
-/* Figma Styles of your File */
-:root {
-  /* Colors */
-  --background: #f2efe7;
-  --red: #ee5600;
-  --gray1: #343434;
-  --gray2: #707070;
-  --gray3: #acacac;
-  --gray4: #e8e8e8;
-
-  /* Fonts */
-  --headline-l-font-family: Pretendard-Bold, sans-serif;
-  --headline-l-font-size: 30px;
-  --headline-l-line-height: normal;
-  --headline-l-font-weight: 700;
-  --headline-l-font-style: normal;
-  --headline-m-font-family: Pretendard-Bold, sans-serif;
-  --headline-m-font-size: 22px;
-  --headline-m-line-height: normal;
-  --headline-m-font-weight: 700;
-  --headline-m-font-style: normal;
-  --headline-s-font-family: Pretendard-Bold, sans-serif;
-  --headline-s-font-size: 20px;
-  --headline-s-line-height: normal;
-  --headline-s-font-weight: 700;
-  --headline-s-font-style: normal;
-  --title-l-font-family: Pretendard-Bold, sans-serif;
-  --title-l-font-size: 17px;
-  --title-l-line-height: normal;
-  --title-l-font-weight: 700;
-  --title-l-font-style: normal;
-  --title-m-font-family: Pretendard-Bold, sans-serif;
-  --title-m-font-size: 15px;
-  --title-m-line-height: normal;
-  --title-m-font-weight: 700;
-  --title-m-font-style: normal;
-  --body-l-font-family: Pretendard-Medium, sans-serif;
-  --body-l-font-size: 17px;
-  --body-l-line-height: normal;
-  --body-l-font-weight: 500;
-  --body-l-font-style: normal;
-  --body-m-font-family: Pretendard-Medium, sans-serif;
-  --body-m-font-size: 15px;
-  --body-m-line-height: normal;
-  --body-m-font-weight: 500;
-  --body-m-font-style: normal;
-  --body-s-font-family: Pretendard-Medium, sans-serif;
-  --body-s-font-size: 14px;
-  --body-s-line-height: normal;
-  --body-s-font-weight: 500;
-  --body-s-font-style: normal;
-  --button-l-font-family: Pretendard-Bold, sans-serif;
-  --button-l-font-size: 16px;
-  --button-l-line-height: normal;
-  --button-l-font-weight: 700;
-  --button-l-font-style: normal;
-  --button-m-font-family: Pretendard-Medium, sans-serif;
-  --button-m-font-size: 14px;
-  --button-m-line-height: normal;
-  --button-m-font-weight: 500;
-  --button-m-font-style: normal;
-  --caption-l-font-family: Pretendard-Bold, sans-serif;
-  --caption-l-font-size: 13px;
-  --caption-l-line-height: normal;
-  --caption-l-font-weight: 700;
-  --caption-l-font-style: normal;
-  --caption-m-font-family: Pretendard-Medium, sans-serif;
-  --caption-m-font-size: 12px;
-  --caption-m-line-height: normal;
-  --caption-m-font-weight: 500;
-  --caption-m-font-style: normal;
-
-  /* Effects */
-}
-
 .join,
 .join * {
   box-sizing: border-box;
