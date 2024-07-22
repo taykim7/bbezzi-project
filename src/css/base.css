@@ -118,10 +118,6 @@ img {
   height: 100%;
   /* max-width: 43rem; */
 }
-.container {
-  /* max-width: 43rem; */
-  width: calc(100% - 3.2rem);
-}
 .container2 {
   /* max-width: 43rem; */
   width: calc(100% - 3.2rem);
@@ -313,7 +309,7 @@ input[type='radio'] + label {
 
 /* 공통 css */
 .container {
-  background-color: #969696;
+  background: #f2efe7;
   height: calc(100vh);
 }
 
