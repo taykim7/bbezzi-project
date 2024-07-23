@@ -63,8 +63,14 @@
       </div>
     </div>
 
-    <!-- TODO 버튼 컴포넌트화 -->
-    <button class="rectangle-108" @click="movePage">회원가입</button>
+    <!-- 버튼 -->
+    <div class="btn-wrap">
+      <div class="btn-items">
+        <div class="btn-item">
+          <button class="btn-main" @click="movePage">회원가입</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -96,7 +102,6 @@ const movePage = () => {
   margin-bottom: 5rem;
 }
 .input-wrap {
-  /* background-color: rgb(243, 255, 71); */
   width: 100%;
 }
 .input-wrap .input-items {
@@ -146,8 +151,8 @@ const movePage = () => {
 .input-wrap .check-items {
   padding: 0 30px 0 30px;
 }
-.input-wrap .check-items .check-all {
-}
+/* .input-wrap .check-items .check-all {
+} */
 .input-wrap .check-items .check-all input[type='checkbox'] + label {
   color: #bababa;
   text-align: left;
@@ -204,20 +209,5 @@ const movePage = () => {
   font-family: 'Pretendard-Light', sans-serif;
   font-size: 15px;
   font-weight: 300;
-}
-.rectangle-108 {
-  background: #343434;
-  border-radius: 5px;
-  width: 329px;
-  height: 58px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  bottom: 128px;
-
-  color: var(--gray4, #e8e8e8);
-  text-align: center;
-  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
-  font-size: var(--button-l-font-size, 16px);
-  font-weight: var(--button-l-font-weight, 700);
 }
 </style>
