@@ -118,11 +118,6 @@ img {
   height: 100%;
   /* max-width: 43rem; */
 }
-.container2 {
-  /* max-width: 43rem; */
-  width: calc(100% - 3.2rem);
-  padding: 0rem 1.6rem;
-}
 .display-none {
   display: none !important;
 }
@@ -309,8 +304,9 @@ input[type='radio'] + label {
 
 /* 공통 css */
 .container {
-  background: #f2efe7;
+  /* background: #f2efe7; */
   height: calc(100vh);
+  padding: 0 30px 0 30px;
 }
 
 /* 드래그 방지*/
@@ -320,6 +316,7 @@ input[type='radio'] + label {
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
+  background: #f2ebe7;
 }
 
 /* 버튼 */
@@ -348,7 +345,6 @@ input[type='radio'] + label {
   border-radius: 5px;
 
   text-align: center;
-  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
   font-size: var(--button-l-font-size, 16px);
   font-weight: var(--button-l-font-weight, 700);
 
@@ -367,7 +363,6 @@ input[type='radio'] + label {
 .btn-wrap .btn-items .btn-item .btn-one .btn-center {
   color: var(--gray1, #343434);
   text-align: center;
-  font-family: var(--button-m-font-family, 'Pretendard-Medium', sans-serif);
   font-size: var(--button-m-font-size, 14px);
   font-weight: var(--button-m-font-weight, 500);
   width: 100%;
@@ -375,7 +370,6 @@ input[type='radio'] + label {
 .btn-wrap .btn-items .btn-item .btn-two .btn-left {
   color: var(--gray1, #343434);
   text-align: center;
-  font-family: var(--button-m-font-family, 'Pretendard-Medium', sans-serif);
   font-size: var(--button-m-font-size, 14px);
   font-weight: var(--button-m-font-weight, 500);
   width: 100%;
@@ -383,7 +377,6 @@ input[type='radio'] + label {
 .btn-wrap .btn-items .btn-item .btn-two .btn-right {
   color: var(--gray1, #343434);
   text-align: center;
-  font-family: var(--button-m-font-family, 'Pretendard-Medium', sans-serif);
   font-size: var(--button-m-font-size, 14px);
   font-weight: var(--button-m-font-weight, 500);
   width: 100%;

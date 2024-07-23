@@ -94,7 +94,6 @@ const movePage = () => {
 .title {
   color: #343434;
   text-align: center;
-  font-family: 'Pretendard-ExtraBold', sans-serif;
   font-size: 20px;
   font-weight: 800;
 
@@ -104,13 +103,9 @@ const movePage = () => {
 .input-wrap {
   width: 100%;
 }
-.input-wrap .input-items {
-  padding: 0 30px 0 30px;
-}
 .input-wrap .input-items .input-title {
   color: #343434;
   text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
   font-size: 20px;
   font-weight: 600;
 
@@ -123,7 +118,6 @@ const movePage = () => {
 .input-wrap .input-items .input-contents .input-item {
   color: #343434;
   text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
   font-size: 15px;
   font-weight: 600;
 
@@ -137,7 +131,6 @@ const movePage = () => {
 }
 .input-wrap .input-items .input-contents .input-btn {
   color: var(--gray4, #ff5353);
-  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
   font-size: 15px;
   font-weight: 300;
 
@@ -148,15 +141,9 @@ const movePage = () => {
   width: 130px;
   height: 35px;
 }
-.input-wrap .check-items {
-  padding: 0 30px 0 30px;
-}
-/* .input-wrap .check-items .check-all {
-} */
 .input-wrap .check-items .check-all input[type='checkbox'] + label {
   color: #bababa;
   text-align: left;
-  font-family: 'Pretendard-SemiBold', sans-serif;
   font-size: 20px;
   font-weight: 600;
 }
@@ -183,7 +170,6 @@ const movePage = () => {
 .input-wrap .check-items .check-item input[type='checkbox'] + label {
   color: #bababa;
   text-align: left;
-  font-family: 'Pretendard-Light', sans-serif;
   font-size: 15px;
   font-weight: 300;
 }
@@ -206,7 +192,6 @@ const movePage = () => {
 .input-wrap .check-items .check-item .check-btn {
   color: #343434;
   text-align: right;
-  font-family: 'Pretendard-Light', sans-serif;
   font-size: 15px;
   font-weight: 300;
 }

@@ -35,8 +35,6 @@ const movePage = () => {
 }
 .welcome-text {
   text-align: center;
-  font-family: var(--headline-m-font-family, 'Pretendard-Bold', sans-serif);
-
   margin-top: 20rem;
 }
 .welcome-text > p {

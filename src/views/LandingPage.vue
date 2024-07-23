@@ -48,7 +48,6 @@ const moveLoginPage = () => {
 .logo {
   color: #343434;
   text-align: center;
-  font-family: 'Pretendard-Black', sans-serif;
   font-size: 60px;
   font-weight: 900;
 
@@ -56,7 +55,6 @@ const moveLoginPage = () => {
 }
 .intro-text {
   text-align: center;
-  font-family: var(--headline-m-font-family, 'Pretendard-Bold', sans-serif);
   font-size: 2rem;
   font-weight: var(--headline-m-font-weight, 700);
   color: #343434;
