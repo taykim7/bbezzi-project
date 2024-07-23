@@ -23,15 +23,15 @@
       </div>
     </div>
 
-    <!-- TODO 버튼 컴포넌트화 -->
-    <div class="component-1">
-      <div class="frame-34">
-        <div class="group-42">
-          <button class="rectangle-110">로그인</button>
-        </div>
-        <div class="group-43">
-          <button class="btn-2">아이디 찾기</button>
-          <button class="btn-4">비밀번호 찾기</button>
+    <!-- 버튼 -->
+    <div class="btn-wrap">
+      <div class="btn-items">
+        <div class="btn-item">
+          <button class="btn-main">로그인</button>
+          <div class="btn-two">
+            <button class="btn-left">아이디 찾기</button>
+            <button class="btn-right">비밀번호 찾기</button>
+          </div>
         </div>
       </div>
     </div>
@@ -98,85 +98,5 @@
 }
 .input-wrap .input-items .input-contents .input-item::placeholder {
   color: #bababa;
-}
-.component-1 {
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-end;
-  justify-content: center;
-  width: 329px;
-  position: absolute;
-  bottom: 101px;
-}
-.frame-34 {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  width: 329px;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  bottom: 0px;
-}
-.group-42 {
-  flex-shrink: 0;
-  width: 329px;
-  height: 58px;
-  position: static;
-}
-.rectangle-110 {
-  background: var(--gray1, #343434);
-  border-radius: 5px;
-  width: 100%;
-  height: 68.24%;
-  position: absolute;
-  right: 0%;
-  left: 0%;
-  bottom: 31.76%;
-  top: 0%;
-
-  color: var(--gray4, #e8e8e8);
-  text-align: center;
-  font-family: var(--button-l-font-family, 'Pretendard-Bold', sans-serif);
-  font-size: var(--button-l-font-size, 16px);
-  font-weight: var(--button-l-font-weight, 700);
-}
-.group-43 {
-  flex-shrink: 0;
-  width: 251px;
-  height: 17px;
-  position: static;
-}
-.btn-2 {
-  color: var(--gray1, #343434);
-  text-align: center;
-  font-family: var(--button-m-font-family, 'Pretendard-Medium', sans-serif);
-  font-size: var(--button-m-font-size, 14px);
-  font-weight: var(--button-m-font-weight, 500);
-  position: absolute;
-  right: 68.69%;
-  left: 11.85%;
-  width: 30%;
-  bottom: 0%;
-  top: 80%;
-  height: 20%;
-}
-.btn-4 {
-  color: var(--gray1, #343434);
-  text-align: center;
-  font-family: var(--button-m-font-family, 'Pretendard-Medium', sans-serif);
-  font-size: var(--button-m-font-size, 14px);
-  font-weight: var(--button-m-font-weight, 500);
-  position: absolute;
-  right: 11.85%;
-  left: 64.74%;
-  width: 30%;
-  bottom: 0%;
-  top: 80%;
-  height: 20%;
 }
 </style>
