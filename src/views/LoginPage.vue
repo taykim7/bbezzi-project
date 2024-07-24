@@ -27,7 +27,7 @@
     <div class="btn-wrap">
       <div class="btn-items">
         <div class="btn-item">
-          <button class="btn-main">로그인</button>
+          <button class="btn-main" @click="movePage">로그인</button>
           <div class="btn-two">
             <button class="btn-left">아이디 찾기</button>
             <button class="btn-right">비밀번호 찾기</button>
@@ -38,7 +38,15 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const movePage = () => {
+  router.push({
+    name: 'MainPage'
+  })
+}
+</script>
 
 <style scoped>
 .login {
