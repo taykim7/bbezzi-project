@@ -11,63 +11,92 @@
         <button class="now-week-date">28</button>
       </div>
       <div class="now-week-one">
-        <div class="now-week-day">Mon</div>
+        <div class="now-week-day">Tue</div>
         <button class="now-week-date">28</button>
       </div>
       <div class="now-week-one">
-        <div class="now-week-day">Mon</div>
+        <div class="now-week-day">Wed</div>
         <button class="now-week-date">28</button>
       </div>
       <div class="now-week-one">
-        <div class="now-week-day">Mon</div>
+        <div class="now-week-day">Thu</div>
         <button class="now-week-date">28</button>
       </div>
       <div class="now-week-one">
-        <div class="now-week-day">Mon</div>
+        <div class="now-week-day">Fri</div>
         <button class="now-week-date">28</button>
       </div>
       <div class="now-week-one">
-        <div class="now-week-day">Mon</div>
+        <div class="now-week-day">Sat</div>
         <button class="now-week-date">28</button>
       </div>
       <div class="now-week-one">
-        <div class="now-week-day">Mon</div>
+        <div class="now-week-day">Sun</div>
         <button class="now-week-date">28</button>
       </div>
     </div>
 
-    <div class="div3">체중</div>
-    <div class="_2024-07-01">2024-07-01 금요일</div>
-    <div class="group-29">
-      <div class="group-28">
-        <div class="kg">kg</div>
+    <div class="line"></div>
+
+    <div class="weight-wrap">
+      <div class="weight-title">
+        <div class="weight-text">체중</div>
+        <div class="weight-date">2024-07-01 금요일</div>
       </div>
-      <input class="_68-5" value="68.5" />
+
+      <!-- <div class="weight-position">
+        <div class="weight-kg">kg</div>
+      </div> -->
+
+      <input class="weight-gram" value="68.5" />
     </div>
 
     <div class="input-btns">
       <div class="input-btn-row">
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">0</button>
+        <button class="input-btn-num">1</button>
+        <button class="input-btn-num">2</button>
+        <button class="input-btn-num">3</button>
+        <button class="input-btn-else">※</button>
       </div>
       <div class="input-btn-row">
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">0</button>
+        <button class="input-btn-num">4</button>
+        <button class="input-btn-num">5</button>
+        <button class="input-btn-num">6</button>
+        <button class="input-btn-else">※</button>
       </div>
       <div class="input-btn-row">
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">1</button>
-        <button class="input-btn-1">0</button>
+        <button class="input-btn-num">7</button>
+        <button class="input-btn-num">8</button>
+        <button class="input-btn-num">9</button>
+        <button class="input-btn-else">※</button>
       </div>
     </div>
 
     <!-- TODO 메모 textarea -->
+    <div class="input-wrap">
+      <div class="input-items">
+        <div class="mb40">
+          <div class="input-title">메모</div>
+          <div class="input-contents">
+            <textarea class="input-textarea" placeholder="메모를 입력하세요" rows="1"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- TODO 저장하기 버튼 -->
+    <!-- 버튼 -->
+    <div class="btn-wrap">
+      <div class="btn-items">
+        <div class="btn-item">
+          <!-- <button class="btn-main" @click="movePage">저장하기</button> -->
+          <div class="btn-two">
+            <button class="btn-main-left" @click="movePage">수정하기</button>
+            <button class="btn-main-right" @click="movePage">삭제하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="bnb">
@@ -89,11 +118,9 @@
 }
 .now-date {
   display: flex;
-  font-family: 'Pretendard-Regular', sans-serif;
   color: #343434;
-  position: absolute;
-  left: 148px;
-  top: 60px;
+
+  margin-top: 20%;
 }
 .now-year {
   font-size: 20px;
@@ -104,29 +131,11 @@
   font-weight: 800;
   margin-left: 10px;
 }
-
-.rectangle-78 {
-  width: 329px;
-  height: 34px;
-  position: absolute;
-  left: 32px;
-  top: 618px;
-}
-
-.group-2 {
-  position: absolute;
-  inset: 0;
-}
-
-.group-58 {
-  position: absolute;
-  inset: 0;
-}
-
 .now-week {
   display: flex;
-  position: absolute;
-  top: 13%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
 }
 .now-week-one {
   display: flex;
@@ -135,16 +144,13 @@
   flex-direction: column;
 }
 .now-week-day {
-  /* color: #343434; */
   color: #f2efe7;
   background-color: #343434;
 
   width: 40px;
-  height: 22px;
-  border-radius: 10px;
+  border-radius: 20px;
 
   text-align: center;
-  font-family: 'NixgonfontsV20-M', sans-serif;
   font-size: 15px;
   font-weight: 400;
 }
@@ -158,87 +164,85 @@
   border-radius: 50%;
 
   text-align: center;
-  font-family: 'Freesentation-4Regular', sans-serif;
   font-size: 15px;
   font-weight: 400;
+
+  margin-top: 8px;
+}
+.line {
+  width: 100%;
+  border-bottom: 1px solid #bababa;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-.div3 {
+.weight-wrap {
+  width: 100%;
+}
+.weight-wrap .weight-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+}
+.weight-wrap .weight-title .weight-text {
   color: #343434;
   text-align: left;
-  font-family: 'Pretendard-Bold', sans-serif;
   font-size: 20px;
-  font-weight: 700;
-  position: absolute;
-  left: calc(50% - 164.5px);
-  top: 225px;
-}
-._2024-07-01 {
-  color: #343434;
-  text-align: right;
-  font-family: 'Freesentation-5Medium', sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  position: absolute;
-  left: calc(50% - -50.5px);
-  top: 230px;
-}
-.group-29 {
-  width: 329px;
-  height: 59px;
-  position: static;
-}
-.group-28 {
-  width: 329px;
-  height: 59px;
-  position: static;
+  font-weight: 600;
 }
 
-.kg {
-  color: #848383;
-  text-align: center;
-  font-family: 'Freesentation-9Black', sans-serif;
-  font-size: 20px;
+.weight-wrap .weight-title .weight-date {
+  color: #343434;
+  text-align: right;
+  font-size: 15px;
   font-weight: 400;
+}
+
+.weight-position {
   position: absolute;
   left: calc(50% - -130.5px);
   top: 274px;
+  z-index: 1;
 }
-._68-5 {
+
+.weight-kg {
+  color: #848383;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+}
+.weight-gram {
   color: #848383;
   background-color: #343434;
   text-align: center;
 
-  font-family: 'Freesentation-9Black', sans-serif;
   font-size: 40px;
   font-weight: 400;
 
-  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);
-
-  width: 329px;
-  height: 59px;
+  width: 100%;
+  height: 60px;
   border-radius: 5px;
 
-  position: absolute;
-  left: 32px;
-  top: 257px;
+  margin-top: 1rem;
 }
+
 .input-btns {
-  position: absolute;
-  top: 38%;
-  justify-content: center;
+  /* background-color: red; */
+  margin-top: 2rem;
+  width: 100%;
 }
 .input-btn-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 16px;
+  margin-bottom: 14px;
 }
 
-.input-btn-1 {
+.input-btn-num {
   color: #343434;
   text-align: center;
-  font-family: 'Freesentation-4Regular', sans-serif;
   font-size: 35px;
   font-weight: 400;
 
@@ -248,12 +252,56 @@
   border-radius: 50%;
 }
 
+.input-btn-else {
+  color: #343434;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+
+  background-color: #fff9eb;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.input-wrap {
+  width: 100%;
+
+  margin-top: 2rem;
+}
+.input-wrap .input-items .input-title {
+  color: #343434;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+
+  margin-bottom: 10px;
+}
+.input-wrap .input-items .input-contents {
+  display: flex;
+  justify-content: space-between;
+}
+.input-wrap .input-items .input-contents .input-textarea {
+  color: #343434;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 600;
+
+  border-width: 0 0 1px;
+  background: transparent;
+  width: 100%;
+  padding: 5px 0 5px 0;
+}
+.input-wrap .input-items .input-contents .input-textarea::placeholder {
+  color: #bababa;
+}
 .bnb {
   background: #343434;
   width: 100%;
   height: 140px;
   position: fixed;
-  top: 85%;
+  bottom: -5%;
+  left: 0%;
 }
 .bnb-btns {
   display: flex;
@@ -261,7 +309,6 @@
 }
 .bnb-btn {
   color: #f2efe7;
-  font-family: 'Freesentation-5Medium', sans-serif;
   font-size: 15px;
   font-weight: 400;
 
