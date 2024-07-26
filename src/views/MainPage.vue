@@ -101,8 +101,14 @@
 
   <div class="bnb">
     <div class="bnb-btns">
-      <button class="bnb-btn">홈</button>
-      <button class="bnb-btn">분석</button>
+      <div class="bnb-home">
+        <img class="bnb-icon" src="../assets/logo.svg" height="19" />
+        <button class="bnb-btn">홈</button>
+      </div>
+      <div class="bnb-analyze">
+        <img class="bnb-icon" src="../assets/logo.svg" height="19" />
+        <button class="bnb-btn">분석</button>
+      </div>
     </div>
   </div>
 </template>
@@ -306,12 +312,21 @@
 .bnb-btns {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
-.bnb-btn {
+.bnb-btns .bnb-home {
+  width: 100%;
+}
+.bnb-btns .bnb-analyze {
+  width: 100%;
+}
+.bnb-btns .bnb-icon {
+  margin-bottom: 10px;
+}
+.bnb-btns .bnb-btn {
   color: #f2efe7;
   font-size: 15px;
   font-weight: 400;
-
   width: 100%;
 }
 </style>
