@@ -1,11 +1,13 @@
 <template>
   <div class="main">
     <div class="now-date">
-      <p class="now-year">2024년</p>
-      <p class="now-month">7월</p>
+      <img class="now-date-icon" src="../assets/logo.svg" height="19" />
+      <div class="now-year"><p>2024년</p></div>
+      <div class="now-month"><p>7월</p></div>
     </div>
 
     <div class="now-week">
+      <img class="now-week-icon" src="../assets/logo.svg" height="19" />
       <div class="now-week-one">
         <div class="now-week-day">Mon</div>
         <button class="now-week-date">28</button>
@@ -34,6 +36,7 @@
         <div class="now-week-day">Sun</div>
         <button class="now-week-date">28</button>
       </div>
+      <img class="now-week-icon" src="../assets/logo.svg" height="19" />
     </div>
 
     <div class="line"></div>
@@ -56,19 +59,25 @@
         <button class="input-btn-num">1</button>
         <button class="input-btn-num">2</button>
         <button class="input-btn-num">3</button>
-        <button class="input-btn-else">※</button>
+        <button class="input-btn-else">
+          <img class="input-btn-icon" src="../assets/logo.svg" height="19" />
+        </button>
       </div>
       <div class="input-btn-row">
         <button class="input-btn-num">4</button>
         <button class="input-btn-num">5</button>
         <button class="input-btn-num">6</button>
-        <button class="input-btn-else">※</button>
+        <button class="input-btn-else">
+          <img class="input-btn-icon" src="../assets/logo.svg" height="19" />
+        </button>
       </div>
       <div class="input-btn-row">
         <button class="input-btn-num">7</button>
         <button class="input-btn-num">8</button>
         <button class="input-btn-num">9</button>
-        <button class="input-btn-else">※</button>
+        <button class="input-btn-else">
+          <img class="input-btn-icon" src="../assets/logo.svg" height="19" />
+        </button>
       </div>
     </div>
 
@@ -124,17 +133,25 @@
 }
 .now-date {
   display: flex;
-  color: #343434;
+  align-items: center;
+  flex-direction: row;
 
+  color: #343434;
   margin-top: 20%;
+}
+.now-date-icon {
+  width: auto;
 }
 .now-year {
   font-size: 20px;
   font-weight: 400;
+  text-align: center;
+  margin-left: 10px;
 }
 .now-month {
   font-size: 20px;
   font-weight: 800;
+  text-align: center;
   margin-left: 10px;
 }
 .now-week {
@@ -142,6 +159,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
+  width: 100%;
 }
 .now-week-one {
   display: flex;
