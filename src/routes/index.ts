@@ -5,6 +5,7 @@ import JoinPage from '@/views/JoinPage.vue'
 import JoinSuccessPage from '@/views/JoinSuccessPage.vue'
 import LoginPage from '@/views/LoginPage.vue'
 import MainPage from '@/views/MainPage.vue'
+import AnalyzePage from '@/views/AnalyzePage.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/main',
     name: 'MainPage',
     component: MainPage
+  },
+  {
+    path: '/analyze',
+    name: 'AnalyzePage',
+    component: AnalyzePage
   }
 ]
 

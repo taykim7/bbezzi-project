@@ -116,13 +116,21 @@
       </div>
       <div class="bnb-analyze">
         <img class="bnb-icon" src="../assets/logo.svg" height="19" />
-        <button class="bnb-btn">분석</button>
+        <button class="bnb-btn" @click="movePage">분석</button>
       </div>
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const movePage = () => {
+  router.push({
+    name: 'AnalyzePage'
+  })
+}
+</script>
 
 <style scoped>
 .main {
