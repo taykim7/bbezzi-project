@@ -97,7 +97,7 @@ const movePage = () => {
   font-size: 20px;
   font-weight: 800;
 
-  margin-top: 5rem;
+  margin-top: 10rem;
   margin-bottom: 5rem;
 }
 .input-wrap {

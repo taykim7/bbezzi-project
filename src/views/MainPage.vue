@@ -137,7 +137,7 @@
   flex-direction: row;
 
   color: #343434;
-  margin-top: 20%;
+  margin-top: 10rem;
 }
 .now-date-icon {
   width: auto;
