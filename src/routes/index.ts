@@ -11,31 +11,49 @@ const routes = [
   {
     path: '/',
     name: 'LandingPage',
+    meta: {
+      bnb: false
+    },
     component: LandingPage
   },
   {
     path: '/join',
     name: 'JoinPage',
+    meta: {
+      bnb: false
+    },
     component: JoinPage
   },
   {
     path: '/join-success',
     name: 'JoinSuccessPage',
+    meta: {
+      bnb: false
+    },
     component: JoinSuccessPage
   },
   {
     path: '/login',
     name: 'LoginPage',
+    meta: {
+      bnb: false
+    },
     component: LoginPage
   },
   {
     path: '/main',
     name: 'MainPage',
+    meta: {
+      bnb: true
+    },
     component: MainPage
   },
   {
     path: '/analyze',
     name: 'AnalyzePage',
+    meta: {
+      bnb: true
+    },
     component: AnalyzePage
   }
 ]
