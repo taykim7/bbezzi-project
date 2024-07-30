@@ -100,37 +100,16 @@
         <div class="btn-item">
           <!-- <button class="btn-main" @click="movePage">저장하기</button> -->
           <div class="btn-two">
-            <button class="btn-main-left" @click="movePage">수정하기</button>
-            <button class="btn-main-right" @click="movePage">삭제하기</button>
+            <button class="btn-main-left">수정하기</button>
+            <button class="btn-main-right">삭제하기</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="bnb">
-    <div class="bnb-btns">
-      <div class="bnb-home">
-        <img class="bnb-icon" src="../assets/logo.svg" height="19" />
-        <button class="bnb-btn">홈</button>
-      </div>
-      <div class="bnb-analyze">
-        <img class="bnb-icon" src="../assets/logo.svg" height="19" />
-        <button class="bnb-btn" @click="movePage">분석</button>
-      </div>
-    </div>
-  </div>
 </template>
 
-<script setup>
-import { useRouter } from 'vue-router'
-const router = useRouter()
-const movePage = () => {
-  router.push({
-    name: 'AnalyzePage'
-  })
-}
-</script>
+<script setup></script>
 
 <style scoped>
 .main {
@@ -326,33 +305,5 @@ const movePage = () => {
 }
 .input-wrap .input-items .input-contents .input-textarea::placeholder {
   color: #bababa;
-}
-.bnb {
-  background: #343434;
-  width: 100%;
-  height: 140px;
-  position: fixed;
-  bottom: -5%;
-  left: 0%;
-}
-.bnb-btns {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-.bnb-btns .bnb-home {
-  width: 100%;
-}
-.bnb-btns .bnb-analyze {
-  width: 100%;
-}
-.bnb-btns .bnb-icon {
-  margin-bottom: 10px;
-}
-.bnb-btns .bnb-btn {
-  color: #f2efe7;
-  font-size: 15px;
-  font-weight: 400;
-  width: 100%;
 }
 </style>
