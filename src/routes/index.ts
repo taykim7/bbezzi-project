@@ -22,7 +22,8 @@ const routes = [
     path: '/join',
     name: 'JoinPage',
     meta: {
-      bnb: false
+      bnb: false,
+      back: true
     },
     component: JoinPage
   },
@@ -38,7 +39,8 @@ const routes = [
     path: '/login',
     name: 'LoginPage',
     meta: {
-      bnb: false
+      bnb: false,
+      back: true
     },
     component: LoginPage
   },
@@ -52,11 +54,18 @@ const routes = [
     children: [
       {
         path: 'gram',
-        component: GramView
+        component: GramView,
+        meta: {
+          logout: true
+        }
       },
       {
         path: 'analyze',
-        component: AnalyzeView
+        component: AnalyzeView,
+        meta: {
+          back: true,
+          logout: true
+        }
       }
     ]
   }
