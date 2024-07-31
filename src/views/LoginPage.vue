@@ -43,7 +43,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const movePage = () => {
   router.push({
-    name: 'MainPage'
+    path: '/main/gram'
   })
 }
 </script>
