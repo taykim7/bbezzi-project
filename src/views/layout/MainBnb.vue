@@ -27,14 +27,14 @@ const showBnb = computed(() => {
 // 홈
 const moveMainPage = () => {
   router.push({
-    name: 'MainPage'
+    path: '/main/gram'
   })
 }
 
 // 분석
 const moveAnalyPage = () => {
   router.push({
-    name: 'AnalyzePage'
+    path: '/main/analyze'
   })
 }
 </script>

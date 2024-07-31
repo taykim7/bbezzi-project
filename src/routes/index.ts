@@ -5,7 +5,9 @@ import JoinPage from '@/views/JoinPage.vue'
 import JoinSuccessPage from '@/views/JoinSuccessPage.vue'
 import LoginPage from '@/views/LoginPage.vue'
 import MainPage from '@/views/MainPage.vue'
-import AnalyzePage from '@/views/AnalyzePage.vue'
+
+import GramView from '@/views/gram/GramView.vue'
+import AnalyzeView from '@/views/analyze/AnalyzeView.vue'
 
 const routes = [
   {
@@ -46,15 +48,17 @@ const routes = [
     meta: {
       bnb: true
     },
-    component: MainPage
-  },
-  {
-    path: '/analyze',
-    name: 'AnalyzePage',
-    meta: {
-      bnb: true
-    },
-    component: AnalyzePage
+    component: MainPage,
+    children: [
+      {
+        path: 'gram',
+        component: GramView
+      },
+      {
+        path: 'analyze',
+        component: AnalyzeView
+      }
+    ]
   }
 ]
 
