@@ -1,13 +1,13 @@
 <template>
   <div class="main">
     <div class="now-date">
-      <img class="now-date-icon" src="../assets/logo.svg" height="19" />
+      <img class="now-date-icon" src="../assets/img/svg/icon_calendar.svg" height="25" />
       <div class="now-year"><p>2024년</p></div>
       <div class="now-month"><p>7월</p></div>
     </div>
 
     <div class="now-week">
-      <img class="now-week-icon" src="../assets/logo.svg" height="19" />
+      <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
       <div class="now-week-one">
         <div class="now-week-day">Mon</div>
         <button class="now-week-date">28</button>
@@ -36,7 +36,7 @@
         <div class="now-week-day">Sun</div>
         <button class="now-week-date">28</button>
       </div>
-      <img class="now-week-icon" src="../assets/logo.svg" height="19" />
+      <img class="now-week-icon" src="../assets/img/svg/icon_after.svg" height="25" />
     </div>
 
     <div class="line"></div>
@@ -69,13 +69,13 @@
   font-size: 20px;
   font-weight: 400;
   text-align: center;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .now-month {
   font-size: 20px;
   font-weight: 800;
   text-align: center;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .now-week {
   display: flex;
