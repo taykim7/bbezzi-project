@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" stroke-width= "3">
+  <path d="m11.029,18.556h27.941v22.362c0,2.399-1.948,4.347-4.347,4.347H15.377c-2.399,0-4.347-1.948-4.347-4.347v-22.362h0Z" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+  <polygon points="40.057 11.509 9.943 11.509 8.019 18.556 41.981 18.556 40.057 11.509" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+  <path d="m19.599,10.136c0-2.983,2.418-5.401,5.401-5.401s5.401,2.418,5.401,5.401" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+  <line x1="18.737" y1="25.46" x2="18.737" y2="39.543" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+  <line x1="25" y1="25.46" x2="25" y2="39.543" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+  <line x1="31.263" y1="25.46" x2="31.263" y2="39.543" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+</svg>

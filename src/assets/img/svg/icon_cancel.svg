@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" stroke-width= "3">
+  <g>
+    <line x1="26.336" y1="20.198" x2="35.939" y2="29.802" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+    <line x1="35.939" y1="20.198" x2="26.336" y2="29.802" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+  </g>
+  <polygon points="45.164 38.913 17.338 38.913 4.836 25 17.338 11.087 45.164 11.087 45.164 38.913" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round;"/>
+</svg>
