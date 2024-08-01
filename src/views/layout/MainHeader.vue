@@ -1,7 +1,12 @@
 <template>
   <div v-if="showBack || showLogout" class="header">
     <div v-if="showBack" class="header-back">
-      <img @click="moveBackPage" class="back-btn" src="../assets/logo.svg" />
+      <img
+        @click="moveBackPage"
+        class="back-btn"
+        src="../../assets/img/svg/icon_back.svg"
+        height="25"
+      />
     </div>
     <div v-if="showLogout" class="header-logout">
       <button class="logout-btn" @click="moveLandingPage">로그아웃</button>
