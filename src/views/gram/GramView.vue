@@ -16,7 +16,12 @@
       <button class="input-btn-num">2</button>
       <button class="input-btn-num">3</button>
       <button class="input-btn-else">
-        <img class="input-btn-icon" src="../assets/logo.svg" height="19" />
+        <img
+          class="input-btn-icon"
+          src="../../assets/img/svg/icon_clear.svg"
+          height="40"
+          alt="전체제거"
+        />
       </button>
     </div>
     <div class="input-btn-row">
@@ -24,16 +29,19 @@
       <button class="input-btn-num">5</button>
       <button class="input-btn-num">6</button>
       <button class="input-btn-else">
-        <img class="input-btn-icon" src="../assets/logo.svg" height="19" />
+        <img
+          class="input-btn-icon"
+          src="../../assets/img/svg/icon_cancel.svg"
+          height="40"
+          alt="지우기"
+        />
       </button>
     </div>
     <div class="input-btn-row">
       <button class="input-btn-num">7</button>
       <button class="input-btn-num">8</button>
       <button class="input-btn-num">9</button>
-      <button class="input-btn-else">
-        <img class="input-btn-icon" src="../assets/logo.svg" height="19" />
-      </button>
+      <button class="input-btn-else">.</button>
     </div>
   </div>
 
@@ -153,6 +161,10 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .input-wrap {
