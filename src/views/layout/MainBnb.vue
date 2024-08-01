@@ -2,11 +2,11 @@
   <div v-if="showBnb" class="bnb">
     <div class="bnb-btns">
       <div class="bnb-home">
-        <img class="bnb-icon" src="../assets/logo.svg" height="19" />
+        <img class="bnb-icon" src="../../assets/img/svg/icon_clear.svg" height="30" />
         <button class="bnb-btn" @click="moveMainPage">홈</button>
       </div>
       <div class="bnb-analyze">
-        <img class="bnb-icon" src="../assets/logo.svg" height="19" />
+        <img class="bnb-icon" src="../../assets/img/svg/icon_clear.svg" height="30" />
         <button class="bnb-btn" @click="moveAnalyPage">분석</button>
       </div>
     </div>
@@ -60,7 +60,6 @@ const moveAnalyPage = () => {
   width: 100%;
 }
 .bnb-btns .bnb-icon {
-  margin-bottom: 10px;
 }
 .bnb-btns .bnb-btn {
   color: #f2efe7;
