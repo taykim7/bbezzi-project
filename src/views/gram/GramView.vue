@@ -5,7 +5,7 @@
       <div class="weight-date">2024-07-01 금요일</div>
     </div>
     <div class="weight-position">
-      <div class="weight-kg">kg</div>
+      <!-- <div class="weight-kg">kg</div> -->
     </div>
     <input class="weight-gram" value="68.5" />
   </div>
@@ -72,7 +72,15 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => document.querySelector('textarea').addEventListener('keydown', autosize))
+function autosize() {
+  const el = document.querySelector('textarea')
+  el.style.cssText = 'height:' + el.scrollHeight + 'px'
+}
+</script>
 
 <style scoped>
 .weight-wrap {
