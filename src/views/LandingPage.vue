@@ -1,13 +1,21 @@
 <template>
   <div class="landing">
-    <div class="logo">bbezzi</div>
+    <!-- 인트로 -->
+    <div class="intro-logo">bbezzi</div>
     <div class="intro-text">
       <p>매일 체중을 기록하고,<br />시간에 따른 변화를 한눈에 확인하세요.</p>
     </div>
-    <!-- <div class="rectangle-103"></div>
-    <div class="rectangle-104"></div>
-    <div class="rectangle-106"></div>
-    <div class="rectangle-107"></div> -->
+
+    <!-- 스와이프 -->
+    <div class="swipe-wrap">
+      <div class="swipe-img"></div>
+      <div class="swipe-seq mt8">
+        <div class="swipe-item"></div>
+        <div class="swipe-item-now"></div>
+        <div class="swipe-item"></div>
+        <div class="swipe-item"></div>
+      </div>
+    </div>
 
     <!-- 버튼 -->
     <div class="btn-wrap">
@@ -44,58 +52,46 @@ const moveLoginPage = () => {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
 }
-.logo {
+.intro-logo {
   color: #343434;
   text-align: center;
   font-size: 60px;
   font-weight: 900;
-
-  margin-top: 10rem;
 }
 .intro-text {
   text-align: center;
   font-size: 2rem;
-  font-weight: var(--headline-m-font-weight, 700);
+  font-weight: 700;
   color: #343434;
-
-  margin-bottom: 10rem;
+}
+/* 스와이프 */
+.swipe-wrap {
+  width: 100%;
+}
+.swipe-wrap .swipe-img {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 35rem;
 }
 
-/* .rectangle-103 {
+.swipe-wrap .swipe-seq {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.swipe-wrap .swipe-seq .swipe-item {
   background: #d9d9d9;
   border-radius: 10px;
   width: 13px;
   height: 13px;
-  position: absolute;
-  left: calc(50% - 44.5px);
-  top: calc(50% - -174px);
 }
-.rectangle-104 {
+.swipe-wrap .swipe-seq .swipe-item-now {
   background: #343434;
   border-radius: 10px;
   width: 32px;
   height: 13px;
-  position: absolute;
-  left: calc(50% - 25.5px);
-  top: calc(50% - -174px);
 }
-.rectangle-106 {
-  background: #d9d9d9;
-  border-radius: 10px;
-  width: 13px;
-  height: 13px;
-  position: absolute;
-  left: calc(50% - -12.5px);
-  top: calc(50% - -174px);
-}
-.rectangle-107 {
-  background: #d9d9d9;
-  border-radius: 10px;
-  width: 13px;
-  height: 13px;
-  position: absolute;
-  left: calc(50% - -31.5px);
-  top: calc(50% - -174px);
-} */
 </style>
