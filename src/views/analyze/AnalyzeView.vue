@@ -59,6 +59,20 @@
           </button>
         </div>
       </div>
+      <!-- 아이템3 -->
+      <div class="list-item">
+        <p class="list-date mr8">2024.07.01</p>
+        <p class="list-gram mr8">68.7</p>
+        <textarea class="list-memo mr8" readonly>배가 너무너무 고프다 오 ...</textarea>
+        <div class="list-btn-wrap">
+          <button class="list-edit mr8">
+            <img class="now-week-icon" src="../../assets/img/svg/icon_edit.svg" height="15" />
+          </button>
+          <button class="list-delete">
+            <img class="now-week-icon" src="../../assets/img/svg/icon_delete.svg" height="15" />
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +82,6 @@
 <style scoped>
 .chart-wrap {
   width: 100%;
-  margin-top: 2rem;
 }
 .chart-wrap .chart-title {
   color: #343434;
@@ -105,8 +118,6 @@
 .chart-date {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
 }
 .chart-date p {
   color: #343434;
@@ -173,7 +184,6 @@
   border-radius: 5px;
   height: 39px;
   align-items: top;
-  margin-bottom: 0.8rem;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -198,7 +208,6 @@
   height: 129px;
   display: flex;
   align-items: top;
-  margin-bottom: 0.8rem;
   padding: 10px;
 
   justify-content: space-between;

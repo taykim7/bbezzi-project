@@ -68,19 +68,16 @@
   font-size: 20px;
   font-weight: 400;
   text-align: center;
-  margin-left: 5px;
 }
 .now-month {
   font-size: 20px;
   font-weight: 800;
   text-align: center;
-  margin-left: 5px;
 }
 .now-week {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
   width: 100%;
 }
 .now-week-one {
@@ -112,13 +109,9 @@
   text-align: center;
   font-size: 15px;
   font-weight: 400;
-
-  margin-top: 8px;
 }
 .line {
   width: 100%;
   border-bottom: 1px solid #bababa;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
 }
 </style>

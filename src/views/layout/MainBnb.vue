@@ -51,7 +51,6 @@ const moveAnalyPage = () => {
 .bnb-btns {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
 }
 .bnb-btns .bnb-home {
   width: 100%;

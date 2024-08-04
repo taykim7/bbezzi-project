@@ -101,8 +101,6 @@ const nickName = ''
   display: inline-block;
   width: 15px;
   height: 15px;
-
-  margin-right: 10px;
 }
 .terms-wrap .terms-all input[type='checkbox']:checked + label::before {
   background-color: #343434;
@@ -128,8 +126,6 @@ const nickName = ''
   display: inline-block;
   width: 15px;
   height: 15px;
-
-  margin-right: 10px;
 }
 .terms-wrap .terms-item input[type='checkbox']:checked + label::before {
   background-color: #343434;
