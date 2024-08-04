@@ -4,8 +4,8 @@
     <IntroView />
     <!-- 스와이프 -->
     <div class="swipe-wrap">
-      <div class="swipe-img"></div>
-      <div class="swipe-seq mt8">
+      <div class="swipe-img mb8"></div>
+      <div class="swipe-seq">
         <div class="swipe-item"></div>
         <div class="swipe-item-now"></div>
         <div class="swipe-item"></div>

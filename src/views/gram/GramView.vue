@@ -1,21 +1,22 @@
 <template>
-  <div class="weight-wrap">
-    <div class="weight-title">
-      <div class="weight-text">체중</div>
-      <div class="weight-date">2024-07-01 금요일</div>
+  <div class="gram-wrap">
+    <div class="gram-title">
+      <div class="gram-text">체중</div>
+      <div class="gram-date">2024-07-01 금요일</div>
     </div>
-    <div class="weight-position">
-      <!-- <div class="weight-kg">kg</div> -->
+    <div class="gram-input">
+      <div class="gram-unit">kg</div>
+      <input class="gram-gram" value="68.5" />
     </div>
-    <input class="weight-gram" value="68.5" />
   </div>
 
-  <div class="input-btns">
-    <div class="input-btn-row">
-      <button class="input-btn-num">1</button>
-      <button class="input-btn-num">2</button>
-      <button class="input-btn-num">3</button>
-      <button class="input-btn-else">
+  <!-- 키패드 -->
+  <div class="keypad-wrap">
+    <div class="keypad-row">
+      <button class="keypad-num">1</button>
+      <button class="keypad-num">2</button>
+      <button class="keypad-num">3</button>
+      <button class="keypad-else">
         <img
           class="input-btn-icon"
           src="../../assets/img/svg/icon_clear.svg"
@@ -24,11 +25,11 @@
         />
       </button>
     </div>
-    <div class="input-btn-row">
-      <button class="input-btn-num">4</button>
-      <button class="input-btn-num">5</button>
-      <button class="input-btn-num">6</button>
-      <button class="input-btn-else">
+    <div class="keypad-row mb8 mt8">
+      <button class="keypad-num">4</button>
+      <button class="keypad-num">5</button>
+      <button class="keypad-num">6</button>
+      <button class="keypad-else">
         <img
           class="input-btn-icon"
           src="../../assets/img/svg/icon_cancel.svg"
@@ -37,11 +38,11 @@
         />
       </button>
     </div>
-    <div class="input-btn-row">
-      <button class="input-btn-num">7</button>
-      <button class="input-btn-num">8</button>
-      <button class="input-btn-num">9</button>
-      <button class="input-btn-else">.</button>
+    <div class="keypad-row">
+      <button class="keypad-num">7</button>
+      <button class="keypad-num">8</button>
+      <button class="keypad-num">9</button>
+      <button class="keypad-else">.</button>
     </div>
   </div>
 
@@ -83,43 +84,42 @@ function autosize() {
 </script>
 
 <style scoped>
-.weight-wrap {
+/* 체중 */
+.gram-wrap {
   width: 100%;
 }
-.weight-wrap .weight-title {
+.gram-wrap .gram-title {
   display: flex;
   justify-content: space-between;
   align-items: end;
   width: 100%;
 }
-.weight-wrap .weight-title .weight-text {
+.gram-wrap .gram-title .gram-text {
   color: #343434;
   text-align: left;
   font-size: 20px;
   font-weight: 600;
 }
-
-.weight-wrap .weight-title .weight-date {
+.gram-wrap .gram-title .gram-date {
   color: #343434;
   text-align: right;
   font-size: 15px;
   font-weight: 400;
 }
-
-.weight-position {
-  position: absolute;
-  left: calc(50% - -130.5px);
-  top: 274px;
-  z-index: 1;
+.gram-wrap .gram-input {
+  position: relative;
 }
-
-.weight-kg {
+.gram-wrap .gram-input .gram-unit {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  right: 1rem;
   color: #848383;
   text-align: center;
   font-size: 20px;
   font-weight: 400;
 }
-.weight-gram {
+.gram-wrap .gram-input .gram-gram {
   color: #848383;
   background-color: #343434;
   text-align: center;
@@ -129,55 +129,45 @@ function autosize() {
 
   width: 100%;
   height: 60px;
+  border: 0;
   border-radius: 5px;
-
-  margin-top: 1rem;
 }
-
-.input-btns {
-  /* background-color: red; */
-  margin-top: 2rem;
+/* 키패드 */
+.keypad-wrap {
   width: 100%;
 }
-.input-btn-row {
+.keypad-wrap .keypad-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 14px;
+  gap: 1rem;
 }
-
-.input-btn-num {
+.keypad-wrap .keypad-row .keypad-num {
   color: #343434;
   text-align: center;
   font-size: 35px;
   font-weight: 400;
-
   background-color: #ffffff;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
 }
-
-.input-btn-else {
+.keypad-wrap .keypad-row .keypad-else {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #343434;
   text-align: center;
   font-size: 35px;
   font-weight: 400;
-
   background-color: #fff9eb;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 5rem;
 }
-
+/* textarea */
 .input-wrap {
   width: 100%;
-
   margin-top: 2rem;
 }
 .input-wrap .input-items .input-title {
