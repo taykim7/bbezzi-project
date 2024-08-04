@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div class="logo">bbezzi</div>
+    <div class="intro-logo">bbezzi</div>
     <div class="intro-text">
       <p>매일 체중을 기록하고,<br />시간에 따른 변화를 한눈에 확인하세요.</p>
     </div>
@@ -55,21 +55,17 @@ const movePage = () => {
   justify-content: center;
   flex-direction: column;
 }
-.logo {
+.intro-logo {
   color: #343434;
   text-align: center;
   font-size: 60px;
   font-weight: 900;
-
-  margin-top: 10rem;
 }
 .intro-text {
   text-align: center;
   font-size: 2rem;
-  font-weight: var(--headline-m-font-weight, 700);
+  font-weight: 700;
   color: #343434;
-
-  margin-bottom: 10rem;
 }
 .input-wrap {
   width: 100%;
@@ -79,8 +75,6 @@ const movePage = () => {
   text-align: left;
   font-size: 20px;
   font-weight: 600;
-
-  margin-bottom: 10px;
 }
 .input-wrap .input-items .input-contents {
   display: flex;
