@@ -2,64 +2,50 @@
   <div class="join">
     <div class="title">회원가입</div>
 
-    <!-- 입력 항목 -->
+    <!-- 회원가입 입력 항목 -->
     <div class="input-wrap">
       <div class="input-items">
-        <div class="mb40">
-          <div class="input-title">아이디(이메일)</div>
-          <div class="input-contents">
-            <input type="text" class="input-item" placeholder="이메일 주소" />
-            <button class="input-btn">중복확인</button>
-          </div>
-        </div>
-        <div class="mb40">
-          <div class="input-title">비밀번호</div>
-          <div class="input-contents">
-            <input type="text" class="input-item" placeholder="비밀번호" />
-          </div>
-        </div>
-        <div class="mb40">
-          <div class="input-title">비밀번호 확인</div>
-          <div class="input-contents">
-            <input type="text" class="input-item" placeholder="비밀번호 확인" />
-          </div>
-        </div>
-        <div class="mb40">
-          <div class="input-title">닉네임</div>
-          <div class="input-contents">
-            <input type="text" class="input-item" placeholder="닉네임" />
-          </div>
+        <C-Input
+          v-model="email"
+          :title="'아이디(이메일)'"
+          :placeholder="'이메일 주소를 입력해 주세요.'"
+          :doubleCheck="true"
+        />
+        <C-Input
+          v-model="password"
+          :title="'비밀번호'"
+          :placeholder="'비밀번호를 입력해 주세요.'"
+        />
+        <C-Input
+          v-model="passwordCheck"
+          :title="'비밀번호 확인'"
+          :placeholder="'비밀번호를 확인해 주세요.'"
+        />
+        <C-Input v-model="nickName" :title="'닉네임'" :placeholder="'닉네임을 입력해 주세요.'" />
+      </div>
+    </div>
+
+    <!-- 회원가입 체크 항목 -->
+    <div class="terms-wrap">
+      <div class="terms-all">
+        <div>
+          <input type="checkbox" id="all" name="check-all" checked />
+          <label for="all">모두 동의합니다.</label>
         </div>
       </div>
-
-      <!-- 체크 항목 -->
-      <div class="check-items">
-        <div class="mb4">
-          <div class="check-all">
-            <div>
-              <input type="checkbox" id="all" name="check-all" checked />
-              <label for="all">모두 동의합니다.</label>
-            </div>
-          </div>
+      <div class="terms-item">
+        <div>
+          <input type="checkbox" id="check-1" name="check-1" checked />
+          <label for="check-1">이용약관 동의</label>
         </div>
-        <div class="mb4">
-          <div class="check-item">
-            <div>
-              <input type="checkbox" id="check-1" name="check-1" checked />
-              <label for="check-1">이용약관 동의</label>
-            </div>
-            <button class="check-btn">보기</button>
-          </div>
+        <button class="check-btn">보기</button>
+      </div>
+      <div class="terms-item">
+        <div>
+          <input type="checkbox" id="check-2" name="check-2" checked />
+          <label for="check-2">개인정보 처리방침 동의</label>
         </div>
-        <div class="mb4">
-          <div class="check-item">
-            <div>
-              <input type="checkbox" id="check-2" name="check-2" checked />
-              <label for="check-2">개인정보 처리방침 동의</label>
-            </div>
-            <button class="check-btn">보기</button>
-          </div>
-        </div>
+        <button class="check-btn">보기</button>
       </div>
     </div>
 
@@ -82,6 +68,10 @@ const movePage = () => {
     name: 'WelcomePage'
   })
 }
+const email = ''
+const password = ''
+const passwordCheck = ''
+const nickName = ''
 </script>
 
 <style scoped>
@@ -97,52 +87,17 @@ const movePage = () => {
   font-size: 20px;
   font-weight: 800;
 }
-.input-wrap {
+.terms-wrap {
   width: 100%;
 }
-.input-wrap .input-items .input-title {
-  color: #343434;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 600;
-}
-.input-wrap .input-items .input-contents {
-  display: flex;
-  justify-content: space-between;
-}
-.input-wrap .input-items .input-contents .input-item {
-  color: #343434;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-
-  border-width: 0 0 1px;
-  background: transparent;
-  width: 100%;
-  padding: 5px 0 5px 0;
-}
-.input-wrap .input-items .input-contents .input-item::placeholder {
-  color: #bababa;
-}
-.input-wrap .input-items .input-contents .input-btn {
-  color: #ff5353;
-  font-size: 15px;
-  font-weight: 300;
-
-  border-radius: 30px;
-  border-style: solid;
-  border-color: #ff5353;
-  border-width: 1px;
-  width: 130px;
-  height: 35px;
-}
-.input-wrap .check-items .check-all input[type='checkbox'] + label {
+/* 전체체크 */
+.terms-wrap .terms-all input[type='checkbox'] + label {
   color: #bababa;
   text-align: left;
   font-size: 20px;
   font-weight: 600;
 }
-.input-wrap .check-items .check-all input[type='checkbox'] + label::before {
+.terms-wrap .terms-all input[type='checkbox'] + label::before {
   content: '';
   border-radius: 10px;
   border-style: solid;
@@ -155,20 +110,21 @@ const movePage = () => {
 
   margin-right: 10px;
 }
-.input-wrap .check-items .check-all input[type='checkbox']:checked + label::before {
+.terms-wrap .terms-all input[type='checkbox']:checked + label::before {
   background-color: #343434;
 }
-.input-wrap .check-items .check-item {
+/* 약관 */
+.terms-wrap .terms-item {
   display: flex;
   justify-content: space-between;
 }
-.input-wrap .check-items .check-item input[type='checkbox'] + label {
+.terms-wrap .terms-item input[type='checkbox'] + label {
   color: #bababa;
   text-align: left;
   font-size: 15px;
   font-weight: 300;
 }
-.input-wrap .check-items .check-item input[type='checkbox'] + label::before {
+.terms-wrap .terms-item input[type='checkbox'] + label::before {
   content: '';
   border-radius: 10px;
   border-style: solid;
@@ -181,10 +137,10 @@ const movePage = () => {
 
   margin-right: 10px;
 }
-.input-wrap .check-items .check-item input[type='checkbox']:checked + label::before {
+.terms-wrap .terms-item input[type='checkbox']:checked + label::before {
   background-color: #343434;
 }
-.input-wrap .check-items .check-item .check-btn {
+.terms-wrap .terms-item .check-btn {
   color: #343434;
   text-align: right;
   font-size: 15px;

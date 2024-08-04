@@ -409,3 +409,8 @@ input[type='radio'] + label {
   font-weight: var(--button-m-font-weight, 500);
   width: 100%;
 }
+/* input */
+.input-wrap {
+  width: 100%;
+  margin-top: 2rem;
+}

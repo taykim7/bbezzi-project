@@ -50,10 +50,12 @@
   <div class="input-wrap">
     <div class="input-items">
       <div class="mb40">
-        <div class="input-title">메모</div>
-        <div class="input-contents">
-          <textarea class="input-textarea" placeholder="메모를 입력하세요" rows="1"></textarea>
-        </div>
+        <C-Input
+          v-model="memo"
+          :type="'textarea'"
+          :title="'메모'"
+          :placeholder="'메모를 입력하세요'"
+        />
       </div>
     </div>
   </div>
@@ -75,12 +77,12 @@
 
 <script setup>
 import { onMounted } from 'vue'
-
 onMounted(() => document.querySelector('textarea').addEventListener('keydown', autosize))
 function autosize() {
   const el = document.querySelector('textarea')
   el.style.cssText = 'height:' + el.scrollHeight + 'px'
 }
+const memo = ''
 </script>
 
 <style scoped>
@@ -164,36 +166,5 @@ function autosize() {
   width: 10rem;
   height: 10rem;
   border-radius: 5rem;
-}
-/* textarea */
-.input-wrap {
-  width: 100%;
-  margin-top: 2rem;
-}
-.input-wrap .input-items .input-title {
-  color: #343434;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 600;
-
-  margin-bottom: 10px;
-}
-.input-wrap .input-items .input-contents {
-  display: flex;
-  justify-content: space-between;
-}
-.input-wrap .input-items .input-contents .input-textarea {
-  color: #343434;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-
-  border-width: 0 0 1px;
-  background: transparent;
-  width: 100%;
-  padding: 5px 0 5px 0;
-}
-.input-wrap .input-items .input-contents .input-textarea::placeholder {
-  color: #bababa;
 }
 </style>

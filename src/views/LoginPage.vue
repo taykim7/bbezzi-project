@@ -4,20 +4,12 @@
     <IntroView />
     <!-- 입력 항목 -->
     <div class="input-wrap">
-      <div class="input-items">
-        <div class="mb40">
-          <div class="input-title">아이디(이메일)</div>
-          <div class="input-contents">
-            <input type="text" class="input-item" placeholder="이메일 주소" />
-          </div>
-        </div>
-        <div class="mb40">
-          <div class="input-title">비밀번호</div>
-          <div class="input-contents">
-            <input type="text" class="input-item" placeholder="비밀번호" />
-          </div>
-        </div>
-      </div>
+      <C-Input
+        v-model="email"
+        :title="'아이디(이메일)'"
+        :placeholder="'이메일 주소를 입력해 주세요.'"
+      />
+      <C-Input v-model="password" :title="'비밀번호'" :placeholder="'비밀번호를 입력해 주세요.'" />
     </div>
 
     <!-- 버튼 -->
@@ -45,6 +37,8 @@ const movePage = () => {
     path: '/main/gram'
   })
 }
+const email = ''
+const password = ''
 </script>
 
 <style scoped>
@@ -53,32 +47,5 @@ const movePage = () => {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-.input-wrap {
-  width: 100%;
-}
-.input-wrap .input-items .input-title {
-  color: #343434;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 600;
-}
-.input-wrap .input-items .input-contents {
-  display: flex;
-  justify-content: space-between;
-}
-.input-wrap .input-items .input-contents .input-item {
-  color: #343434;
-  text-align: left;
-  font-size: 15px;
-  font-weight: 600;
-
-  border-width: 0 0 1px;
-  background: transparent;
-  width: 100%;
-  padding: 5px 0 5px 0;
-}
-.input-wrap .input-items .input-contents .input-item::placeholder {
-  color: #bababa;
 }
 </style>
