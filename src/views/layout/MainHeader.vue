@@ -1,5 +1,5 @@
 <template>
-  <div v-if="showBack || showLogout" class="header">
+  <div class="header" v-if="showBack || showLogout">
     <div v-if="showBack" class="header-back">
       <img
         @click="moveBackPage"

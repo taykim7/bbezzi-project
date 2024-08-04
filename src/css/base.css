@@ -305,10 +305,10 @@ input[type='radio'] + label {
 
 /* 공통 css */
 .container {
-  /* background: #f2efe7; */
   height: 100%;
+  margin-top: 10rem;
+  margin-bottom: 15rem;
   padding: 0 30px 0 30px;
-  padding-bottom: 130px;
 }
 
 /* 드래그 방지*/
