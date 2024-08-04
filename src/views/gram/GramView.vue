@@ -45,8 +45,7 @@
       <button class="keypad-else">.</button>
     </div>
   </div>
-
-  <!-- TODO 메모 textarea -->
+  <!-- textarea -->
   <div class="input-wrap">
     <div class="input-items">
       <div class="mb40">
@@ -60,19 +59,14 @@
     </div>
   </div>
 
-  <!-- TODO 저장하기 버튼 -->
   <!-- 버튼 -->
-  <div class="btn-wrap">
-    <div class="btn-items">
-      <div class="btn-item">
-        <!-- <button class="btn-main" @click="movePage">저장하기</button> -->
-        <div class="btn-two">
-          <button class="btn-main-left">수정하기</button>
-          <button class="btn-main-right">삭제하기</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- <C-Button singleMain @btn-main="test" /> -->
+  <C-Button
+    :titleBtnLeft="'수정하기'"
+    :titleBtnRight="'삭제하기'"
+    @btn-left="test"
+    @btn-right="test"
+  />
 </template>
 
 <script setup>
@@ -83,6 +77,10 @@ function autosize() {
   el.style.cssText = 'height:' + el.scrollHeight + 'px'
 }
 const memo = ''
+// 버튼 테스트
+const test = () => {
+  console.log('테스트')
+}
 </script>
 
 <style scoped>

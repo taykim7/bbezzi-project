@@ -12,18 +12,16 @@
         <div class="swipe-item"></div>
       </div>
     </div>
-
     <!-- 버튼 -->
-    <div class="btn-wrap">
-      <div class="btn-items">
-        <div class="btn-item">
-          <button class="btn-main" @click="moveLoginPage">로그인</button>
-          <div class="btn-one">
-            <button class="btn-center" @click="movePage">회원가입</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <C-Button
+      singleMain
+      useSub
+      singleSub
+      :titleBtnMain="'로그인'"
+      :titleSubMain="'회원가입'"
+      @btn-main="moveLoginPage"
+      @sub-main="movePage"
+    />
   </div>
 </template>
 

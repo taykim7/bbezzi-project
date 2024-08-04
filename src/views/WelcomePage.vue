@@ -10,13 +10,7 @@
     </div>
 
     <!-- 버튼 -->
-    <div class="btn-wrap">
-      <div class="btn-items">
-        <div class="btn-item">
-          <button class="btn-main" @click="movePage">시작하기</button>
-        </div>
-      </div>
-    </div>
+    <C-Button singleMain :titleBtnMain="'시작하기'" @btn-main="movePage" />
   </div>
 </template>
 

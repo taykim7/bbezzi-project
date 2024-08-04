@@ -13,17 +13,16 @@
     </div>
 
     <!-- 버튼 -->
-    <div class="btn-wrap">
-      <div class="btn-items">
-        <div class="btn-item">
-          <button class="btn-main" @click="movePage">로그인</button>
-          <div class="btn-two">
-            <button class="btn-left">아이디 찾기</button>
-            <button class="btn-right">비밀번호 찾기</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <C-Button
+      singleMain
+      useSub
+      :titleBtnMain="'로그인'"
+      :titleSubLeft="'아이디 찾기'"
+      :titleSubRight="'비밀번호 찾기'"
+      @btn-main="movePage"
+      @sub-left="test"
+      @sub-right="test"
+    />
   </div>
 </template>
 
@@ -39,6 +38,10 @@ const movePage = () => {
 }
 const email = ''
 const password = ''
+// 버튼 테스트
+const test = () => {
+  console.log('테스트')
+}
 </script>
 
 <style scoped>

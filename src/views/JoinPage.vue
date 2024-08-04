@@ -50,13 +50,7 @@
     </div>
 
     <!-- 버튼 -->
-    <div class="btn-wrap">
-      <div class="btn-items">
-        <div class="btn-item">
-          <button class="btn-main" @click="movePage">회원가입</button>
-        </div>
-      </div>
-    </div>
+    <C-Button singleMain :titleBtnMain="'회원가입'" @btn-main="movePage" />
   </div>
 </template>
 
