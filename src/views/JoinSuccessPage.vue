@@ -35,7 +35,6 @@ const movePage = () => {
 }
 .welcome-text {
   text-align: center;
-  margin-top: 20rem;
 }
 .welcome-text > p {
   color: #ff5353;

@@ -96,9 +96,6 @@ const movePage = () => {
   text-align: center;
   font-size: 20px;
   font-weight: 800;
-
-  margin-top: 10rem;
-  margin-bottom: 5rem;
 }
 .input-wrap {
   width: 100%;
@@ -108,8 +105,6 @@ const movePage = () => {
   text-align: left;
   font-size: 20px;
   font-weight: 600;
-
-  margin-bottom: 10px;
 }
 .input-wrap .input-items .input-contents {
   display: flex;
@@ -130,7 +125,7 @@ const movePage = () => {
   color: #bababa;
 }
 .input-wrap .input-items .input-contents .input-btn {
-  color: var(--gray4, #ff5353);
+  color: #ff5353;
   font-size: 15px;
   font-weight: 300;
 
