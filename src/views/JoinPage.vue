@@ -79,7 +79,7 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const movePage = () => {
   router.push({
-    name: 'JoinSuccessPage'
+    name: 'WelcomePage'
   })
 }
 </script>

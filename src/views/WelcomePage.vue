@@ -1,8 +1,12 @@
 <template>
-  <div class="join-success">
-    <div class="welcome-text">
-      <p>김테이님, 환영해요</p>
-      <h1>가입 완료!</h1>
+  <div class="welcome">
+    <!-- 환영 -->
+    <div class="welcome-wrap">
+      <div class="welcome-text">
+        <p>김테이님, 환영해요</p>
+        <h1>가입 완료!</h1>
+      </div>
+      <div class="welcome-img"></div>
     </div>
 
     <!-- 버튼 -->
@@ -27,23 +31,31 @@ const movePage = () => {
 </script>
 
 <style scoped>
-.join-success {
+.welcome {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.welcome-text {
+.welcome-wrap {
+  width: 100%;
+}
+.welcome-wrap .welcome-text {
   text-align: center;
 }
-.welcome-text > p {
+.welcome-wrap .welcome-text > p {
   color: #ff5353;
   font-size: 2rem;
   font-weight: 500;
 }
-.welcome-text > h1 {
+.welcome-wrap .welcome-text > h1 {
   color: #343434;
   font-size: 3rem;
   font-weight: 700;
+}
+.welcome-wrap .welcome-img {
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 35rem;
 }
 </style>

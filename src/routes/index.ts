@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import LandingPage from '@/views/LandingPage.vue'
 import JoinPage from '@/views/JoinPage.vue'
-import JoinSuccessPage from '@/views/JoinSuccessPage.vue'
+import WelcomePage from '@/views/WelcomePage.vue'
 import LoginPage from '@/views/LoginPage.vue'
 import MainPage from '@/views/MainPage.vue'
 
@@ -28,12 +28,12 @@ const routes = [
     component: JoinPage
   },
   {
-    path: '/join-success',
-    name: 'JoinSuccessPage',
+    path: '/welcome',
+    name: 'WelcomePage',
     meta: {
       bnb: false
     },
-    component: JoinSuccessPage
+    component: WelcomePage
   },
   {
     path: '/login',
