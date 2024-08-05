@@ -6,9 +6,9 @@
     <div class="swipe-wrap">
       <div class="swipe-img mb8"></div>
       <div class="swipe-seq">
-        <div class="swipe-item"></div>
-        <div class="swipe-item-now"></div>
-        <div class="swipe-item"></div>
+        <div class="swipe-item mr8"></div>
+        <div class="swipe-item-now mr8"></div>
+        <div class="swipe-item mr8"></div>
         <div class="swipe-item"></div>
       </div>
     </div>
@@ -65,7 +65,6 @@ const moveLoginPage = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 .swipe-wrap .swipe-seq .swipe-item {
   background: #d9d9d9;
