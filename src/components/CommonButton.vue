@@ -3,11 +3,11 @@
     <div class="btn-items">
       <div class="btn-item">
         <!-- 메인 버튼 -->
-        <button v-if="singleMain" class="btn-main" @click="$emit('btnMain')">
+        <button v-if="singleMain" class="btn-main mb8" @click="$emit('btnMain')">
           {{ titleBtnMain || 'button' }}
         </button>
-        <div v-else class="btn-two">
-          <button class="btn-main-left" @click="$emit('btnLeft')">
+        <div v-else class="btn-two mb8">
+          <button class="btn-main-left mr8" @click="$emit('btnLeft')">
             {{ titleBtnLeft || 'button2' }}
           </button>
           <button class="btn-main-right" @click="$emit('btnRight')">

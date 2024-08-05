@@ -1,17 +1,17 @@
 <template>
-  <div class="input-title">{{ title || 'title' }}</div>
+  <div class="input-title mb4">{{ title || 'title' }}</div>
   <div v-if="type !== 'textarea'" class="input-contents">
     <input
-      class="input-item"
+      class="input-item mb16"
       :type="type || 'text'"
       :placeholder="placeholder || 'placeholder'"
       :value="modelValue || ''"
       @input="$emit('update:modelValue', $event.target.value)"
     />
     <!-- 중복확인 -->
-    <button v-if="doubleCheck" class="input-btn">중복확인</button>
+    <button v-if="doubleCheck" class="input-btn ml8">중복확인</button>
   </div>
-  <div v-else class="input-contents">
+  <div v-else class="input-contents mb16">
     <!-- textarea -->
     <textarea
       class="input-textarea"
