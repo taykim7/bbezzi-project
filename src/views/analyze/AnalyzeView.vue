@@ -1,38 +1,34 @@
 <template>
-  <div class="chart-wrap">
-    <div class="mb40">
-      <div class="chart-title mb8">기간 설정</div>
-      <div class="chart-btns">
-        <button class="chart-btn-selected">1년</button>
-        <button class="chart-btn">6개월</button>
-        <button class="chart-btn">1주일</button>
-        <button class="chart-btn">1개월</button>
-      </div>
-      <div class="chart-date">
-        <p>2023-07-01 월요일</p>
-        <p class="ml8 mr8">~</p>
-        <p>2024-07-14 금요일</p>
-      </div>
-      <div class="chart-space"></div>
+  <div class="chart-wrap mb60">
+    <div class="chart-title mb8">기간 설정</div>
+    <div class="chart-btns mb40">
+      <button class="chart-btn-selected">1년</button>
+      <button class="chart-btn">6개월</button>
+      <button class="chart-btn">1주일</button>
+      <button class="chart-btn">1개월</button>
+    </div>
+    <div class="chart-date mb40">
+      <p>2023-07-01 월요일</p>
+      <p class="ml8 mr8">~</p>
+      <p>2024-07-14 금요일</p>
+    </div>
+    <div class="chart-space"></div>
+  </div>
+
+  <div class="chart-wrap mb60">
+    <div class="chart-title mb8">업적 (1년)</div>
+    <div class="did-list">
+      <div class="did-title mb4">320일의 체중을 기록하였습니다!</div>
+      <div class="did-title">2.3 kg 감량했습니다!</div>
     </div>
   </div>
 
-  <div class="chart-wrap">
-    <div class="mb40">
-      <div class="chart-title mb8">업적 (1년)</div>
-      <div class="did-list">
-        <div class="did-title mb8">320일의 체중을 기록하였습니다!</div>
-        <div class="did-title">2.3 kg 감량했습니다!</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="list-wrap">
-    <div class="list-title mb8">리스트</div>
+  <div class="list-wrap mb100">
+    <div class="list-title mb4">리스트</div>
     <div class="list-count mb8">총 366 건</div>
     <div class="list-items">
       <!-- 아이템1 -->
-      <div class="list-item">
+      <div class="list-item mb4">
         <p class="list-date mr8">2024.07.01</p>
         <p class="list-gram mr8">68.7</p>
         <textarea class="list-memo mr8" readonly>배가 너무너무 고프다 오 ...</textarea>
@@ -46,7 +42,7 @@
         </div>
       </div>
       <!-- 아이템2 -->
-      <div class="list-item-detail">
+      <div class="list-item-detail mb4">
         <p class="list-date mr8">2024.07.01</p>
         <p class="list-gram mr8">68.7</p>
         <textarea class="list-memo mr8">배가 너무너무 고프다 오 ...</textarea>
@@ -93,7 +89,7 @@
 .chart-btns {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 0.8rem;
 }
 .chart-btn {
   color: #343434;
@@ -103,7 +99,7 @@
   background: #fff9eb;
   border-radius: 5px;
   width: 100%;
-  height: 28px;
+  height: 3rem;
 }
 .chart-btn-selected {
   color: #f2efe7;
@@ -113,7 +109,7 @@
   background: #343434;
   border-radius: 5px;
   width: 100%;
-  height: 28px;
+  height: 3rem;
 }
 .chart-date {
   display: flex;

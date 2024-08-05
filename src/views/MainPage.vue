@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-    <div class="now-date">
-      <img class="now-date-icon" src="../assets/img/svg/icon_calendar.svg" height="25" />
-      <div class="now-year"><p>2024년</p></div>
+    <div class="now-date mb16">
+      <img class="now-date-icon mr8" src="../assets/img/svg/icon_calendar.svg" height="25" />
+      <div class="now-year mr8"><p>2024년</p></div>
       <div class="now-month"><p>7월</p></div>
     </div>
 
@@ -96,6 +96,8 @@
   text-align: center;
   font-size: 15px;
   font-weight: 400;
+
+  margin-bottom: 0.4rem;
 }
 .now-week-date {
   /* background-color: none; */
@@ -113,5 +115,7 @@
 .line {
   width: 100%;
   border-bottom: 1px solid #bababa;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 </style>

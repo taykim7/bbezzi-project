@@ -1,17 +1,17 @@
 <template>
   <div class="gram-wrap">
-    <div class="gram-title">
+    <div class="gram-title mb4">
       <div class="gram-text">체중</div>
       <div class="gram-date">2024-07-01 금요일</div>
     </div>
-    <div class="gram-input">
+    <div class="gram-input mb32">
       <div class="gram-unit">kg</div>
       <input class="gram-gram" value="68.5" />
     </div>
   </div>
 
   <!-- 키패드 -->
-  <div class="keypad-wrap">
+  <div class="keypad-wrap mb32">
     <div class="keypad-row">
       <button class="keypad-num">1</button>
       <button class="keypad-num">2</button>
@@ -45,8 +45,9 @@
       <button class="keypad-else">.</button>
     </div>
   </div>
+
   <!-- textarea -->
-  <div class="input-wrap">
+  <div class="input-wrap mb100">
     <div class="input-items">
       <div class="mb40">
         <C-Input
