@@ -170,6 +170,9 @@ input[type='radio'] + label {
 .mb80 {
   margin-bottom: 8rem !important;
 }
+.mb100 {
+  margin-bottom: 10rem !important;
+}
 
 .mt4 {
   margin-top: 0.4rem !important;
@@ -305,8 +308,7 @@ input[type='radio'] + label {
 
 /* 공통 css */
 .container {
-  height: 100%;
-  padding: 0 30px 0 30px;
+  margin: 10rem 2rem 10rem 2rem;
 }
 
 /* 드래그 방지*/
@@ -356,7 +358,6 @@ input[type='radio'] + label {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 10px;
 }
 .btn-wrap .btn-items .btn-item .btn-one .btn-center {
   color: var(--gray1, #343434);
