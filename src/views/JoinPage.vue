@@ -1,9 +1,9 @@
 <template>
   <div class="join">
-    <div class="title">회원가입</div>
+    <div class="title mb60">회원가입</div>
 
     <!-- 회원가입 입력 항목 -->
-    <div class="input-wrap">
+    <div class="input-wrap mb16">
       <div class="input-items">
         <C-Input
           v-model="email"
@@ -27,13 +27,13 @@
 
     <!-- 회원가입 체크 항목 -->
     <div class="terms-wrap">
-      <div class="terms-all">
+      <div class="terms-all mb8">
         <div>
           <input type="checkbox" id="all" name="check-all" checked />
           <label for="all">모두 동의합니다.</label>
         </div>
       </div>
-      <div class="terms-item">
+      <div class="terms-item mb8">
         <div>
           <input type="checkbox" id="check-1" name="check-1" checked />
           <label for="check-1">이용약관 동의</label>
@@ -97,13 +97,14 @@ const nickName = ''
   border-style: solid;
   border-color: #bababa;
   border-width: 1px;
-
   display: inline-block;
   width: 15px;
   height: 15px;
+  margin-right: 0.8rem;
 }
 .terms-wrap .terms-all input[type='checkbox']:checked + label::before {
   background-color: #343434;
+  margin-right: 0.8rem;
 }
 /* 약관 */
 .terms-wrap .terms-item {
@@ -115,6 +116,7 @@ const nickName = ''
   text-align: left;
   font-size: 15px;
   font-weight: 300;
+  margin-right: 0.8rem;
 }
 .terms-wrap .terms-item input[type='checkbox'] + label::before {
   content: '';
@@ -122,10 +124,10 @@ const nickName = ''
   border-style: solid;
   border-color: #bababa;
   border-width: 1px;
-
   display: inline-block;
   width: 15px;
   height: 15px;
+  margin-right: 0.8rem;
 }
 .terms-wrap .terms-item input[type='checkbox']:checked + label::before {
   background-color: #343434;

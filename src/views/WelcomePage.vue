@@ -2,7 +2,7 @@
   <div class="welcome">
     <!-- 환영 -->
     <div class="welcome-wrap">
-      <div class="welcome-text">
+      <div class="welcome-text mb60">
         <p>김테이님, 환영해요</p>
         <h1>가입 완료!</h1>
       </div>
