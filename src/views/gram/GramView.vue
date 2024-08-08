@@ -6,16 +6,20 @@
     </div>
     <div class="gram-input mb32">
       <div class="gram-unit">kg</div>
-      <input class="gram-gram" value="68.5" />
+      <div class="gram-gram">
+        <p>
+          {{ gram.join('') }}
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- 키패드 -->
   <div class="keypad-wrap mb32">
     <div class="keypad-row">
-      <button class="keypad-num">1</button>
-      <button class="keypad-num">2</button>
-      <button class="keypad-num">3</button>
+      <button class="keypad-num" @click="add('1')">1</button>
+      <button class="keypad-num" @click="add('2')">2</button>
+      <button class="keypad-num" @click="add('3')">3</button>
       <button class="keypad-else">
         <img
           class="input-btn-icon"
@@ -26,9 +30,9 @@
       </button>
     </div>
     <div class="keypad-row mb8 mt8">
-      <button class="keypad-num">4</button>
-      <button class="keypad-num">5</button>
-      <button class="keypad-num">6</button>
+      <button class="keypad-num" @click="add('4')">4</button>
+      <button class="keypad-num" @click="add('5')">5</button>
+      <button class="keypad-num" @click="add('6')">6</button>
       <button class="keypad-else">
         <img
           class="input-btn-icon"
@@ -39,10 +43,10 @@
       </button>
     </div>
     <div class="keypad-row">
-      <button class="keypad-num">7</button>
-      <button class="keypad-num">8</button>
-      <button class="keypad-num">9</button>
-      <button class="keypad-else">.</button>
+      <button class="keypad-num" @click="add('7')">7</button>
+      <button class="keypad-num" @click="add('8')">8</button>
+      <button class="keypad-num" @click="add('9')">9</button>
+      <button class="keypad-num" @click="add('0')">0</button>
     </div>
   </div>
 
@@ -61,17 +65,17 @@
   </div>
 
   <!-- 버튼 -->
-  <!-- <C-Button singleMain @btn-main="test" /> -->
-  <C-Button
+  <C-Button singleMain :titleBtnMain="'등록하기'" @btn-main="test" />
+  <!-- <C-Button
     :titleBtnLeft="'수정하기'"
     :titleBtnRight="'삭제하기'"
     @btn-left="test"
     @btn-right="test"
-  />
+  /> -->
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 onMounted(() => document.querySelector('textarea').addEventListener('keydown', autosize))
 function autosize() {
   const el = document.querySelector('textarea')
@@ -81,6 +85,24 @@ const memo = ''
 // 버튼 테스트
 const test = () => {
   console.log('테스트')
+}
+
+// 몸무게
+const gram = ref(['0', '.', '0'])
+
+// 숫자 입력
+function add(numString) {
+  gram.value[2] = numString
+  // if ('0' === payAmount.value) {
+  //   payAmount.value = '00' === numString ? '0' : numString;
+  // } else {
+  //   payAmount.value += numString;
+  // }
+
+  // // 12자리까지 제한
+  // if (PAY_AMOUNT_MAX_LENGTH < payAmount.value.length) {
+  //   payAmount.value = payAmount.value.substring(0, PAY_AMOUNT_MAX_LENGTH);
+  // }
 }
 </script>
 
@@ -121,6 +143,10 @@ const test = () => {
   font-weight: 400;
 }
 .gram-wrap .gram-input .gram-gram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   color: #848383;
   background-color: #343434;
   text-align: center;
@@ -149,8 +175,8 @@ const test = () => {
   font-size: 35px;
   font-weight: 400;
   background-color: #ffffff;
-  width: 10rem;
-  height: 10rem;
+  width: 70px;
+  height: 70px;
   border-radius: 5rem;
 }
 .keypad-wrap .keypad-row .keypad-else {
@@ -162,8 +188,8 @@ const test = () => {
   font-size: 35px;
   font-weight: 400;
   background-color: #fff9eb;
-  width: 10rem;
-  height: 10rem;
+  width: 70px;
+  height: 70px;
   border-radius: 5rem;
 }
 </style>
