@@ -2,6 +2,7 @@
   <div class="main">
     <div class="now-date mb16">
       <button>
+        <!-- TODO 캘린더 팝업 추가 -->
         <img class="now-date-icon mr8" src="../assets/img/svg/icon_calendar.svg" height="25" />
       </button>
       <div class="now-year mr8">
@@ -11,6 +12,7 @@
         <p>{{ displayDate.getMonth() + 1 + '월' }}</p>
       </div>
       <button v-if="today.getDate() !== displayDate.getDate()" @click="onToday">
+        <!-- FIXME 아이콘 수정 -->
         <img class="now-date-icon ml8" src="../assets/img/svg/icon_clear.svg" height="25" />
       </button>
     </div>
@@ -53,16 +55,14 @@ import { ref } from 'vue'
 const dayArr = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 const today = ref(new Date())
 
-/**
- * 표시할 한 주의 날짜 계산
- * - 처음 기준은 '오늘'
- * - 날짜를 이동하면 해당 날짜 기준으로 세팅이 된다.
- */
+// 기준이 될 날짜
+// 기준이 될 날짜로 구성된 한 주
+// 이번 주로부터의 간격
 const displayDate = ref(new Date())
 const displayWeek = ref([])
 const fromThisWeek = ref(0)
 
-// 화면에 보여줄 한 주
+// 화면에 보여줄 한 주 계산
 function setDisplayWeek() {
   const settingDate = new Date(
     displayDate.value.getFullYear(),
@@ -116,6 +116,7 @@ function selectDate(item) {
   setDisplayWeek()
 }
 
+// 초기화
 setDisplayWeek()
 </script>
 
