@@ -10,28 +10,29 @@
       <div class="now-month">
         <p>{{ displayDate.getMonth() + 1 + '월' }}</p>
       </div>
+      <button v-if="today.getDate() !== displayDate.getDate()" @click="onToday">
+        <img class="now-date-icon ml8" src="../assets/img/svg/icon_clear.svg" height="25" />
+      </button>
     </div>
 
     <div class="now-week">
       <button @click="beforeWeek">
         <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
       </button>
-      <template v-for="(item, index) in displayDays" :key="index">
+      <template v-for="(day, index) in displayWeek" :key="index">
         <div class="now-week-one">
           <div
             class="now-week-day"
-            :class="
-              today.getDate() === displayDate.getDate() && today.getDay() === index ? 'today' : ''
-            "
+            :class="0 === fromThisWeek && today.getDay() === index ? 'today' : ''"
           >
             {{ dayArr[index] }}
           </div>
           <button
             class="now-week-date"
-            :class="displayDate.getDate() === item.date ? 'today' : ''"
-            @click="selectDate(item)"
+            :class="displayDate.getDate() === day.date ? 'selected' : ''"
+            @click="selectDate(day)"
           >
-            {{ item.date }}
+            {{ day.date }}
           </button>
         </div>
       </template>
@@ -50,7 +51,7 @@
 import { ref } from 'vue'
 
 const dayArr = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-const today = new Date()
+const today = ref(new Date())
 
 /**
  * 표시할 한 주의 날짜 계산
@@ -58,7 +59,8 @@ const today = new Date()
  * - 날짜를 이동하면 해당 날짜 기준으로 세팅이 된다.
  */
 const displayDate = ref(new Date())
-const displayDays = ref([])
+const displayWeek = ref([])
+const fromThisWeek = ref(0)
 
 // 화면에 보여줄 한 주
 function setDisplayWeek() {
@@ -67,15 +69,15 @@ function setDisplayWeek() {
     displayDate.value.getMonth(),
     displayDate.value.getDate() - displayDate.value.getDay()
   )
-  displayDays.value = []
-  displayDays.value.push({
+  displayWeek.value = []
+  displayWeek.value.push({
     year: settingDate.getFullYear(),
     month: settingDate.getMonth(),
     date: settingDate.getDate()
   })
   for (let i = 1; i < 7; i++) {
     settingDate.setDate(settingDate.getDate() + 1)
-    displayDays.value.push({
+    displayWeek.value.push({
       year: settingDate.getFullYear(),
       month: settingDate.getMonth(),
       date: settingDate.getDate()
@@ -86,15 +88,24 @@ function setDisplayWeek() {
 // 지난 주
 function beforeWeek() {
   displayDate.value.setDate(displayDate.value.getDate() - 7)
-  displayDays.value = []
   setDisplayWeek()
+  fromThisWeek.value -= 1
 }
 
 // 다음 주
 function nextWeek() {
   displayDate.value.setDate(displayDate.value.getDate() + 7)
-  displayDays.value = []
   setDisplayWeek()
+  fromThisWeek.value += 1
+}
+
+// 오늘로 돌아오기
+function onToday() {
+  displayDate.value.setFullYear(today.value.getFullYear())
+  displayDate.value.setMonth(today.value.getMonth())
+  displayDate.value.setDate(today.value.getDate())
+  setDisplayWeek()
+  fromThisWeek.value = 0
 }
 
 // 날짜 선택
@@ -102,6 +113,7 @@ function selectDate(item) {
   displayDate.value.setFullYear(item.year)
   displayDate.value.setMonth(item.month)
   displayDate.value.setDate(item.date)
+  setDisplayWeek()
 }
 
 setDisplayWeek()
@@ -172,18 +184,14 @@ setDisplayWeek()
   font-size: 15px;
   font-weight: 400;
 }
-.now-week-date.today {
+.selected {
   font-weight: 600;
+  border: 1px solid #ee5600;
 }
-.now-week-date.did {
+.did {
+  font-weight: 600;
   color: #f2efe7;
   background-color: #343434;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 600;
 }
 
 .line {
