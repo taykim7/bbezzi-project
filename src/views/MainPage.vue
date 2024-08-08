@@ -16,7 +16,7 @@
       <button @click="beforeWeek">
         <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
       </button>
-      <template v-for="(item, index) in displaydays" :key="index">
+      <template v-for="(item, index) in displayDays" :key="index">
         <div class="now-week-one">
           <div
             class="now-week-day"
@@ -57,25 +57,25 @@ const today = new Date()
  * - 처음 기준은 '오늘'
  * - 날짜를 이동하면 해당 날짜 기준으로 세팅이 된다.
  */
-const displayDate = new Date()
-const displaydays = ref([])
+const displayDate = ref(new Date())
+const displayDays = ref([])
 
 // 화면에 보여줄 한 주
 function setDisplayWeek() {
   const settingDate = new Date(
-    displayDate.getFullYear(),
-    displayDate.getMonth(),
-    displayDate.getDate() - displayDate.getDay()
+    displayDate.value.getFullYear(),
+    displayDate.value.getMonth(),
+    displayDate.value.getDate() - displayDate.value.getDay()
   )
-  displaydays.value = []
-  displaydays.value.push({
+  displayDays.value = []
+  displayDays.value.push({
     year: settingDate.getFullYear(),
     month: settingDate.getMonth(),
     date: settingDate.getDate()
   })
   for (let i = 1; i < 7; i++) {
     settingDate.setDate(settingDate.getDate() + 1)
-    displaydays.value.push({
+    displayDays.value.push({
       year: settingDate.getFullYear(),
       month: settingDate.getMonth(),
       date: settingDate.getDate()
@@ -85,23 +85,23 @@ function setDisplayWeek() {
 
 // 지난 주
 function beforeWeek() {
-  displayDate.setDate(displayDate.getDate() - 7)
-  displaydays.value = []
+  displayDate.value.setDate(displayDate.value.getDate() - 7)
+  displayDays.value = []
   setDisplayWeek()
 }
 
 // 다음 주
 function nextWeek() {
-  displayDate.setDate(displayDate.getDate() + 7)
-  displaydays.value = []
+  displayDate.value.setDate(displayDate.value.getDate() + 7)
+  displayDays.value = []
   setDisplayWeek()
 }
 
 // 날짜 선택
 function selectDate(item) {
-  displayDate.setFullYear(item.year)
-  displayDate.setMonth(item.month)
-  displayDate.setDate(item.date)
+  displayDate.value.setFullYear(item.year)
+  displayDate.value.setMonth(item.month)
+  displayDate.value.setDate(item.date)
 }
 
 setDisplayWeek()
