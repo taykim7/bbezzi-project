@@ -8,7 +8,7 @@
       <div class="gram-unit">kg</div>
       <div class="gram-gram">
         <p>
-          {{ gram.join('') }}
+          {{ gram }}
         </p>
       </div>
     </div>
@@ -16,7 +16,7 @@
 
   <!-- 키패드 -->
   <div class="keypad-wrap mb32">
-    <div class="keypad-row">
+    <div class="keypad-row mb8">
       <button class="keypad-num" @click="add('1')">1</button>
       <button class="keypad-num" @click="add('2')">2</button>
       <button class="keypad-num" @click="add('3')">3</button>
@@ -29,25 +29,24 @@
         />
       </button>
     </div>
-    <div class="keypad-row mb8 mt8">
+    <div class="keypad-row mb8">
       <button class="keypad-num" @click="add('4')">4</button>
       <button class="keypad-num" @click="add('5')">5</button>
       <button class="keypad-num" @click="add('6')">6</button>
-      <button class="keypad-else">
-        <img
-          class="input-btn-icon"
-          src="../../assets/img/svg/icon_cancel.svg"
-          height="40"
-          alt="지우기"
-        />
-      </button>
+      <button class="keypad-else" @click="add('.')">.</button>
     </div>
     <div class="keypad-row">
       <button class="keypad-num" @click="add('7')">7</button>
       <button class="keypad-num" @click="add('8')">8</button>
       <button class="keypad-num" @click="add('9')">9</button>
-      <button class="keypad-num" @click="add('0')">0</button>
+      <button class="keypad-else" @click="add('0')">0</button>
     </div>
+    <!-- <div class="keypad-row">
+      <button class="keypad-num" @click="add('7')">-1</button>
+      <button class="keypad-num" @click="add('8')">-0.1</button>
+      <button class="keypad-num" @click="add('9')">+0.1</button>
+      <button class="keypad-else" @click="add('0')">+1</button>
+    </div> -->
   </div>
 
   <!-- textarea -->
@@ -88,11 +87,20 @@ const test = () => {
 }
 
 // 몸무게
-const gram = ref(['0', '.', '0'])
+const gram = ref('0')
 
 // 숫자 입력
 function add(numString) {
-  gram.value[2] = numString
+  if (gram.value === '0') {
+    gram.value = ''
+  }
+  if (numString === '.' && gram.value.includes(numString)) {
+    return ''
+  }
+  if (gram.value.length > 3) {
+    return ''
+  }
+  gram.value += numString
   // if ('0' === payAmount.value) {
   //   payAmount.value = '00' === numString ? '0' : numString;
   // } else {
