@@ -3,10 +3,9 @@
   <div v-if="type !== 'textarea'" class="input-contents">
     <input
       class="input-item mb16"
+      v-model="modelValue"
       :type="type || 'text'"
       :placeholder="placeholder || 'placeholder'"
-      :value="modelValue || ''"
-      @input="$emit('update:modelValue', $event.target.value)"
     />
     <!-- 중복확인 -->
     <button v-if="doubleCheck" class="input-btn ml8">중복확인</button>
@@ -15,28 +14,40 @@
     <!-- textarea -->
     <textarea
       class="input-textarea"
+      v-model="modelValue"
       :placeholder="placeholder || 'placeholder'"
-      :value="modelValue || ''"
       @input="autosize"
     ></textarea>
   </div>
 </template>
 <script setup>
-// textarea height
-function autosize() {
-  const el = document.querySelector('textarea')
-  el.style.height = 0
-  el.style.height = Number(el.scrollHeight + 18) + 'px'
-}
+import { computed } from 'vue'
 
-defineEmits(['update:modelValue'])
-defineProps({
+const emit = defineEmits(['update:modelValue'])
+const props = defineProps({
   modelValue: String,
   type: String,
   placeholder: String,
   title: String,
   doubleCheck: Boolean
 })
+
+// modelValue
+const modelValue = computed({
+  get() {
+    return props.modelValue
+  },
+  set(value) {
+    emit('update:modelValue', value)
+  }
+})
+
+// textarea height
+function autosize() {
+  const el = document.querySelector('textarea')
+  el.style.height = 0
+  el.style.height = Number(el.scrollHeight + 18) + 'px'
+}
 </script>
 <style>
 .input-title {
