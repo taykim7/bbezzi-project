@@ -45,7 +45,7 @@
 
     <div class="line"></div>
 
-    <RouterView></RouterView>
+    <RouterView :displayDateStr="displayDateStr"></RouterView>
   </div>
 </template>
 
@@ -53,17 +53,21 @@
 import { ref } from 'vue'
 
 const dayArr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 const today = ref(new Date())
 
 // 기준이 될 날짜
 // 기준이 될 날짜로 구성된 한 주
 // 이번 주로부터의 간격
+// 서브타이틀용 기준 날짜
 const displayDate = ref(new Date())
 const displayWeek = ref([])
 const fromThisWeek = ref(0)
+const displayDateStr = ref('')
 
 // 화면에 보여줄 한 주 계산
 function setDisplayWeek() {
+  setDisplayDateStr()
   const settingDate = new Date(
     displayDate.value.getFullYear(),
     displayDate.value.getMonth(),
@@ -114,6 +118,11 @@ function selectDate(item) {
   displayDate.value.setMonth(item.month)
   displayDate.value.setDate(item.date)
   setDisplayWeek()
+}
+
+// 서브타이틀용 기준 날짜
+function setDisplayDateStr() {
+  displayDateStr.value = `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`
 }
 
 // 초기화

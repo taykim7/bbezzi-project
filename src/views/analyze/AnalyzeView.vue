@@ -10,7 +10,7 @@
     <div class="chart-date mb40">
       <p>2023-07-01 월요일</p>
       <p class="ml8 mr8">~</p>
-      <p>2024-07-14 금요일</p>
+      <p>{{ displayDateStr }}</p>
     </div>
     <div class="chart-space"></div>
   </div>
@@ -73,7 +73,12 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+// const emit = defineEmits(['update:modelValue'])
+const props = defineProps({
+  displayDateStr: String
+})
+</script>
 
 <style scoped>
 .chart-wrap {

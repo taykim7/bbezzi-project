@@ -2,7 +2,7 @@
   <div class="gram-wrap">
     <div class="gram-title mb4">
       <div class="gram-text">체중</div>
-      <div class="gram-date">2024-07-01 금요일</div>
+      <div class="gram-date">{{ displayDateStr }}</div>
     </div>
     <div class="gram-input mb32">
       <div class="gram-unit">kg</div>
@@ -89,6 +89,11 @@
 <script setup>
 import { ref } from 'vue'
 
+// const emit = defineEmits(['update:modelValue'])
+const props = defineProps({
+  displayDateStr: String
+})
+
 const memo = ref('')
 const gram = ref('0')
 
@@ -143,6 +148,7 @@ function registration() {
   console.log('검사')
   console.log(memo.value)
   console.log(gram.value)
+  console.log(props.displayDateStr)
 }
 </script>
 
