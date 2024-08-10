@@ -125,6 +125,9 @@ function add(numString) {
     gram.value = gram.value.substring(0, gram.value.length - 1)
   }
   gram.value += numString
+  if (gram.value === '0.0') {
+    gram.value = '0'
+  }
 }
 
 function clear() {
