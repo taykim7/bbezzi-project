@@ -52,7 +52,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const dayArr = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+const dayArr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const today = ref(new Date())
 
 // 기준이 될 날짜
