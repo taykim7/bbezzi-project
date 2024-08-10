@@ -20,7 +20,7 @@
       <button class="keypad-num" @click="add('1')">1</button>
       <button class="keypad-num" @click="add('2')">2</button>
       <button class="keypad-num" @click="add('3')">3</button>
-      <button class="keypad-else">
+      <button class="keypad-else" @click="clear">
         <img
           class="input-btn-icon"
           src="../../assets/img/svg/icon_clear.svg"
@@ -33,13 +33,26 @@
       <button class="keypad-num" @click="add('4')">4</button>
       <button class="keypad-num" @click="add('5')">5</button>
       <button class="keypad-num" @click="add('6')">6</button>
-      <button class="keypad-else" @click="add('.')">.</button>
+      <button class="keypad-else" @click="cancel">
+        <img
+          class="input-btn-icon"
+          src="../../assets/img/svg/icon_cancel.svg"
+          height="40"
+          alt="전체제거"
+        />
+      </button>
     </div>
-    <div class="keypad-row">
+    <div class="keypad-row mb8">
       <button class="keypad-num" @click="add('7')">7</button>
       <button class="keypad-num" @click="add('8')">8</button>
       <button class="keypad-num" @click="add('9')">9</button>
-      <button class="keypad-else" @click="add('0')">0</button>
+      <button class="keypad-else" @click="add('.')">.</button>
+    </div>
+    <div class="keypad-row">
+      <div class="keypad-nothing"></div>
+      <button class="keypad-num" @click="add('0')">0</button>
+      <div class="keypad-nothing"></div>
+      <div class="keypad-nothing"></div>
     </div>
     <!-- <div class="keypad-row">
       <button class="keypad-num" @click="add('7')">-1</button>
@@ -91,26 +104,38 @@ const gram = ref('0')
 
 // 숫자 입력
 function add(numString) {
-  if (gram.value === '0') {
+  // 첫 입력
+  if (gram.value === '0' && numString !== '.') {
     gram.value = ''
   }
+  // 소수점이 이미 있다면 입력 취소
   if (numString === '.' && gram.value.includes(numString)) {
     return ''
   }
-  if (gram.value.length > 3) {
-    return ''
+  // 일의 자리 - 소수점 한자리 수까지 제한
+  if (gram.value.indexOf('.') === 1 && gram.value.length > 2) {
+    gram.value = gram.value.substring(0, gram.value.length - 1)
+  }
+  // 십의 자리 - 소수점 한자리 수까지 제한
+  if (gram.value.indexOf('.') === 2 && gram.value.length > 3) {
+    gram.value = gram.value.substring(0, gram.value.length - 1)
+  }
+  // 백의 자리
+  if (gram.value.length > 4) {
+    gram.value = gram.value.substring(0, gram.value.length - 1)
   }
   gram.value += numString
-  // if ('0' === payAmount.value) {
-  //   payAmount.value = '00' === numString ? '0' : numString;
-  // } else {
-  //   payAmount.value += numString;
-  // }
+}
 
-  // // 12자리까지 제한
-  // if (PAY_AMOUNT_MAX_LENGTH < payAmount.value.length) {
-  //   payAmount.value = payAmount.value.substring(0, PAY_AMOUNT_MAX_LENGTH);
-  // }
+function clear() {
+  gram.value = '0'
+}
+function cancel() {
+  if (gram.value.length > 1) {
+    gram.value = gram.value.substring(0, gram.value.length - 1)
+  } else if (gram.value.length === 1 && gram.value !== '0') {
+    gram.value = '0'
+  }
 }
 </script>
 
@@ -188,6 +213,19 @@ function add(numString) {
   border-radius: 5rem;
 }
 .keypad-wrap .keypad-row .keypad-else {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #343434;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 400;
+  background-color: #fff9eb;
+  width: 70px;
+  height: 70px;
+  border-radius: 5rem;
+}
+.keypad-wrap .keypad-row .keypad-nothing {
   display: flex;
   justify-content: center;
   align-items: center;
