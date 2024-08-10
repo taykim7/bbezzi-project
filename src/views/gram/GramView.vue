@@ -112,8 +112,12 @@ function add(numString) {
   if (gram.value === '0' && numString !== '.') {
     gram.value = ''
   }
-  // 소수점이 이미 있다면 입력 취소
-  if (numString === '.' && gram.value.includes(numString)) {
+  // 소수점이 없다면 세자리 제한
+  if (!gram.value.includes('.') && numString !== '.' && gram.value.length > 2) {
+    return ''
+  }
+  // 소수점이 이미 있다면 소수점 입력 취소
+  if (gram.value.includes('.') && numString === '.') {
     return ''
   }
   // 일의 자리 - 소수점 한자리 수까지 제한
