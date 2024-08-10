@@ -17,11 +17,18 @@
       class="input-textarea"
       :placeholder="placeholder || 'placeholder'"
       :value="modelValue || ''"
-      rows="1"
+      @input="autosize"
     ></textarea>
   </div>
 </template>
 <script setup>
+// textarea height
+function autosize() {
+  const el = document.querySelector('textarea')
+  el.style.height = 0
+  el.style.height = Number(el.scrollHeight + 18) + 'px'
+}
+
 defineEmits(['update:modelValue'])
 defineProps({
   modelValue: String,
@@ -81,5 +88,8 @@ defineProps({
 }
 .input-contents .input-textarea::placeholder {
   color: #bababa;
+}
+.input-contents .input-textarea::-webkit-scrollbar {
+  display: none;
 }
 </style>

@@ -87,13 +87,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
-onMounted(() => document.querySelector('textarea').addEventListener('keydown', autosize))
-function autosize() {
-  const el = document.querySelector('textarea')
-  el.style.cssText = 'height:' + el.scrollHeight + 'px'
-}
+import { ref } from 'vue'
+
 const memo = ''
+
 // 버튼 테스트
 const test = () => {
   console.log('테스트')
