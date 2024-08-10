@@ -77,7 +77,7 @@
   </div>
 
   <!-- 버튼 -->
-  <C-Button singleMain :titleBtnMain="'등록하기'" @btn-main="test" />
+  <C-Button singleMain :titleBtnMain="'등록하기'" @btn-main="registration" />
   <!-- <C-Button
     :titleBtnLeft="'수정하기'"
     :titleBtnRight="'삭제하기'"
@@ -89,15 +89,22 @@
 <script setup>
 import { ref } from 'vue'
 
-const memo = ''
+const memo = ref('')
+const gram = ref('0')
 
-// 버튼 테스트
-const test = () => {
-  console.log('테스트')
+// 초기화
+function clear() {
+  gram.value = '0'
 }
 
-// 몸무게
-const gram = ref('0')
+// 취소
+function cancel() {
+  if (gram.value.length > 1) {
+    gram.value = gram.value.substring(0, gram.value.length - 1)
+  } else if (gram.value.length === 1 && gram.value !== '0') {
+    gram.value = '0'
+  }
+}
 
 // 숫자 입력
 function add(numString) {
@@ -127,15 +134,11 @@ function add(numString) {
   }
 }
 
-function clear() {
-  gram.value = '0'
-}
-function cancel() {
-  if (gram.value.length > 1) {
-    gram.value = gram.value.substring(0, gram.value.length - 1)
-  } else if (gram.value.length === 1 && gram.value !== '0') {
-    gram.value = '0'
-  }
+// 등록
+function registration() {
+  console.log('검사')
+  console.log(memo.value)
+  console.log(gram.value)
 }
 </script>
 
