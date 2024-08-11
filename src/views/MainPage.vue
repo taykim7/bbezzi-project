@@ -22,18 +22,14 @@
         <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
       </button>
       <template v-for="(day, index) in displayWeek" :key="index">
-        <div class="now-week-one">
+        <div class="now-week-one" :class="displayDate.getDate() === day.date ? 'selected' : ''">
           <div
             class="now-week-day"
             :class="0 === fromThisWeek && today.getDay() === index ? 'today' : ''"
           >
             {{ dayArr[index] }}
           </div>
-          <button
-            class="now-week-date"
-            :class="displayDate.getDate() === day.date ? 'selected' : ''"
-            @click="selectDate(day)"
-          >
+          <button class="now-week-date" @click="selectDate(day)">
             {{ day.date }}
           </button>
         </div>
@@ -175,7 +171,7 @@ setDisplayWeek()
   text-align: center;
   font-size: 15px;
   font-weight: 400;
-  margin-bottom: 0.4rem;
+  margin: 0.4rem;
 }
 .now-week-day.today {
   color: #f2efe7;
@@ -195,8 +191,8 @@ setDisplayWeek()
   font-weight: 400;
 }
 .selected {
-  font-weight: 600;
-  border: 1px solid #ee5600;
+  background-color: #fff9eb;
+  border-radius: 5px;
 }
 .did {
   font-weight: 600;
