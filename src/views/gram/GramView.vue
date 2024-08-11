@@ -15,7 +15,7 @@
   </div>
 
   <!-- 키패드 -->
-  <div class="keypad-wrap mb32">
+  <div class="keypad-wrap mb32" v-if="edit">
     <div class="keypad-row mb8">
       <button class="keypad-num" @click="add('1')">1</button>
       <button class="keypad-num" @click="add('2')">2</button>
@@ -77,13 +77,14 @@
   </div>
 
   <!-- 버튼 -->
-  <C-Button singleMain :titleBtnMain="'등록하기'" @btn-main="registration" />
-  <!-- <C-Button
+  <C-Button v-if="edit" singleMain :titleBtnMain="'등록하기'" @btn-main="registration" />
+  <C-Button
+    v-else
     :titleBtnLeft="'수정하기'"
     :titleBtnRight="'삭제하기'"
     @btn-left="test"
     @btn-right="test"
-  /> -->
+  />
 </template>
 
 <script setup>
@@ -96,6 +97,7 @@ const props = defineProps({
 
 const memo = ref('')
 const gram = ref('0')
+const edit = ref(false)
 
 // 초기화
 function clear() {
@@ -149,6 +151,12 @@ function registration() {
   console.log(memo.value)
   console.log(gram.value)
   console.log(props.displayDateStr)
+  edit.value = false
+}
+
+// 수정, 삭제
+function test() {
+  edit.value = true
 }
 </script>
 
@@ -198,7 +206,7 @@ function registration() {
   text-align: center;
 
   font-size: 40px;
-  font-weight: 400;
+  font-weight: 600;
 
   width: 100%;
   height: 60px;
