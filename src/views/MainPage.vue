@@ -41,7 +41,7 @@
 
     <div class="line"></div>
 
-    <RouterView :displayDateStr="displayDateStr"></RouterView>
+    <RouterView :displayDateProps="displayDateProps"></RouterView>
   </div>
 </template>
 
@@ -59,7 +59,7 @@ const today = ref(new Date())
 const displayDate = ref(new Date())
 const displayWeek = ref([])
 const fromThisWeek = ref(0)
-const displayDateStr = ref('')
+const displayDateProps = ref({})
 
 // 화면에 보여줄 한 주 계산
 function setDisplayWeek() {
@@ -118,7 +118,13 @@ function selectDate(item) {
 
 // 서브타이틀용 기준 날짜
 function setDisplayDateStr() {
-  displayDateStr.value = `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`
+  displayDateProps.value = {
+    year: displayDate.value.getFullYear(),
+    month: displayDate.value.getMonth(),
+    date: displayDate.value.getDate(),
+    day: displayDate.value.getDay(),
+    title: `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`
+  }
 }
 
 // 초기화
