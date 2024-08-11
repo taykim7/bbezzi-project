@@ -2,21 +2,49 @@
   <div class="chart-wrap mb60">
     <div class="chart-title mb8">기간 설정</div>
     <div class="chart-btns mb40">
-      <button class="chart-btn-selected">1년</button>
-      <button class="chart-btn">6개월</button>
-      <button class="chart-btn">1주일</button>
-      <button class="chart-btn">1개월</button>
+      <button
+        class="chart-btn"
+        :class="range === '1y' ? 'selected' : ''"
+        @click="setStartDate('1y')"
+        :disabled="range === '1y'"
+      >
+        1년
+      </button>
+      <button
+        class="chart-btn"
+        :class="range === '6m' ? 'selected' : ''"
+        @click="setStartDate('6m')"
+        :disabled="range === '6m'"
+      >
+        6개월
+      </button>
+      <button
+        class="chart-btn"
+        :class="range === '1m' ? 'selected' : ''"
+        @click="setStartDate('1m')"
+        :disabled="range === '1m'"
+      >
+        1개월
+      </button>
+      <button
+        class="chart-btn"
+        :class="range === '1w' ? 'selected' : ''"
+        @click="setStartDate('1w')"
+        :disabled="range === '1w'"
+      >
+        1주일
+      </button>
     </div>
     <div class="chart-date mb40">
-      <p>2023-07-01 월요일</p>
+      <p>{{ startDateTitle }}</p>
       <p class="ml8 mr8">~</p>
-      <p>{{ displayDateStr }}</p>
+      <p>{{ displayDateProps.title }}</p>
     </div>
     <div class="chart-space"></div>
   </div>
 
   <div class="chart-wrap mb60">
-    <div class="chart-title mb8">업적 (1년)</div>
+    <div class="chart-title mb8">{{ rangeTitle }}의 업적</div>
     <div class="did-list">
       <div class="did-title mb4">320일의 체중을 기록하였습니다!</div>
       <div class="did-title">2.3 kg 감량했습니다!</div>
@@ -24,7 +52,7 @@
   </div>
 
   <div class="list-wrap mb100">
-    <div class="list-title mb4">리스트</div>
+    <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
     <div class="list-count mb8">총 366 건</div>
     <div class="list-items">
       <!-- 아이템1 -->
@@ -74,10 +102,75 @@
 </template>
 
 <script setup>
-// const emit = defineEmits(['update:modelValue'])
+import { ref, watch, onMounted, computed } from 'vue'
+
 const props = defineProps({
-  displayDateStr: String
+  displayDateProps: Object
 })
+const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
+const startDate = ref({})
+const range = ref('')
+const startDateTitle = ref('')
+const rangeTitle = ref('')
+
+// mounted시 초기화
+onMounted(() => init())
+
+// 날짜 선택시 세팅
+watch(props, (value) => {
+  console.log(value.displayDateProps.title)
+  setStartDate(range.value)
+})
+
+// 범위 시작 날짜 세팅
+function setStartDate(start) {
+  switch (start) {
+    case '1y':
+      startDate.value = new Date(
+        props.displayDateProps.year - 1,
+        props.displayDateProps.month,
+        props.displayDateProps.date
+      )
+      range.value = '1y'
+      rangeTitle.value = '1년'
+      break
+    case '6m':
+      startDate.value = new Date(
+        props.displayDateProps.year,
+        props.displayDateProps.month - 6,
+        props.displayDateProps.date
+      )
+      range.value = '6m'
+      rangeTitle.value = '6개월'
+      break
+    case '1m':
+      startDate.value = new Date(
+        props.displayDateProps.year,
+        props.displayDateProps.month - 1,
+        props.displayDateProps.date
+      )
+      range.value = '1m'
+      rangeTitle.value = '1개월'
+      break
+    case '1w':
+      startDate.value = new Date(
+        props.displayDateProps.year,
+        props.displayDateProps.month,
+        props.displayDateProps.date - 7
+      )
+      range.value = '1w'
+      rangeTitle.value = '1주'
+      break
+  }
+  startDateTitle.value = `${startDate.value.getFullYear()}-${startDate.value.getMonth() + 1}-${startDate.value.getDate()} ${dayArrKor[startDate.value.getDay()]}`
+}
+
+// 초기화 1주일로 세팅
+function init() {
+  range.value = '1w'
+  setStartDate(range.value)
+  // TODO 데이터 조회
+}
 </script>
 
 <style scoped>
@@ -106,15 +199,10 @@ const props = defineProps({
   width: 100%;
   height: 3rem;
 }
-.chart-btn-selected {
+.chart-btn.selected {
   color: #f2efe7;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
   background: #343434;
-  border-radius: 5px;
-  width: 100%;
-  height: 3rem;
 }
 .chart-date {
   display: flex;
