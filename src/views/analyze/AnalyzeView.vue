@@ -40,7 +40,7 @@
       <p class="ml8 mr8">~</p>
       <p>{{ displayDateProps.title }}</p>
     </div>
-    <div class="chart-space"></div>
+    <AnalyzeChartView />
   </div>
 
   <div class="chart-wrap mb60">
@@ -103,6 +103,7 @@
 
 <script setup>
 import { ref, watch, onMounted, computed } from 'vue'
+import AnalyzeChartView from './AnalyzeChartView.vue'
 
 const props = defineProps({
   displayDateProps: Object
@@ -213,12 +214,6 @@ function init() {
   font-size: 15px;
   font-weight: 400;
   font-weight: 400;
-}
-.chart-space {
-  background: #ffffff;
-  border-radius: 5px;
-  width: 100%;
-  height: 300px;
 }
 .did-list {
   display: flex;
