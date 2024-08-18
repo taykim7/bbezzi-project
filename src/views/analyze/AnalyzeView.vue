@@ -53,50 +53,42 @@
 
   <div class="list-wrap mb100">
     <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
-    <div class="list-count mb8">총 366 건</div>
+    <div class="list-count mb8">총 {{ testData.length }} 건</div>
     <div class="list-items">
-      <!-- 아이템1 -->
-      <div class="list-item mb4">
-        <p class="list-date mr8">2024.07.01</p>
-        <p class="list-gram mr8">68.7</p>
-        <textarea class="list-memo mr8" readonly>배가 너무너무 고프다 오 ...</textarea>
-        <div class="list-btn-wrap">
-          <button class="list-edit mr8">
-            <img class="now-week-icon" src="../../assets/img/svg/icon_edit.svg" height="15" />
-          </button>
-          <button class="list-delete">
-            <img class="now-week-icon" src="../../assets/img/svg/icon_delete.svg" height="15" />
-          </button>
-        </div>
-      </div>
-      <!-- 아이템2 -->
-      <div class="list-item-detail mb4">
-        <p class="list-date mr8">2024.07.01</p>
-        <p class="list-gram mr8">68.7</p>
-        <textarea class="list-memo mr8">배가 너무너무 고프다 오 ...</textarea>
-        <div class="list-btn-wrap">
-          <button class="list-edit mr8">
-            <img class="now-week-icon" src="../../assets/img/svg/icon_edit.svg" height="15" />
-          </button>
-          <button class="list-delete">
-            <img class="now-week-icon" src="../../assets/img/svg/icon_delete.svg" height="15" />
-          </button>
-        </div>
-      </div>
-      <!-- 아이템3 -->
-      <div class="list-item">
-        <p class="list-date mr8">2024.07.01</p>
-        <p class="list-gram mr8">68.7</p>
-        <textarea class="list-memo mr8" readonly>배가 너무너무 고프다 오 ...</textarea>
-        <div class="list-btn-wrap">
-          <button class="list-edit mr8">
-            <img class="now-week-icon" src="../../assets/img/svg/icon_edit.svg" height="15" />
-          </button>
-          <button class="list-delete">
-            <img class="now-week-icon" src="../../assets/img/svg/icon_delete.svg" height="15" />
-          </button>
-        </div>
-      </div>
+      <template v-for="(data, index) in testData" :key="index">
+        <template v-if="edit === index">
+          <!-- 아이템1 -->
+          <div class="list-item-edit">
+            <p class="list-date mr8">{{ data.date }}</p>
+            <p class="list-gram mr8">{{ data.gram }}</p>
+            <textarea class="list-memo mr8" :value="data.memo"></textarea>
+            <div class="list-btn-wrap">
+              <button class="list-save mr8">
+                <img class="now-week-icon" src="../../assets/img/svg/icon_back.svg" height="15" />
+              </button>
+              <button class="list-save">
+                <img class="now-week-icon" src="../../assets/img/svg/icon_clear.svg" height="15" />
+              </button>
+            </div>
+          </div>
+        </template>
+        <template v-else>
+          <!-- 아이템1 -->
+          <div class="list-item">
+            <p class="list-date mr8">{{ data.date }}</p>
+            <p class="list-gram mr8">{{ data.gram }}</p>
+            <textarea class="list-memo mr8" :value="data.memo" readonly></textarea>
+            <div class="list-btn-wrap">
+              <button class="list-edit mr8" @click="tryEdit(index)">
+                <img class="now-week-icon" src="../../assets/img/svg/icon_edit.svg" height="15" />
+              </button>
+              <button class="list-delete">
+                <img class="now-week-icon" src="../../assets/img/svg/icon_delete.svg" height="15" />
+              </button>
+            </div>
+          </div>
+        </template>
+      </template>
     </div>
   </div>
 </template>
@@ -113,6 +105,52 @@ const startDate = ref({})
 const range = ref('')
 const startDateTitle = ref('')
 const rangeTitle = ref('')
+
+const edit = ref(null)
+
+// 테스트 데이터
+const testData = ref([
+  {
+    date: '2024.07.01',
+    gram: 68.1,
+    memo: '오늘은 이것저것 쳐먹었따.'
+  },
+  {
+    date: '2024.07.02',
+    gram: 58.1,
+    memo: '어쩌구 저쩌구 메모'
+  },
+  {
+    date: '2024.07.03',
+    gram: 69.1,
+    memo: '진짜 다이어트 해야함'
+  },
+  {
+    date: '2024.07.04',
+    gram: 67.1,
+    memo: ''
+  },
+  {
+    date: '2024.07.05',
+    gram: 68.0,
+    memo: ''
+  },
+  {
+    date: '2024.07.06',
+    gram: 68.2,
+    memo: '오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.'
+  },
+  {
+    date: '2024.07.07',
+    gram: 68.4,
+    memo: '어쩌구 저쩌구'
+  },
+  {
+    date: '2024.07.08',
+    gram: 68.5,
+    memo: '오늘은 이것저것 쳐먹었따.'
+  }
+])
 
 // mounted시 초기화
 onMounted(() => init())
@@ -171,6 +209,11 @@ function init() {
   range.value = '1w'
   setStartDate(range.value)
   // TODO 데이터 조회
+}
+
+// 수정 중
+function tryEdit(index) {
+  edit.value = index
 }
 </script>
 
@@ -271,9 +314,10 @@ function init() {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.4rem;
 }
-.list-date {
-  color: #f2efe7;
+.list-item .list-date {
+  color: #706f6f;
   text-align: left;
   font-size: 15px;
   font-weight: 400;
@@ -283,38 +327,51 @@ function init() {
 .list-gram {
   color: #f2efe7;
   text-align: left;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 800;
+  width: 50px;
 }
-.list-item-detail {
-  background-color: #343434;
+.list-item .list-memo {
+  background: transparent;
+  width: 50%;
+  color: #706f6f;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 300;
+  border: 0;
+}
+/* 수정 */
+.list-item-edit {
+  background-color: #ee5600;
   border-radius: 5px;
   height: 129px;
   display: flex;
   align-items: top;
   padding: 10px;
-
   justify-content: space-between;
+  margin-bottom: 0.4rem;
 }
-.list-item .list-memo {
-  background: transparent;
-  width: 50%;
-  color: #f2efe7;
+.list-item-edit .list-date {
+  color: #343434;
   text-align: left;
   font-size: 15px;
   font-weight: 400;
+  align-items: center;
+  justify-content: center;
 }
-.list-item-detail .list-memo {
+.list-item-edit .list-memo {
   background: transparent;
   width: 50%;
   height: 100%;
-  color: #f2efe7;
+  color: #343434;
   text-align: left;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 300;
+  border: 0;
 }
 .list-btn-wrap {
   display: flex;
+  width: 50px;
 }
 .list-edit {
   background: #706f6f;
@@ -335,5 +392,15 @@ function init() {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.list-save {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  text-align: right;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 </style>
