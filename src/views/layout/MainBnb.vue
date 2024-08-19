@@ -2,11 +2,11 @@
   <div v-if="showBnb" class="bnb">
     <div class="bnb-btns">
       <div class="bnb-home">
-        <img class="bnb-icon" src="../../assets/img/svg/icon_clear.svg" height="30" />
+        <img class="bnb-icon" src="../../assets/img/svg/icon_home_solid.svg" height="25" />
         <button class="bnb-btn" @click="moveMainPage">홈</button>
       </div>
       <div class="bnb-analyze">
-        <img class="bnb-icon" src="../../assets/img/svg/icon_clear.svg" height="30" />
+        <img class="bnb-icon" src="../../assets/img/svg/icon_chart_solid.svg" height="25" />
         <button class="bnb-btn" @click="moveAnalyPage">분석</button>
       </div>
     </div>
@@ -51,6 +51,7 @@ const moveAnalyPage = () => {
 .bnb-btns {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
 }
 .bnb-btns .bnb-home {
   width: 100%;
