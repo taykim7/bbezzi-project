@@ -20,14 +20,7 @@
       <button class="keypad-num" @click="add('1')">1</button>
       <button class="keypad-num" @click="add('2')">2</button>
       <button class="keypad-num" @click="add('3')">3</button>
-      <button class="keypad-else" @click="clear">
-        <img
-          class="input-btn-icon"
-          src="../../assets/img/svg/icon_clear.svg"
-          height="40"
-          alt="전체제거"
-        />
-      </button>
+      <button class="keypad-else" @click="clear">C</button>
     </div>
     <div class="keypad-row mb8">
       <button class="keypad-num" @click="add('4')">4</button>
@@ -36,7 +29,7 @@
       <button class="keypad-else" @click="cancel">
         <img
           class="input-btn-icon"
-          src="../../assets/img/svg/icon_cancel.svg"
+          src="../../assets/img/svg/icon_cancel_line.svg"
           height="40"
           alt="전체제거"
         />
