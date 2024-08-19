@@ -3,7 +3,11 @@
     <div class="now-date mb16">
       <button>
         <!-- TODO 캘린더 팝업 추가 -->
-        <img class="now-date-icon mr8" src="../assets/img/svg/icon_calendar.svg" height="25" />
+        <img
+          class="now-date-icon mr8"
+          src="../assets/img/svg/icon_calender_color.svg"
+          height="25"
+        />
       </button>
       <div class="now-year mr8">
         <p>{{ displayDate.getFullYear() }}년</p>
