@@ -67,7 +67,11 @@
                 <img class="now-week-icon" src="../../assets/img/svg/icon_back.svg" height="15" />
               </button>
               <button class="list-save">
-                <img class="now-week-icon" src="../../assets/img/svg/icon_clear.svg" height="15" />
+                <img
+                  class="now-week-icon"
+                  src="../../assets/img/svg/icon_save_solid.svg"
+                  height="20"
+                />
               </button>
             </div>
           </div>
@@ -80,10 +84,18 @@
             <textarea class="list-memo mr8" :value="data.memo" readonly></textarea>
             <div class="list-btn-wrap">
               <button class="list-edit mr8" @click="tryEdit(index)">
-                <img class="now-week-icon" src="../../assets/img/svg/icon_edit.svg" height="15" />
+                <img
+                  class="now-week-icon"
+                  src="../../assets/img/svg/icon_edit_solid.svg"
+                  height="20"
+                />
               </button>
               <button class="list-delete">
-                <img class="now-week-icon" src="../../assets/img/svg/icon_delete.svg" height="15" />
+                <img
+                  class="now-week-icon"
+                  src="../../assets/img/svg/icon_delete_solid.svg"
+                  height="20"
+                />
               </button>
             </div>
           </div>
@@ -374,7 +386,7 @@ function tryEdit(index) {
   width: 50px;
 }
 .list-edit {
-  background: #706f6f;
+  /* background: #706f6f; */
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -384,7 +396,7 @@ function tryEdit(index) {
   align-items: center;
 }
 .list-delete {
-  background: #706f6f;
+  /* background: #706f6f; */
   border-radius: 10px;
   width: 20px;
   height: 20px;
@@ -394,7 +406,7 @@ function tryEdit(index) {
   align-items: center;
 }
 .list-save {
-  background: #ffffff;
+  /* background: #ffffff; */
   border-radius: 10px;
   width: 20px;
   height: 20px;
