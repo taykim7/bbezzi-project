@@ -3,6 +3,7 @@ import './css/base.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes'
+import { createPinia } from 'pinia'
 import CommonInput from './components/CommonInput.vue'
 import CommonButton from './components/CommonButton.vue'
 import { Line } from 'vue-chartjs'
@@ -22,6 +23,7 @@ const app = createApp(App)
 
 // 등록
 app.use(router)
+app.use(createPinia())
 
 // global components
 app.component('C-Input', CommonInput)
