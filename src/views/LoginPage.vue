@@ -20,7 +20,7 @@
       :titleBtnMain="'로그인'"
       :titleSubLeft="'아이디 찾기'"
       :titleSubRight="'비밀번호 찾기'"
-      @btn-main="postLogin(email, pw)"
+      @btn-main="onLogin(email, pw)"
       @sub-left="movePage"
       @sub-right="movePage"
     />
@@ -32,17 +32,26 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import IntroView from './intro/IntroView.vue'
 import { useLogin } from '@/composables/login'
-const { user, postLogin } = useLogin()
-
 const router = useRouter()
+const { postLogin } = useLogin()
+
+const email = ref('')
+const pw = ref('')
+
+// main 으로 이동
 const movePage = () => {
   router.push({
     path: '/main/gram'
   })
 }
 
-const email = ref('')
-const pw = ref('')
+// 로그인
+async function onLogin(email, pw) {
+  if (await postLogin(email, pw)) {
+    // 홈으로 이동
+    this.router.replace({ path: '/main/gram' })
+  }
+}
 </script>
 
 <style scoped>
