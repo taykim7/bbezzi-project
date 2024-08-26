@@ -3,9 +3,10 @@ import { useLoginStore } from '@/stores/login'
 
 export function useLogin() {
   const { user } = storeToRefs(useLoginStore())
-  const { postLogin } = useLoginStore()
+  const { postLogin, logOut } = useLoginStore()
   return {
     user,
-    postLogin
+    postLogin,
+    logOut
   }
 }
