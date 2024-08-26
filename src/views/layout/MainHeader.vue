@@ -9,7 +9,7 @@
       />
     </div>
     <div v-if="showLogout" class="header-logout">
-      <button class="logout-btn" @click="moveLandingPage">로그아웃</button>
+      <button class="logout-btn" @click="tryLogOut">로그아웃</button>
     </div>
   </div>
 </template>
@@ -17,6 +17,9 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
 import { computed } from 'vue'
+
+import { useLogin } from '@/composables/login'
+const { logOut } = useLogin()
 
 const route = useRoute()
 const router = useRouter()
@@ -34,9 +37,13 @@ const moveBackPage = () => {
 }
 
 // 로그아웃
-const moveLandingPage = () => {
-  router.push({
-    path: '/'
+const tryLogOut = async () => {
+  await logOut().then((response) => {
+    if (response) {
+      router.push({
+        path: '/'
+      })
+    }
   })
 }
 </script>
