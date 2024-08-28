@@ -1,6 +1,8 @@
 <template>
   <div class="mb60">
-    <div class="intro-logo">bbezzi</div>
+    <div class="intro-logo">
+      <h1><img src="@/assets/img/img/logo.png" alt="bbezzi" /></h1>
+    </div>
     <div class="intro-text">
       <p>매일 체중을 기록하고,<br />시간에 따른 변화를 한눈에 확인하세요.</p>
     </div>
