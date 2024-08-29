@@ -40,13 +40,18 @@ const pw = ref('')
 
 // 로그인
 async function onLogin(email, pw) {
-  if (await logIn(email, pw)) {
-    // 홈으로 이동
-    router.push({
-      path: '/main/gram'
-    })
+  if (email && pw) {
+    if (await logIn(email, pw)) {
+      // 홈으로 이동
+      router.push({
+        path: '/main/gram'
+      })
+    }
   }
 }
+
+// TODO 아이디찾기 / 비밀번호 찾기
+function movePage() {}
 </script>
 
 <style scoped>
