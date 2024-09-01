@@ -50,7 +50,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/stores/user'
+import { usePostStore } from '@/stores/post'
+
+const { getMyInfo } = useUserStore()
+const { uid } = storeToRefs(useUserStore())
+const { fetchPosts } = usePostStore()
+const { posts } = storeToRefs(usePostStore())
 
 const dayArr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
@@ -64,6 +72,17 @@ const displayDate = ref(new Date())
 const displayWeek = ref([])
 const fromThisWeek = ref(0)
 const displayDateProps = ref({})
+
+onMounted(async () => {
+  // 초기화
+  await setDisplayWeek()
+  await getMyInfo().then(() => {
+    if (uid.value) {
+      fetchPosts(uid.value)
+    }
+  })
+  console.log(posts.value)
+})
 
 // 화면에 보여줄 한 주 계산
 function setDisplayWeek() {
@@ -130,9 +149,6 @@ function setDisplayDateStr() {
     title: `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`
   }
 }
-
-// 초기화
-setDisplayWeek()
 </script>
 
 <style scoped>
