@@ -77,8 +77,19 @@ onMounted(async () => {
   // 초기화
   await setDisplayWeek()
   await getMyInfo().then(() => {
+    const start = `${displayWeek.value[0].year}${
+      displayWeek.value[0].month + 1 < 10
+        ? '0' + (displayWeek.value[0].month + 1)
+        : displayWeek.value[0].month + 1
+    }${displayWeek.value[0].date < 10 ? '0' + displayWeek.value[0].date : displayWeek.value[0].date}`
+    const end = `${displayWeek.value[6].year}${
+      displayWeek.value[6].month + 1 < 10
+        ? '0' + (displayWeek.value[6].month + 1)
+        : displayWeek.value[6].month + 1
+    }${displayWeek.value[6].date < 10 ? '0' + displayWeek.value[6].date : displayWeek.value[6].date}`
+
     if (uid.value) {
-      fetchPosts(uid.value)
+      fetchPosts(uid.value, start, end)
     }
   })
   console.log(posts.value)
