@@ -21,6 +21,9 @@
       </button>
     </div>
 
+    <!-- TODO 로딩 이미지 구현 -->
+    <template v-if="loading"></template>
+
     <div class="now-week">
       <button @click="beforeWeek">
         <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
@@ -33,7 +36,11 @@
           >
             {{ dayArr[index] }}
           </div>
-          <button class="now-week-date" @click="selectDate(day)">
+          <button
+            class="now-week-date"
+            :class="hasDone(index) ? 'did' : ''"
+            @click="selectDate(day)"
+          >
             {{ day.date }}
           </button>
         </div>
@@ -72,27 +79,16 @@ const displayDate = ref(new Date())
 const displayWeek = ref([])
 const fromThisWeek = ref(0)
 const displayDateProps = ref({})
+const loading = ref(false)
 
 onMounted(async () => {
   // 초기화
   await setDisplayWeek()
   await getMyInfo().then(() => {
-    const start = `${displayWeek.value[0].year}${
-      displayWeek.value[0].month + 1 < 10
-        ? '0' + (displayWeek.value[0].month + 1)
-        : displayWeek.value[0].month + 1
-    }${displayWeek.value[0].date < 10 ? '0' + displayWeek.value[0].date : displayWeek.value[0].date}`
-    const end = `${displayWeek.value[6].year}${
-      displayWeek.value[6].month + 1 < 10
-        ? '0' + (displayWeek.value[6].month + 1)
-        : displayWeek.value[6].month + 1
-    }${displayWeek.value[6].date < 10 ? '0' + displayWeek.value[6].date : displayWeek.value[6].date}`
-
     if (uid.value) {
-      fetchPosts(uid.value, start, end)
+      fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
     }
   })
-  console.log(posts.value)
 })
 
 // 화면에 보여줄 한 주 계산
@@ -103,43 +99,82 @@ function setDisplayWeek() {
     displayDate.value.getMonth(),
     displayDate.value.getDate() - displayDate.value.getDay()
   )
-  displayWeek.value = []
-  displayWeek.value.push({
+  displayWeek.value[0] = {
     year: settingDate.getFullYear(),
     month: settingDate.getMonth(),
-    date: settingDate.getDate()
-  })
+    date: settingDate.getDate(),
+    fullDate: `${settingDate.getFullYear()}${
+      settingDate.getMonth() + 1 < 10
+        ? '0' + (settingDate.getMonth() + 1)
+        : settingDate.getMonth() + 1
+    }${settingDate.getDate() < 10 ? '0' + settingDate.getDate() : settingDate.getDate()}`
+  }
   for (let i = 1; i < 7; i++) {
     settingDate.setDate(settingDate.getDate() + 1)
-    displayWeek.value.push({
+    displayWeek.value[i] = {
       year: settingDate.getFullYear(),
       month: settingDate.getMonth(),
-      date: settingDate.getDate()
-    })
+      date: settingDate.getDate(),
+      fullDate: `${settingDate.getFullYear()}${
+        settingDate.getMonth() + 1 < 10
+          ? '0' + (settingDate.getMonth() + 1)
+          : settingDate.getMonth() + 1
+      }${settingDate.getDate() < 10 ? '0' + settingDate.getDate() : settingDate.getDate()}`
+    }
   }
 }
 
 // 지난 주
-function beforeWeek() {
-  displayDate.value.setDate(displayDate.value.getDate() - 7)
-  setDisplayWeek()
-  fromThisWeek.value -= 1
+async function beforeWeek() {
+  try {
+    loading.value = true
+    displayDate.value.setDate(displayDate.value.getDate() - 7)
+    await setDisplayWeek()
+    fromThisWeek.value -= 1
+    if (uid.value) {
+      await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    }
+  } catch (error) {
+    console.log(error)
+  } finally {
+    loading.value = false
+  }
 }
 
 // 다음 주
-function nextWeek() {
-  displayDate.value.setDate(displayDate.value.getDate() + 7)
-  setDisplayWeek()
-  fromThisWeek.value += 1
+async function nextWeek() {
+  try {
+    loading.value = true
+    displayDate.value.setDate(displayDate.value.getDate() + 7)
+    await setDisplayWeek()
+    fromThisWeek.value += 1
+    if (uid.value) {
+      await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    }
+  } catch (error) {
+    console.log(error)
+  } finally {
+    loading.value = false
+  }
 }
 
 // 오늘로 돌아오기
-function onToday() {
-  displayDate.value.setFullYear(today.value.getFullYear())
-  displayDate.value.setMonth(today.value.getMonth())
-  displayDate.value.setDate(today.value.getDate())
-  setDisplayWeek()
-  fromThisWeek.value = 0
+async function onToday() {
+  try {
+    loading.value = true
+    displayDate.value.setFullYear(today.value.getFullYear())
+    displayDate.value.setMonth(today.value.getMonth())
+    displayDate.value.setDate(today.value.getDate())
+    setDisplayWeek()
+    fromThisWeek.value = 0
+    if (uid.value) {
+      await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    }
+  } catch (error) {
+    console.log(error)
+  } finally {
+    loading.value = false
+  }
 }
 
 // 날짜 선택
@@ -159,6 +194,17 @@ function setDisplayDateStr() {
     day: displayDate.value.getDay(),
     title: `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`
   }
+}
+
+// 저장한 데이터가 있는지 확인
+function hasDone(index) {
+  let result = false
+  posts.value.forEach((item) => {
+    if (item.standardDate === displayWeek.value[index].fullDate) {
+      result = true
+    }
+  })
+  return result
 }
 </script>
 
