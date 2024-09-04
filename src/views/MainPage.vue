@@ -29,7 +29,7 @@
         <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
       </button>
       <template v-for="(day, index) in displayWeek" :key="index">
-        <div class="now-week-one" :class="displayDate.getDate() === day.date ? 'selected' : ''">
+        <div class="now-week-one">
           <div
             class="now-week-day"
             :class="0 === fromThisWeek && today.getDay() === index ? 'today' : ''"
@@ -43,6 +43,10 @@
           >
             {{ day.date }}
           </button>
+          <div
+            class="now-week-selected"
+            :class="displayDate.getDate() === day.date ? 'selected' : ''"
+          ></div>
         </div>
       </template>
       <button @click="nextWeek">
@@ -256,14 +260,14 @@ function hasDone(index) {
   font-weight: 400;
   margin: 0.4rem;
 }
-.now-week-day.today {
+/* 오늘 */
+.today {
   color: #f2efe7;
   background-color: #343434;
   border-radius: 20px;
   font-size: 15px;
   font-weight: 600;
 }
-
 .now-week-date {
   color: #343434;
   width: 45px;
@@ -273,10 +277,17 @@ function hasDone(index) {
   font-size: 15px;
   font-weight: 400;
 }
-.selected {
-  background-color: #fff9eb;
-  border-radius: 5px;
+.now-week-selected {
+  width: 40px;
+  height: 1px;
+  text-align: center;
 }
+/* TODO 표현 변경 */
+/* 선택한 날 */
+.selected {
+  background-color: #343434;
+}
+/* 기록한 날 */
 .did {
   font-weight: 600;
   color: #f2efe7;
@@ -286,7 +297,7 @@ function hasDone(index) {
 .line {
   width: 100%;
   border-bottom: 1px solid #bababa;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 </style>
