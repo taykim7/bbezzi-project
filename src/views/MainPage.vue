@@ -75,16 +75,18 @@ const dayArr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 const today = ref(new Date())
 
-// 기준이 될 날짜
-// 기준이 될 날짜로 구성된 한 주
-// 이번 주로부터의 간격
-// 서브타이틀용 기준 날짜
+// 기준 날짜
 const displayDate = ref(new Date())
+// 기준 날짜로 구성된 한 주
 const displayWeek = ref([])
+// 이번 주로부터의 간격
 const fromThisWeek = ref(0)
+// 선택된 날짜의 데이터
+const selectedData = ref({})
+// props
 const displayDateProps = ref({})
+// 로딩
 const loading = ref(false)
-const todayData = ref({})
 
 onMounted(async () => {
   // 초기화
@@ -98,12 +100,15 @@ onMounted(async () => {
 
 // 화면에 보여줄 한 주 계산
 function setDisplayWeek() {
+  // 한 주 중 기준 날짜의 순서
   const index = displayDate.value.getDay()
+  // 세팅용 날짜 (일요일부터 시작)
   const settingDate = new Date(
     displayDate.value.getFullYear(),
     displayDate.value.getMonth(),
     displayDate.value.getDate() - index
   )
+  // 한 주 구성
   displayWeek.value[0] = {
     year: settingDate.getFullYear(),
     month: settingDate.getMonth(),
@@ -127,24 +132,28 @@ function setDisplayWeek() {
       }${settingDate.getDate() < 10 ? '0' + settingDate.getDate() : settingDate.getDate()}`
     }
   }
-
-  todayData.value =
+  // 현재 선택된 날짜의 데이터 추출
+  selectedData.value =
     posts.value.filter((item) => {
       return item.standardDate === displayWeek.value[index].fullDate
     })[0] || null
-
-  setDisplayDateStr()
+  // props 데이터 세팅
+  setPropsData()
 }
 
 // 지난 주
 async function beforeWeek() {
   try {
     loading.value = true
+    // 기준 날짜를 7일 전으로 세팅
     displayDate.value.setDate(displayDate.value.getDate() - 7)
     await setDisplayWeek()
     fromThisWeek.value -= 1
     if (uid.value) {
       await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    } else {
+      // TODO 로그아웃
+      console.log('로그아웃 해라')
     }
   } catch (error) {
     console.log(error)
@@ -157,11 +166,15 @@ async function beforeWeek() {
 async function nextWeek() {
   try {
     loading.value = true
+    // 기준 날짜를 7일 후로 세팅
     displayDate.value.setDate(displayDate.value.getDate() + 7)
     await setDisplayWeek()
     fromThisWeek.value += 1
     if (uid.value) {
       await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    } else {
+      // TODO 로그아웃
+      console.log('로그아웃 해라')
     }
   } catch (error) {
     console.log(error)
@@ -174,13 +187,17 @@ async function nextWeek() {
 async function onToday() {
   try {
     loading.value = true
+    // 기준 날짜를 오늘로 세팅
     displayDate.value.setFullYear(today.value.getFullYear())
     displayDate.value.setMonth(today.value.getMonth())
     displayDate.value.setDate(today.value.getDate())
-    setDisplayWeek()
+    await setDisplayWeek()
     fromThisWeek.value = 0
     if (uid.value) {
       await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    } else {
+      // TODO 로그아웃
+      console.log('로그아웃 해라')
     }
   } catch (error) {
     console.log(error)
@@ -191,14 +208,16 @@ async function onToday() {
 
 // 날짜 선택
 function selectDate(item) {
+  // 기준 날짜를 선택한 날짜로 세팅
   displayDate.value.setFullYear(item.year)
   displayDate.value.setMonth(item.month)
   displayDate.value.setDate(item.date)
+  // 기준 날짜를 기준으로 한 주 세팅
   setDisplayWeek()
 }
 
 // 서브타이틀용 기준 날짜
-function setDisplayDateStr() {
+function setPropsData() {
   displayDateProps.value = {
     year: displayDate.value.getFullYear(),
     month: displayDate.value.getMonth(),
@@ -210,7 +229,7 @@ function setDisplayDateStr() {
         ? '0' + (displayDate.value.getMonth() + 1)
         : displayDate.value.getMonth() + 1
     }${displayDate.value.getDate() < 10 ? '0' + displayDate.value.getDate() : displayDate.value.getDate()}`,
-    todayData: todayData.value
+    selectedData: selectedData.value
   }
 }
 

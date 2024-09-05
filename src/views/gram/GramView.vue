@@ -90,8 +90,8 @@ const props = defineProps({
 
 // 날짜 선택시 세팅
 watch(props, (value) => {
-  memo.value = value.displayDateProps.todayData?.memo || ''
-  gram.value = value.displayDateProps.todayData?.gram || '0'
+  memo.value = value.displayDateProps.selectedData?.memo || ''
+  gram.value = value.displayDateProps.selectedData?.gram || '0'
 })
 
 const memo = ref('')
