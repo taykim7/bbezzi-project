@@ -81,11 +81,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 // const emit = defineEmits(['update:modelValue'])
 const props = defineProps({
   displayDateProps: Object
+})
+
+// 날짜 선택시 세팅
+watch(props, (value) => {
+  memo.value = value.displayDateProps.todayData?.memo || ''
+  gram.value = value.displayDateProps.todayData?.gram || '0'
 })
 
 const memo = ref('')

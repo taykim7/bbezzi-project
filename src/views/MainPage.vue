@@ -84,6 +84,7 @@ const displayWeek = ref([])
 const fromThisWeek = ref(0)
 const displayDateProps = ref({})
 const loading = ref(false)
+const todayData = ref({})
 
 onMounted(async () => {
   // 초기화
@@ -97,11 +98,11 @@ onMounted(async () => {
 
 // 화면에 보여줄 한 주 계산
 function setDisplayWeek() {
-  setDisplayDateStr()
+  const index = displayDate.value.getDay()
   const settingDate = new Date(
     displayDate.value.getFullYear(),
     displayDate.value.getMonth(),
-    displayDate.value.getDate() - displayDate.value.getDay()
+    displayDate.value.getDate() - index
   )
   displayWeek.value[0] = {
     year: settingDate.getFullYear(),
@@ -126,6 +127,13 @@ function setDisplayWeek() {
       }${settingDate.getDate() < 10 ? '0' + settingDate.getDate() : settingDate.getDate()}`
     }
   }
+
+  todayData.value =
+    posts.value.filter((item) => {
+      return item.standardDate === displayWeek.value[index].fullDate
+    })[0] || null
+
+  setDisplayDateStr()
 }
 
 // 지난 주
@@ -196,7 +204,13 @@ function setDisplayDateStr() {
     month: displayDate.value.getMonth(),
     date: displayDate.value.getDate(),
     day: displayDate.value.getDay(),
-    title: `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`
+    title: `${displayDate.value.getFullYear()}-${displayDate.value.getMonth() + 1}-${displayDate.value.getDate()} ${dayArrKor[displayDate.value.getDay()]}`,
+    fullDate: `${displayDate.value.getFullYear()}${
+      displayDate.value.getMonth() + 1 < 10
+        ? '0' + (displayDate.value.getMonth() + 1)
+        : displayDate.value.getMonth() + 1
+    }${displayDate.value.getDate() < 10 ? '0' + displayDate.value.getDate() : displayDate.value.getDate()}`,
+    todayData: todayData.value
   }
 }
 
