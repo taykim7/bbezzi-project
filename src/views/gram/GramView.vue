@@ -83,7 +83,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 
-// const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['postData'])
 const props = defineProps({
   displayDateProps: Object
 })
@@ -146,10 +146,14 @@ function add(numString) {
 
 // 등록
 function registration() {
-  console.log('검사')
-  console.log(memo.value)
-  console.log(gram.value)
-  console.log(props.displayDateProps)
+  // TODO 데이터 검사
+  const postData = {
+    createdDate: props.displayDateProps.fullDate,
+    standardDate: props.displayDateProps.fullDate,
+    memo: memo.value,
+    gram: gram.value
+  }
+  emit('postData', postData)
   edit.value = false
 }
 

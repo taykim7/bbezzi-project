@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { db } from '@/plugins/firebase'
-import { query, collection, orderBy, getDocs, where } from 'firebase/firestore'
+import { query, collection, orderBy, getDocs, where, setDoc, doc } from 'firebase/firestore'
 
 export const usePostStore = defineStore('post', {
   state: () => ({
@@ -26,6 +26,25 @@ export const usePostStore = defineStore('post', {
         console.log(error)
         this.posts = []
         return
+      }
+    },
+
+    // 생성
+    async setPost(postData) {
+      try {
+        const uid = postData.uid
+        const key = postData.standardDate
+        const url = `${uid}/datas/${key}`
+        const response = setDoc(doc(db, 'post', url), {
+          createdDate: postData.createdDate,
+          standardDate: postData.standardDate,
+          memo: postData.memo,
+          gram: postData.gram
+        }).then((response) => response)
+        console.log(response)
+        return response
+      } catch (error) {
+        console.log(error)
       }
     }
   }
