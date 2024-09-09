@@ -30,9 +30,9 @@ export const usePostStore = defineStore('post', {
     },
 
     // 생성
-    async setPost(postData) {
+    async setPost(uid, postData) {
       try {
-        const uid = postData.uid
+        console.log(postData)
         const key = postData.standardDate
         const url = `${uid}/datas/${key}`
         const response = setDoc(doc(db, 'post', url), {

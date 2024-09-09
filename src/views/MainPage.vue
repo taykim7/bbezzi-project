@@ -56,7 +56,7 @@
 
     <div class="line"></div>
 
-    <RouterView :displayDateProps="displayDateProps"></RouterView>
+    <RouterView :displayDateProps="displayDateProps" @postData="trySetPost"></RouterView>
   </div>
 </template>
 
@@ -68,7 +68,7 @@ import { usePostStore } from '@/stores/post'
 
 const { getMyInfo } = useUserStore()
 const { uid } = storeToRefs(useUserStore())
-const { fetchPosts } = usePostStore()
+const { fetchPosts, setPost } = usePostStore()
 const { posts } = storeToRefs(usePostStore())
 
 const dayArr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -242,6 +242,13 @@ function hasDone(index) {
     }
   })
   return result
+}
+
+// 저장 후 조회
+function trySetPost(item) {
+  setPost(uid.value, item).then(() => {
+    fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+  })
 }
 </script>
 
