@@ -149,7 +149,7 @@ function registration() {
   // TODO 데이터 검사
   if (gram.value.indexOf('.') < 0) {
     gram.value += '.0'
-  } else if (gram.value.indexOf('.' === gram.value.length - 1)) {
+  } else if (gram.value.indexOf('.') === gram.value.length - 1) {
     gram.value += '0'
   }
   const postData = {
