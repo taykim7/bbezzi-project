@@ -147,6 +147,9 @@ function add(numString) {
 // 등록
 function registration() {
   // TODO 데이터 검사
+  if (gram.value.indexOf('.') < 0) {
+    gram.value += '.0'
+  }
   const postData = {
     createdDate: props.displayDateProps.fullDate,
     standardDate: props.displayDateProps.fullDate,
