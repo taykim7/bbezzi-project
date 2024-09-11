@@ -1,12 +1,22 @@
 import { defineStore } from 'pinia'
 import { db } from '@/plugins/firebase'
-import { query, collection, orderBy, getDocs, where, setDoc, doc } from 'firebase/firestore'
+import {
+  query,
+  collection,
+  orderBy,
+  getDocs,
+  where,
+  setDoc,
+  doc,
+  deleteDoc
+} from 'firebase/firestore'
 
 export const usePostStore = defineStore('post', {
   state: () => ({
     posts: []
   }),
   actions: {
+    // 조회
     async fetchPosts(uid, start, end) {
       try {
         const url = `post/${uid}/datas`
@@ -46,6 +56,12 @@ export const usePostStore = defineStore('post', {
       } catch (error) {
         console.log(error)
       }
+    },
+
+    // 삭제
+    deletePost(uid, standardDate) {
+      const url = `${uid}/datas/${standardDate}`
+      return deleteDoc(doc(db, 'post', url)).then((response) => response)
     }
   }
 })
