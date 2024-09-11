@@ -13,7 +13,6 @@
       </div>
     </div>
   </div>
-
   <!-- 키패드 -->
   <div class="keypad-wrap mb32" v-if="edit">
     <div class="keypad-row mb8">
@@ -75,15 +74,15 @@
     v-else
     :titleBtnLeft="'수정하기'"
     :titleBtnRight="'삭제하기'"
-    @btn-left="test"
-    @btn-right="test"
+    @btn-left="tryEdit"
+    @btn-right="tryDelete"
   />
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 
-const emit = defineEmits(['postData'])
+const emit = defineEmits(['postData', 'deleteData'])
 const props = defineProps({
   displayDateProps: Object
 })
@@ -97,6 +96,9 @@ watch(props, (value) => {
 const memo = ref('')
 const gram = ref('0')
 const edit = ref(false)
+const hasData = computed(() => {
+  return props.displayDateProps.selectedData === null ? false : true
+})
 
 // 초기화
 function clear() {
@@ -162,9 +164,16 @@ function registration() {
   edit.value = false
 }
 
-// 수정, 삭제
-function test() {
+// 수정
+function tryEdit() {
   edit.value = true
+}
+
+// 삭제
+function tryDelete() {
+  if (hasData.value) {
+    emit('deleteData', props.displayDateProps.fullDate)
+  }
 }
 </script>
 
