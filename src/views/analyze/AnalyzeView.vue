@@ -53,9 +53,9 @@
 
   <div class="list-wrap mb100">
     <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
-    <div class="list-count mb8">총 {{ testData.length }} 건</div>
+    <div class="list-count mb8">총 {{ displayList.length }} 건</div>
     <div class="list-items">
-      <template v-for="(data, index) in testData" :key="index">
+      <template v-for="(data, index) in displayList" :key="index">
         <template v-if="edit === index">
           <!-- 아이템1 -->
           <div class="list-item-edit">
@@ -107,11 +107,16 @@
 
 <script setup>
 import { ref, watch, onMounted, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import AnalyzeChartView from './AnalyzeChartView.vue'
+import { usePostStore } from '@/stores/post'
+const { posts } = storeToRefs(usePostStore())
 
+const emit = defineEmits(['postData', 'deleteData'])
 const props = defineProps({
   displayDateProps: Object
 })
+
 const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 const startDate = ref({})
 const range = ref('')
@@ -121,55 +126,14 @@ const rangeTitle = ref('')
 const edit = ref(null)
 
 // 테스트 데이터
-const testData = ref([
-  {
-    date: '2024.07.01',
-    gram: 68.1,
-    memo: '오늘은 이것저것 쳐먹었따.'
-  },
-  {
-    date: '2024.07.02',
-    gram: 58.1,
-    memo: '어쩌구 저쩌구 메모'
-  },
-  {
-    date: '2024.07.03',
-    gram: 69.1,
-    memo: '진짜 다이어트 해야함'
-  },
-  {
-    date: '2024.07.04',
-    gram: 67.1,
-    memo: ''
-  },
-  {
-    date: '2024.07.05',
-    gram: 68.0,
-    memo: ''
-  },
-  {
-    date: '2024.07.06',
-    gram: 68.2,
-    memo: '오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.오늘은 이것저것 쳐먹었따.'
-  },
-  {
-    date: '2024.07.07',
-    gram: 68.4,
-    memo: '어쩌구 저쩌구'
-  },
-  {
-    date: '2024.07.08',
-    gram: 68.5,
-    memo: '오늘은 이것저것 쳐먹었따.'
-  }
-])
+const displayList = ref([])
 
 // mounted시 초기화
 onMounted(() => init())
 
 // 날짜 선택시 세팅
 watch(props, (value) => {
-  console.log(value.displayDateProps.title)
+  console.log(value.displayDateProps)
   setStartDate(range.value)
 })
 
@@ -221,6 +185,8 @@ function init() {
   range.value = '1w'
   setStartDate(range.value)
   // TODO 데이터 조회
+  displayList.value = posts.value
+  console.log(posts.value)
 }
 
 // 수정 중
