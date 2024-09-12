@@ -2,7 +2,6 @@
   <div class="chart-space">
     <V-Line :data="data" :options="options" />
   </div>
-  <button @click="test">클릭</button>
 </template>
 
 <script setup>
