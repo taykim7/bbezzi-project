@@ -15,37 +15,35 @@
   </div>
   <!-- 키패드 -->
   <div class="keypad-wrap mb32" v-if="edit">
-    <div class="keypad-row mb8">
+    <div class="keypad-row mb4">
       <button class="keypad-num" @click="add('1')">1</button>
       <button class="keypad-num" @click="add('2')">2</button>
       <button class="keypad-num" @click="add('3')">3</button>
-      <button class="keypad-else" @click="clear">C</button>
     </div>
-    <div class="keypad-row mb8">
+    <div class="keypad-row mb4">
       <button class="keypad-num" @click="add('4')">4</button>
       <button class="keypad-num" @click="add('5')">5</button>
       <button class="keypad-num" @click="add('6')">6</button>
+    </div>
+    <div class="keypad-row mb4">
+      <button class="keypad-num" @click="add('7')">7</button>
+      <button class="keypad-num" @click="add('8')">8</button>
+      <button class="keypad-num" @click="add('9')">9</button>
+    </div>
+    <div class="keypad-row">
+      <button class="keypad-else" @click="add('.')">.</button>
+      <button class="keypad-num" @click="add('0')">0</button>
       <button class="keypad-else" @click="cancel">
         <img
           class="input-btn-icon"
           src="../../assets/img/svg/icon_cancel_line.svg"
           height="40"
-          alt="전체제거"
+          alt="지우기"
         />
       </button>
     </div>
-    <div class="keypad-row mb8">
-      <button class="keypad-num" @click="add('7')">7</button>
-      <button class="keypad-num" @click="add('8')">8</button>
-      <button class="keypad-num" @click="add('9')">9</button>
-      <button class="keypad-else" @click="add('.')">.</button>
-    </div>
-    <div class="keypad-row">
-      <div class="keypad-nothing"></div>
-      <button class="keypad-num" @click="add('0')">0</button>
-      <div class="keypad-nothing"></div>
-      <div class="keypad-nothing"></div>
-    </div>
+    <!-- <button class="keypad-else" @click="clear">C</button> -->
+    <!-- <div class="keypad-nothing"></div> -->
     <!-- <div class="keypad-row">
       <button class="keypad-num" @click="add('7')">-1</button>
       <button class="keypad-num" @click="add('8')">-0.1</button>
@@ -101,9 +99,9 @@ const hasData = computed(() => {
 })
 
 // 초기화
-function clear() {
-  gram.value = '0'
-}
+// function clear() {
+//   gram.value = '0'
+// }
 
 // 취소
 function cancel() {
@@ -238,7 +236,7 @@ function tryDelete() {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .keypad-wrap .keypad-row .keypad-num {
   color: #343434;
@@ -246,9 +244,9 @@ function tryDelete() {
   font-size: 35px;
   font-weight: 400;
   background-color: #ffffff;
-  width: 70px;
-  height: 70px;
-  border-radius: 5rem;
+  width: 100%;
+  height: 50px;
+  border-radius: 1rem;
 }
 .keypad-wrap .keypad-row .keypad-else {
   display: flex;
@@ -259,9 +257,9 @@ function tryDelete() {
   font-size: 35px;
   font-weight: 400;
   background-color: #fff9eb;
-  width: 70px;
-  height: 70px;
-  border-radius: 5rem;
+  width: 100%;
+  height: 50px;
+  border-radius: 1rem;
 }
 .keypad-wrap .keypad-row .keypad-nothing {
   display: flex;
