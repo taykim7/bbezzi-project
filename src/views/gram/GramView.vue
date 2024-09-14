@@ -49,7 +49,7 @@
 <script setup>
 import { ref, watch, computed } from 'vue'
 
-const emit = defineEmits(['postData', 'deleteData'])
+const emit = defineEmits(['postData', 'deleteData', 'range'])
 const props = defineProps({
   displayDateProps: Object
 })

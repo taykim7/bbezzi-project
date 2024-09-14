@@ -60,6 +60,7 @@
       :displayDateProps="displayDateProps"
       @postData="trySetPost"
       @deleteData="tryDeleteData"
+      @range="tryFetchRange"
     ></RouterView>
   </div>
 </template>
@@ -261,6 +262,11 @@ function tryDeleteData(standardDate) {
   deletePost(uid.value, standardDate).then(() => {
     fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
   })
+}
+
+// 범위 조회
+function tryFetchRange(startFullDate) {
+  fetchPosts(uid.value, startFullDate.value, displayWeek.value[6].fullDate)
 }
 </script>
 

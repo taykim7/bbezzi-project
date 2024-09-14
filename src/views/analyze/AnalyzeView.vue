@@ -114,7 +114,7 @@ import { usePostStore } from '@/stores/post'
 
 const { posts } = storeToRefs(usePostStore())
 
-const emit = defineEmits(['postData', 'deleteData'])
+const emit = defineEmits(['postData', 'deleteData', 'range'])
 const props = defineProps({
   displayDateProps: Object
 })
@@ -123,6 +123,7 @@ const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요�
 const startDate = ref({})
 const range = ref('')
 const startDateTitle = ref('')
+const startFullDate = ref('')
 const rangeTitle = ref('')
 const edit = ref(null)
 
@@ -181,6 +182,12 @@ function setStartDate(start) {
       break
   }
   startDateTitle.value = `${startDate.value.getFullYear()}-${startDate.value.getMonth() + 1}-${startDate.value.getDate()} ${dayArrKor[startDate.value.getDay()]}`
+  startFullDate.value = `${startDate.value.getFullYear()}${
+    startDate.value.getMonth() + 1 < 10
+      ? '0' + (startDate.value.getMonth() + 1)
+      : startDate.value.getMonth() + 1
+  }${startDate.value.getDate() < 10 ? '0' + startDate.value.getDate() : startDate.value.getDate()}`
+  emit('range', startFullDate)
 }
 
 // 초기화 1주일로 세팅
