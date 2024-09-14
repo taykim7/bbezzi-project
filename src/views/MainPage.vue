@@ -250,8 +250,9 @@ function hasDone(index) {
 
 // 저장 후 조회
 function trySetPost(item) {
-  setPost(uid.value, item).then(() => {
-    fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+  setPost(uid.value, item).then(async () => {
+    await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    await setPropsData()
   })
 }
 
