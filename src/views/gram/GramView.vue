@@ -5,52 +5,21 @@
       <div class="gram-date">{{ displayDateProps.title }}</div>
     </div>
     <div class="gram-input mb32">
-      <div class="gram-unit">kg</div>
-      <div class="gram-gram">
+      <template v-if="limitNumber">
+        <div class="gram-limit">√</div>
+      </template>
+      <div class="gram-gram" :class="limitNumber ? 'limit' : ''">
         <p>
           {{ gram }}
         </p>
       </div>
+      <div class="gram-unit">kg</div>
     </div>
   </div>
   <!-- 키패드 -->
-  <div class="keypad-wrap mb32" v-if="edit">
-    <div class="keypad-row mb4">
-      <button class="keypad-num" @click="add('1')">1</button>
-      <button class="keypad-num" @click="add('2')">2</button>
-      <button class="keypad-num" @click="add('3')">3</button>
-    </div>
-    <div class="keypad-row mb4">
-      <button class="keypad-num" @click="add('4')">4</button>
-      <button class="keypad-num" @click="add('5')">5</button>
-      <button class="keypad-num" @click="add('6')">6</button>
-    </div>
-    <div class="keypad-row mb4">
-      <button class="keypad-num" @click="add('7')">7</button>
-      <button class="keypad-num" @click="add('8')">8</button>
-      <button class="keypad-num" @click="add('9')">9</button>
-    </div>
-    <div class="keypad-row">
-      <button class="keypad-else" @click="add('.')">.</button>
-      <button class="keypad-num" @click="add('0')">0</button>
-      <button class="keypad-else" @click="cancel">
-        <img
-          class="input-btn-icon"
-          src="../../assets/img/svg/icon_cancel_line.svg"
-          height="40"
-          alt="지우기"
-        />
-      </button>
-    </div>
-    <!-- <button class="keypad-else" @click="clear">C</button> -->
-    <!-- <div class="keypad-nothing"></div> -->
-    <!-- <div class="keypad-row">
-      <button class="keypad-num" @click="add('7')">-1</button>
-      <button class="keypad-num" @click="add('8')">-0.1</button>
-      <button class="keypad-num" @click="add('9')">+0.1</button>
-      <button class="keypad-else" @click="add('0')">+1</button>
-    </div> -->
-  </div>
+  <template v-if="edit">
+    <C-Keypad v-model="gram"></C-Keypad>
+  </template>
 
   <!-- textarea -->
   <div class="input-wrap mb100">
@@ -97,52 +66,21 @@ const edit = ref(false)
 const hasData = computed(() => {
   return props.displayDateProps.selectedData === null ? false : true
 })
-
-// 초기화
-// function clear() {
-//   gram.value = '0'
-// }
-
-// 취소
-function cancel() {
-  if (gram.value.length > 1) {
-    gram.value = gram.value.substring(0, gram.value.length - 1)
-  } else if (gram.value.length === 1 && gram.value !== '0') {
-    gram.value = '0'
+// 체중 입력 범위 한계
+const limitNumber = computed(() => {
+  const decimalPoint = gram.value.indexOf('.')
+  const modelValueLength = gram.value.length
+  switch (decimalPoint) {
+    case 1:
+      return modelValueLength === 3 ? true : false
+    case 2:
+      return modelValueLength === 4 ? true : false
+    case 3:
+      return modelValueLength === 5 ? true : false
+    default:
+      return false
   }
-}
-
-// 숫자 입력
-function add(numString) {
-  // 첫 입력
-  if (gram.value === '0' && numString !== '.') {
-    gram.value = ''
-  }
-  // 소수점이 없다면 세자리 제한
-  if (!gram.value.includes('.') && numString !== '.' && gram.value.length > 2) {
-    return ''
-  }
-  // 소수점이 이미 있다면 소수점 입력 취소
-  if (gram.value.includes('.') && numString === '.') {
-    return ''
-  }
-  // 일의 자리 - 소수점 한자리 수까지 제한
-  if (gram.value.indexOf('.') === 1 && gram.value.length > 2) {
-    gram.value = gram.value.substring(0, gram.value.length - 1)
-  }
-  // 십의 자리 - 소수점 한자리 수까지 제한
-  if (gram.value.indexOf('.') === 2 && gram.value.length > 3) {
-    gram.value = gram.value.substring(0, gram.value.length - 1)
-  }
-  // 백의 자리
-  if (gram.value.length > 4) {
-    gram.value = gram.value.substring(0, gram.value.length - 1)
-  }
-  gram.value += numString
-  if (gram.value === '0.0') {
-    gram.value = '0'
-  }
-}
+})
 
 // 등록
 function registration() {
@@ -211,6 +149,16 @@ function tryDelete() {
   font-size: 20px;
   font-weight: 400;
 }
+.gram-wrap .gram-input .gram-limit {
+  position: absolute;
+  transform: translate(50%, -50%);
+  top: 50%;
+  left: 1rem;
+  color: #ffffff;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+}
 .gram-wrap .gram-input .gram-gram {
   display: flex;
   justify-content: center;
@@ -228,50 +176,7 @@ function tryDelete() {
   border: 0;
   border-radius: 5px;
 }
-/* 키패드 */
-.keypad-wrap {
-  width: 100%;
-}
-.keypad-wrap .keypad-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-.keypad-wrap .keypad-row .keypad-num {
-  color: #343434;
-  text-align: center;
-  font-size: 35px;
-  font-weight: 400;
-  background-color: #ffffff;
-  width: 100%;
-  height: 50px;
-  border-radius: 1rem;
-}
-.keypad-wrap .keypad-row .keypad-else {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #343434;
-  text-align: center;
-  font-size: 35px;
-  font-weight: 400;
-  background-color: #fff9eb;
-  width: 100%;
-  height: 50px;
-  border-radius: 1rem;
-}
-.keypad-wrap .keypad-row .keypad-nothing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #343434;
-  text-align: center;
-  font-size: 35px;
-  font-weight: 400;
-  background-color: #fff9eb;
-  width: 70px;
-  height: 70px;
-  border-radius: 5rem;
+.gram-wrap .gram-input .gram-gram.limit {
+  color: #ffffff;
 }
 </style>
