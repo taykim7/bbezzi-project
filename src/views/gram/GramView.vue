@@ -58,6 +58,7 @@ const props = defineProps({
 watch(props, (value) => {
   memo.value = value.displayDateProps.selectedData?.memo || ''
   gram.value = value.displayDateProps.selectedData?.gram || '0'
+  edit.value = false
 })
 
 const memo = ref('')
