@@ -53,20 +53,20 @@
 
   <div class="list-wrap mb100">
     <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
-    <div class="list-count mb8">총 {{ displayList.length }} 건</div>
+    <div class="list-count mb8">총 {{ posts.length }} 건</div>
     <div class="list-items">
-      <template v-for="(data, index) in displayList" :key="index">
+      <template v-for="(data, index) in posts" :key="index">
         <template v-if="edit === index">
-          <!-- 아이템1 -->
+          <!-- 수정 -->
           <div class="list-item-edit">
-            <p class="list-date mr8">{{ data.date }}</p>
-            <p class="list-gram mr8">{{ data.gram }}</p>
-            <textarea class="list-memo mr8" :value="data.memo"></textarea>
+            <p class="list-date mr8">{{ standardDate }}</p>
+            <p class="list-gram mr8">{{ gram }}</p>
+            <textarea class="list-memo mr8" v-model="memo"></textarea>
             <div class="list-btn-wrap">
-              <button class="list-save mr8">
+              <button class="list-save mr8" @click="closeEdit(index)">
                 <img class="now-week-icon" src="../../assets/img/svg/icon_back.svg" height="15" />
               </button>
-              <button class="list-save">
+              <button class="list-save" @click="trySave(data)">
                 <img
                   class="now-week-icon"
                   src="../../assets/img/svg/icon_save_solid.svg"
@@ -75,22 +75,23 @@
               </button>
             </div>
           </div>
+          <C-Keypad v-model="gram"></C-Keypad>
         </template>
         <template v-else>
-          <!-- 아이템1 -->
+          <!-- 조회 -->
           <div class="list-item">
-            <p class="list-date mr8">{{ data.date }}</p>
+            <p class="list-date mr8">{{ data.standardDate }}</p>
             <p class="list-gram mr8">{{ data.gram }}</p>
             <textarea class="list-memo mr8" :value="data.memo" readonly></textarea>
             <div class="list-btn-wrap">
-              <button class="list-edit mr8" @click="tryEdit(index)">
+              <button class="list-edit mr8" @click="tryEdit(data, index)">
                 <img
                   class="now-week-icon"
                   src="../../assets/img/svg/icon_edit_solid.svg"
                   height="20"
                 />
               </button>
-              <button class="list-delete">
+              <button class="list-delete" @click="tryDelete(data)">
                 <img
                   class="now-week-icon"
                   src="../../assets/img/svg/icon_delete_solid.svg"
@@ -106,10 +107,11 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, computed } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import AnalyzeChartView from './AnalyzeChartView.vue'
 import { usePostStore } from '@/stores/post'
+
 const { posts } = storeToRefs(usePostStore())
 
 const emit = defineEmits(['postData', 'deleteData'])
@@ -122,11 +124,12 @@ const startDate = ref({})
 const range = ref('')
 const startDateTitle = ref('')
 const rangeTitle = ref('')
-
 const edit = ref(null)
 
-// 테스트 데이터
-const displayList = ref([])
+// 업데이트용 데이터
+const standardDate = ref('')
+const gram = ref('')
+const memo = ref('')
 
 // mounted시 초기화
 onMounted(() => init())
@@ -184,14 +187,36 @@ function setStartDate(start) {
 function init() {
   range.value = '1w'
   setStartDate(range.value)
-  // TODO 데이터 조회
-  displayList.value = posts.value
-  console.log(posts.value)
 }
 
-// 수정 중
-function tryEdit(index) {
+// 수정 시도
+function tryEdit(data, index) {
+  standardDate.value = data.standardDate
+  gram.value = data.gram
+  memo.value = data.memo
   edit.value = index
+}
+
+// 수정 취소
+function closeEdit() {
+  edit.value = null
+}
+
+// 저장 시도
+function trySave(data) {
+  const postData = {
+    createdDate: data.createdDate,
+    standardDate: standardDate.value,
+    memo: memo.value,
+    gram: gram.value
+  }
+  emit('postData', postData)
+  edit.value = null
+}
+
+// 삭제 시도
+function tryDelete(data) {
+  emit('deleteData', data.standardDate)
 }
 </script>
 
