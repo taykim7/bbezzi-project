@@ -38,10 +38,6 @@
   <!-- 버튼 -->
   <template v-if="hasData">
     <C-Button v-if="edit" singleMain :titleBtnMain="'등록하기'" @btn-main="registration" />
-    <C-Button v-else singleMain :titleBtnMain="'오늘의 기록'" @btn-main="tryEdit" />
-  </template>
-  <template v-else>
-    <C-Button v-if="edit" singleMain :titleBtnMain="'등록하기'" @btn-main="registration" />
     <C-Button
       v-else
       :titleBtnLeft="'수정하기'"
@@ -49,6 +45,10 @@
       @btn-left="tryEdit"
       @btn-right="tryDelete"
     />
+  </template>
+  <template v-else>
+    <C-Button v-if="edit" singleMain :titleBtnMain="'등록하기'" @btn-main="registration" />
+    <C-Button v-else singleMain :titleBtnMain="'기록하기'" @btn-main="tryEdit" />
   </template>
 </template>
 
