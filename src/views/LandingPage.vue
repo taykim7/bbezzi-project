@@ -3,7 +3,7 @@
     <!-- 인트로 -->
     <IntroView />
     <!-- 스와이프 -->
-    <div class="swipe-wrap">
+    <!-- <div class="swipe-wrap">
       <div class="swipe-img mb8"></div>
       <div class="swipe-seq">
         <div class="swipe-item mr8"></div>
@@ -11,7 +11,8 @@
         <div class="swipe-item mr8"></div>
         <div class="swipe-item"></div>
       </div>
-    </div>
+    </div> -->
+    <LandingSwiper />
     <!-- 버튼 -->
     <C-Button
       singleMain
@@ -28,6 +29,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import IntroView from './intro/IntroView.vue'
+import LandingSwiper from '@/components/LandingSwiper.vue'
 
 const router = useRouter()
 const movePage = () => {
@@ -61,7 +63,7 @@ const moveLoginPage = () => {
   height: 35rem;
 }
 
-.swipe-wrap .swipe-seq {
+/* .swipe-wrap .swipe-seq {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,5 +79,5 @@ const moveLoginPage = () => {
   border-radius: 10px;
   width: 32px;
   height: 13px;
-}
+} */
 </style>
