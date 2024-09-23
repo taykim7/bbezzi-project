@@ -1,7 +1,8 @@
 <template>
-  <div class="chart-wrap mb60">
+  <!-- 기간설정 -->
+  <div class="chart-wrap mb30">
     <div class="chart-title mb8">기간 설정</div>
-    <div class="chart-btns mb40">
+    <div class="chart-btns mb10">
       <button
         class="chart-btn"
         :class="range === '1y' ? 'selected' : ''"
@@ -35,7 +36,11 @@
         1주일
       </button>
     </div>
-    <div class="chart-date mb40">
+  </div>
+
+  <!-- 차트 -->
+  <div class="chart-wrap mb30">
+    <div class="chart-date mb8">
       <p>{{ startDateTitle }}</p>
       <p class="ml8 mr8">~</p>
       <p>{{ displayDateProps.title }}</p>
@@ -43,14 +48,16 @@
     <AnalyzeChartView />
   </div>
 
+  <!-- 업적 -->
   <div class="chart-wrap mb60">
     <div class="chart-title mb8">{{ rangeTitle }}의 업적</div>
     <div class="did-list">
-      <div class="did-title mb4">320일의 체중을 기록하였습니다!</div>
+      <div class="did-title mb4">{{ posts.length }}일의 체중을 기록하였습니다!</div>
       <div class="did-title">2.3 kg 감량했습니다!</div>
     </div>
   </div>
 
+  <!-- 리스트 -->
   <div class="list-wrap mb100">
     <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
     <div class="list-count mb8">총 {{ posts.length }} 건</div>
