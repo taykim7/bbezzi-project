@@ -38,79 +38,82 @@
     </div>
   </div>
 
-  <!-- 차트 -->
-  <div class="chart-wrap mb30">
-    <div class="chart-date mb8">
-      <p>{{ startDateTitle }}</p>
-      <p class="ml8 mr8">~</p>
-      <p>{{ displayDateProps.title }}</p>
+  <template v-if="posts.length > 0">
+    <!-- 차트 -->
+    <div class="chart-wrap mb30">
+      <div class="chart-date mb8">
+        <p>{{ startDateTitle }}</p>
+        <p class="ml8 mr8">~</p>
+        <p>{{ displayDateProps.title }}</p>
+      </div>
+      <AnalyzeChartView />
     </div>
-    <AnalyzeChartView />
-  </div>
 
-  <!-- 업적 -->
-  <div class="chart-wrap mb60">
-    <div class="chart-title mb8">{{ rangeTitle }}의 업적</div>
-    <div class="did-list">
-      <div class="did-title mb4">{{ posts.length }}일의 체중을 기록하였습니다!</div>
-      <div class="did-title">2.3 kg 감량했습니다!</div>
+    <!-- 업적 -->
+    <div class="chart-wrap mb60">
+      <div class="chart-title mb8">{{ rangeTitle }}의 업적</div>
+      <div class="did-list">
+        <div class="did-title mb4">{{ posts.length }}일의 체중을 기록하였습니다!</div>
+        <div class="did-title">2.3 kg 감량했습니다!</div>
+      </div>
     </div>
-  </div>
 
-  <!-- 리스트 -->
-  <div class="list-wrap mb100">
-    <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
-    <div class="list-count mb8">총 {{ posts.length }} 건</div>
-    <div class="list-items">
-      <template v-for="(data, index) in posts" :key="index">
-        <template v-if="edit === index">
-          <!-- 수정 -->
-          <div class="list-item-edit">
-            <p class="list-date mr8">{{ standardDate }}</p>
-            <p class="list-gram mr8">{{ gram }}</p>
-            <textarea class="list-memo mr8" v-model="memo"></textarea>
-            <div class="list-btn-wrap">
-              <button class="list-save mr8" @click="closeEdit(index)">
-                <img class="now-week-icon" src="../../assets/img/svg/icon_back.svg" height="15" />
-              </button>
-              <button class="list-save" @click="trySave(data)">
-                <img
-                  class="now-week-icon"
-                  src="../../assets/img/svg/icon_save_solid.svg"
-                  height="20"
-                />
-              </button>
+    <!-- 리스트 -->
+    <div class="list-wrap mb100">
+      <div class="list-title mb4">{{ rangeTitle }}의 리스트</div>
+      <div class="list-count mb8">총 {{ posts.length }} 건</div>
+      <div class="list-items">
+        <template v-for="(data, index) in posts" :key="index">
+          <template v-if="edit === index">
+            <!-- 수정 -->
+            <div class="list-item-edit">
+              <p class="list-date mr8">{{ standardDate }}</p>
+              <p class="list-gram mr8">{{ gram }}</p>
+              <textarea class="list-memo mr8" v-model="memo"></textarea>
+              <div class="list-btn-wrap">
+                <button class="list-save mr8" @click="closeEdit(index)">
+                  <img class="now-week-icon" src="../../assets/img/svg/icon_back.svg" height="15" />
+                </button>
+                <button class="list-save" @click="trySave(data)">
+                  <img
+                    class="now-week-icon"
+                    src="../../assets/img/svg/icon_save_solid.svg"
+                    height="20"
+                  />
+                </button>
+              </div>
             </div>
-          </div>
-          <C-Keypad v-model="gram"></C-Keypad>
-        </template>
-        <template v-else>
-          <!-- 조회 -->
-          <div class="list-item">
-            <p class="list-date mr8">{{ data.standardDate }}</p>
-            <p class="list-gram mr8">{{ data.gram }}</p>
-            <textarea class="list-memo mr8" :value="data.memo" readonly></textarea>
-            <div class="list-btn-wrap">
-              <button class="list-edit mr8" @click="tryEdit(data, index)">
-                <img
-                  class="now-week-icon"
-                  src="../../assets/img/svg/icon_edit_solid.svg"
-                  height="20"
-                />
-              </button>
-              <button class="list-delete" @click="tryDelete(data)">
-                <img
-                  class="now-week-icon"
-                  src="../../assets/img/svg/icon_delete_solid.svg"
-                  height="20"
-                />
-              </button>
+            <C-Keypad v-model="gram"></C-Keypad>
+          </template>
+          <template v-else>
+            <!-- 조회 -->
+            <div class="list-item">
+              <p class="list-date mr8">{{ data.standardDate }}</p>
+              <p class="list-gram mr8">{{ data.gram }}</p>
+              <textarea class="list-memo mr8" :value="data.memo" readonly></textarea>
+              <div class="list-btn-wrap">
+                <button class="list-edit mr8" @click="tryEdit(data, index)">
+                  <img
+                    class="now-week-icon"
+                    src="../../assets/img/svg/icon_edit_solid.svg"
+                    height="20"
+                  />
+                </button>
+                <button class="list-delete" @click="tryDelete(data)">
+                  <img
+                    class="now-week-icon"
+                    src="../../assets/img/svg/icon_delete_solid.svg"
+                    height="20"
+                  />
+                </button>
+              </div>
             </div>
-          </div>
+          </template>
         </template>
-      </template>
+      </div>
     </div>
-  </div>
+  </template>
+  <template v-else>데이터가 없습니다.</template>
 </template>
 
 <script setup>
