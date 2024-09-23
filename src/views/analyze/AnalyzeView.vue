@@ -53,8 +53,9 @@
     <div class="chart-wrap mb60">
       <div class="chart-title mb8">{{ rangeTitle }}의 업적</div>
       <div class="did-list">
-        <div class="did-title mb4">{{ posts.length }}일의 체중을 기록하였습니다!</div>
-        <div class="did-title">2.3 kg 감량했습니다!</div>
+        <div class="did-title mb4">{{ posts.length }}일을 기록하였습니다!</div>
+        <div class="did-title mb4">{{ firstLast.sub }} kg {{ firstLast.res }}했습니다!</div>
+        <div class="did-title mb4">최대 : {{ maxMin.max }} kg / 최소 : {{ maxMin.min }} kg</div>
       </div>
     </div>
 
@@ -117,7 +118,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import AnalyzeChartView from './AnalyzeChartView.vue'
 import { usePostStore } from '@/stores/post'
@@ -149,6 +150,36 @@ onMounted(() => init())
 watch(props, (value) => {
   console.log(value.displayDateProps)
   setStartDate(range.value)
+})
+
+// 최대최소무게
+const maxMin = computed(() => {
+  if (posts) {
+    let max = posts.value[0].gram
+    let min = posts.value[0].gram
+    for (const element of posts.value) {
+      // 최대
+      if (element.gram > max) {
+        max = element.gram
+      }
+      // 최소
+      if (element.gram < min && element.gram > 0) {
+        min = element.gram
+      }
+    }
+    return { max, min }
+  } else return {}
+})
+
+// 최초로부터 차이
+const firstLast = computed(() => {
+  if (posts) {
+    let first = posts.value[0].gram
+    let last = posts.value[posts.value.length - 1].gram
+    let sub = (first - last).toFixed(1)
+    let res = sub > 0 ? '증량' : '감량'
+    return { first, last, sub, res }
+  } else return {}
 })
 
 // 범위 시작 날짜 세팅
