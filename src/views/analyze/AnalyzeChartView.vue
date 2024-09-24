@@ -7,6 +7,10 @@
 <script setup>
 import { ref } from 'vue'
 
+const props = defineProps({
+  posts: Object
+})
+
 // 옵션
 const options = {
   responsive: true,
@@ -15,15 +19,20 @@ const options = {
 
 // 데이터
 const data = ref({
-  labels: ['240101', '240101', '240101', '240101', '240101', '240101', '240101'],
+  labels: [],
   datasets: [
     {
       label: 'Data One',
       backgroundColor: '#f87979',
-      data: [60, 61, 63, 65, 68, 64, 61]
+      data: []
     }
   ]
 })
+
+for (const element of props.posts) {
+  data.value.labels.push(element.standardDate)
+  data.value.datasets[0].data.push(element.gram)
+}
 </script>
 
 <style scoped>

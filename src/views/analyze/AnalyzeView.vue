@@ -46,7 +46,7 @@
         <p class="ml8 mr8">~</p>
         <p>{{ displayDateProps.title }}</p>
       </div>
-      <AnalyzeChartView />
+      <AnalyzeChartView :posts="posts"/>
     </div>
 
     <!-- 업적 -->
