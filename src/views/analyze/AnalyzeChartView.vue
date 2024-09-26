@@ -58,9 +58,9 @@ if (postsCount <= 7) {
 }
 
 // 데이터 삽입
-for (const element of props.posts) {
-  data.value.labels.push(element.standardDate)
-  data.value.datasets[0].data.push(element.gram)
+for (let i = postsCount - 1; i >= 0; i--) {
+  data.value.labels.push(props.posts[i].standardDate)
+  data.value.datasets[0].data.push(props.posts[i].gram)
 }
 </script>
 
