@@ -96,6 +96,8 @@ function autosize() {
   background: transparent;
   width: 100%;
   padding: 5px 0 5px 0;
+
+  resize: none;
 }
 .input-contents .input-textarea::placeholder {
   color: #bababa;

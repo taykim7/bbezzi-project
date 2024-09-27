@@ -46,7 +46,7 @@
         <p class="ml8 mr8">~</p>
         <p>{{ displayDateProps.title }}</p>
       </div>
-      <AnalyzeChartView :posts="posts"/>
+      <AnalyzeChartView :posts="posts" />
     </div>
 
     <!-- 업적 -->
@@ -390,6 +390,7 @@ function tryDelete(data) {
   font-size: 15px;
   font-weight: 300;
   border: 0;
+  resize: none;
 }
 /* 수정 */
 .list-item-edit {
@@ -419,6 +420,7 @@ function tryDelete(data) {
   font-size: 15px;
   font-weight: 300;
   border: 0;
+  resize: none;
 }
 .list-btn-wrap {
   display: flex;
