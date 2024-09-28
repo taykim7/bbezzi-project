@@ -26,11 +26,12 @@ export const usePostStore = defineStore('post', {
           where('standardDate', '<=', end),
           orderBy('standardDate', 'desc')
         )
-        this.posts = []
         const response = await getDocs(q)
+        const resposeArray = []
         response.forEach((doc) => {
-          this.posts.push(doc.data())
+          resposeArray.push(doc.data())
         })
+        this.posts = [...resposeArray]
         return
       } catch (error) {
         console.log(error)

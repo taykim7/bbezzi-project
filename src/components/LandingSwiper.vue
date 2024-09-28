@@ -25,7 +25,6 @@ const modules = [Pagination]
 .swiper {
   width: 100%;
 }
-
 .swiper-slide {
   text-align: center;
   font-size: 18px;
