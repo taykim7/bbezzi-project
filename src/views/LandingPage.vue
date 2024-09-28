@@ -3,15 +3,6 @@
     <!-- 인트로 -->
     <IntroView />
     <!-- 스와이프 -->
-    <!-- <div class="swipe-wrap">
-      <div class="swipe-img mb8"></div>
-      <div class="swipe-seq">
-        <div class="swipe-item mr8"></div>
-        <div class="swipe-item-now mr8"></div>
-        <div class="swipe-item mr8"></div>
-        <div class="swipe-item"></div>
-      </div>
-    </div> -->
     <LandingSwiper />
     <!-- 버튼 -->
     <C-Button
@@ -52,32 +43,4 @@ const moveLoginPage = () => {
   flex-direction: column;
   height: 100%;
 }
-
-/* 스와이프 */
-.swipe-wrap {
-  width: 100%;
-}
-.swipe-wrap .swipe-img {
-  background-color: #d9d9d9;
-  width: 100%;
-  height: 35rem;
-}
-
-/* .swipe-wrap .swipe-seq {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.swipe-wrap .swipe-seq .swipe-item {
-  background: #d9d9d9;
-  border-radius: 10px;
-  width: 13px;
-  height: 13px;
-}
-.swipe-wrap .swipe-seq .swipe-item-now {
-  background: #343434;
-  border-radius: 10px;
-  width: 32px;
-  height: 13px;
-} */
 </style>
