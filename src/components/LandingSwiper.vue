@@ -37,9 +37,9 @@ const modules = [Pagination]
 }
 .swiper-slide img {
   display: block;
-  width: 100%;
   height: 100%;
   object-fit: cover;
+  max-width: 70rem;
 }
 .swiper-pagination .swiper-pagination-bullet {
   background: #343434;
