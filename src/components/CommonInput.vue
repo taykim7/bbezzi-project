@@ -6,6 +6,7 @@
       v-model="modelValue"
       :type="type || 'text'"
       :placeholder="placeholder || 'placeholder'"
+      @keyup.enter="$emit('keyupEnter')"
     />
     <!-- 중복확인 -->
     <button v-if="doubleCheck" class="input-btn ml8">중복확인</button>
@@ -23,7 +24,7 @@
 <script setup>
 import { computed } from 'vue'
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'keyupEnter'])
 const props = defineProps({
   modelValue: String,
   type: String,
