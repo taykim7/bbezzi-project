@@ -36,22 +36,34 @@
           >
             {{ dayArr[index] }}
           </div>
-          <button
-            class="now-week-date"
-            :class="hasDone(index) ? 'did' : ''"
-            @click="selectDate(day)"
-          >
-            {{ day.date }}
-          </button>
+          <template v-if="isFutureDate(day)">
+            <button class="now-week-date future" disabled>
+              {{ day.date }}
+            </button>
+          </template>
+          <template v-else>
+            <button
+              class="now-week-date"
+              :class="hasDone(index) ? 'did' : ''"
+              @click="selectDate(day)"
+            >
+              {{ day.date }}
+            </button>
+          </template>
           <div
             class="now-week-selected"
             :class="displayDate.getDate() === day.date ? 'selected' : ''"
           ></div>
         </div>
       </template>
-      <button @click="nextWeek">
-        <img class="now-week-icon" src="../assets/img/svg/icon_after.svg" height="25" />
-      </button>
+      <template v-if="isFutureWeek()">
+        <button></button>
+      </template>
+      <template v-else>
+        <button @click="nextWeek">
+          <img class="now-week-icon" src="../assets/img/svg/icon_after.svg" height="25" />
+        </button>
+      </template>
     </div>
 
     <div class="line"></div>
@@ -173,6 +185,9 @@ async function nextWeek() {
     loading.value = true
     // 기준 날짜를 7일 후로 세팅
     displayDate.value.setDate(displayDate.value.getDate() + 7)
+    if (0 < displayDate.value - today.value) {
+      displayDate.value = new Date(today.value)
+    }
     await setDisplayWeek()
     fromThisWeek.value += 1
     if (uid.value) {
@@ -249,6 +264,30 @@ function hasDone(index) {
   return result
 }
 
+// 미래인지 확인(day)
+function isFutureDate(item) {
+  const targetDate = item.fullDate
+  const todayDate = `${today.value.getFullYear()}${
+    today.value.getMonth() + 1 < 10
+      ? '0' + (today.value.getMonth() + 1)
+      : today.value.getMonth() + 1
+  }${today.value.getDate() < 10 ? '0' + today.value.getDate() : today.value.getDate()}`
+  return Number(targetDate) > Number(todayDate)
+}
+
+// 미래인지 확인(week)
+function isFutureWeek() {
+  const todayDate = `${today.value.getFullYear()}${
+    today.value.getMonth() + 1 < 10
+      ? '0' + (today.value.getMonth() + 1)
+      : today.value.getMonth() + 1
+  }${today.value.getDate() < 10 ? '0' + today.value.getDate() : today.value.getDate()}`
+  const targetDate = displayWeek.value.filter((item) => {
+    return item.fullDate === todayDate
+  })
+  return targetDate.length === 1
+}
+
 // 저장 후 조회
 function trySetPost(item) {
   setPost(uid.value, item).then(async () => {
@@ -303,11 +342,15 @@ function tryFetchRange(startFullDate) {
   align-items: center;
   width: 100%;
 }
-.now-week-one {
+.now-week > button {
+  width: 10%;
+}
+.now-week .now-week-one {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 12%;
 }
 .now-week-day {
   color: #343434;
@@ -350,6 +393,10 @@ function tryFetchRange(startFullDate) {
   font-weight: 600;
   color: #f2efe7;
   background-color: #343434;
+}
+.future {
+  cursor: default;
+  color: #bababa;
 }
 
 .line {
