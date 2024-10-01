@@ -406,3 +406,7 @@ input[type='radio'] + label {
 .input-wrap {
   width: 100%;
 }
+/* button */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
