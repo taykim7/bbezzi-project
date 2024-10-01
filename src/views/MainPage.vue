@@ -104,6 +104,8 @@ const selectedData = ref({})
 const displayDateProps = ref({})
 // 로딩
 const loading = ref(false)
+// 시작범위
+const rangeStartFullDate = ref('')
 
 onMounted(async () => {
   // 초기화
@@ -167,7 +169,11 @@ async function beforeWeek() {
     await setDisplayWeek()
     fromThisWeek.value -= 1
     if (uid.value) {
-      await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+      await fetchPosts(
+        uid.value,
+        rangeStartFullDate.value === '' ? displayWeek.value[0].fullDate : rangeStartFullDate.value,
+        displayWeek.value[6].fullDate
+      )
     } else {
       // TODO 로그아웃
       console.log('로그아웃 해라')
@@ -188,10 +194,14 @@ async function nextWeek() {
     if (0 < displayDate.value - today.value) {
       displayDate.value = new Date(today.value)
     }
-    await setDisplayWeek()
     fromThisWeek.value += 1
+    await setDisplayWeek()
     if (uid.value) {
-      await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+      await fetchPosts(
+        uid.value,
+        rangeStartFullDate.value === '' ? displayWeek.value[0].fullDate : rangeStartFullDate.value,
+        displayWeek.value[6].fullDate
+      )
     } else {
       // TODO 로그아웃
       console.log('로그아웃 해라')
@@ -214,7 +224,11 @@ async function onToday() {
     await setDisplayWeek()
     fromThisWeek.value = 0
     if (uid.value) {
-      await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+      await fetchPosts(
+        uid.value,
+        rangeStartFullDate.value === '' ? displayWeek.value[0].fullDate : rangeStartFullDate.value,
+        displayWeek.value[6].fullDate
+      )
     } else {
       // TODO 로그아웃
       console.log('로그아웃 해라')
@@ -305,7 +319,8 @@ function tryDeleteData(standardDate) {
 
 // 범위 조회
 function tryFetchRange(startFullDate) {
-  fetchPosts(uid.value, startFullDate.value, displayWeek.value[6].fullDate)
+  rangeStartFullDate.value = startFullDate.value
+  fetchPosts(uid.value, rangeStartFullDate.value, displayWeek.value[6].fullDate)
 }
 </script>
 

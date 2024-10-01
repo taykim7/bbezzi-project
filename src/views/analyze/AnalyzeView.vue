@@ -46,7 +46,7 @@
         <p class="ml8 mr8">~</p>
         <p>{{ displayDateProps.title }}</p>
       </div>
-      <AnalyzeChartView :posts="posts" />
+      <AnalyzeChartView :posts="posts" :displayDate="displayDateProps.fullDate" />
     </div>
 
     <!-- 업적 -->
@@ -147,8 +147,7 @@ const memo = ref('')
 onMounted(() => init())
 
 // 날짜 선택시 세팅
-watch(props, (value) => {
-  console.log(value.displayDateProps)
+watch(props, () => {
   setStartDate(range.value)
 })
 

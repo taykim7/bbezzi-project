@@ -8,7 +8,8 @@
 import { ref, watch } from 'vue'
 
 const props = defineProps({
-  posts: Object
+  posts: Object,
+  displayDate: String
 })
 
 // 옵션
@@ -78,8 +79,10 @@ const initPosts = () => {
   const labels = []
   const datas = []
   for (let i = postsCount.value - 1; i >= 0; i--) {
-    labels.push(props.posts[i].standardDate)
-    datas.push(props.posts[i].gram)
+    if (Number(props.posts[i].standardDate) <= Number(props.displayDate)) {
+      labels.push(props.posts[i].standardDate)
+      datas.push(props.posts[i].gram)
+    }
   }
   data.value.labels = [...labels]
   data.value.datasets[0].data = [...datas]
