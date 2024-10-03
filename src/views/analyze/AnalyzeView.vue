@@ -114,7 +114,7 @@
       </div>
     </div>
   </template>
-  <template v-else>데이터가 없습니다.</template>
+  <template v-else><img src="@/assets/img/img/test1.png" alt="test" /></template>
 </template>
 
 <script setup>
