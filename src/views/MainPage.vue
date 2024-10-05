@@ -316,8 +316,13 @@ function trySetPost(item) {
 
 // 삭제
 function tryDeleteData(standardDate) {
-  deletePost(uid.value, standardDate).then(() => {
-    fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+  deletePost(uid.value, standardDate).then(async () => {
+    await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
+    await selectDate({
+      year: displayDate.value.getFullYear(),
+      month: displayDate.value.getMonth(),
+      date: displayDate.value.getDate()
+    })
   })
 }
 
