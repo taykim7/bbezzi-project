@@ -306,7 +306,11 @@ function isFutureWeek() {
 function trySetPost(item) {
   setPost(uid.value, item).then(async () => {
     await fetchPosts(uid.value, displayWeek.value[0].fullDate, displayWeek.value[6].fullDate)
-    await setPropsData()
+    await selectDate({
+      year: displayDate.value.getFullYear(),
+      month: displayDate.value.getMonth(),
+      date: displayDate.value.getDate()
+    })
   })
 }
 
