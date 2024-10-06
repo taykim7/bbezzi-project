@@ -1,32 +1,29 @@
 <template>
-  <div class="main">
-    <div class="now-date mb16">
+  <div class="main-wrap">
+    <div class="now-date-wrap mb16">
       <button>
         <!-- TODO 캘린더 팝업 추가 -->
-        <img
-          class="now-date-icon mr8"
-          src="../assets/img/svg/icon_calender_color.svg"
-          height="25"
-        />
+        <img class="icon-img mr8" src="../assets/img/svg/icon_calender_color.svg" height="25" />
       </button>
-      <div class="now-year mr8">
-        <p>{{ displayDate.getFullYear() }}년</p>
+      <div class="now-date mr8">
+        <p>
+          {{ displayDate.getFullYear() }}년 <b>{{ displayDate.getMonth() + 1 + '월' }}</b>
+        </p>
       </div>
-      <div class="now-month">
-        <p>{{ displayDate.getMonth() + 1 + '월' }}</p>
-      </div>
-      <button v-if="today.getDate() !== displayDate.getDate()" @click="onToday">
-        <!-- FIXME 아이콘 수정 -->
-        <img class="now-date-icon ml8" src="../assets/img/svg/icon_clear.svg" height="25" />
-      </button>
+      <template v-if="today.getDate() !== displayDate.getDate()">
+        <button @click="onToday">
+          <!-- FIXME 아이콘 수정 -->
+          <img class="icon-img ml8" src="../assets/img/svg/icon_clear.svg" height="25" />
+        </button>
+      </template>
     </div>
 
     <!-- TODO 로딩 이미지 구현 -->
     <template v-if="loading"></template>
 
-    <div class="now-week">
+    <div class="now-week-wrap">
       <button @click="beforeWeek">
-        <img class="now-week-icon" src="../assets/img/svg/icon_before.svg" height="25" />
+        <img class="icon-img" src="../assets/img/svg/icon_before.svg" height="25" />
       </button>
       <template v-for="(day, index) in displayWeek" :key="index">
         <div class="now-week-one">
@@ -61,7 +58,7 @@
       </template>
       <template v-else>
         <button @click="nextWeek">
-          <img class="now-week-icon" src="../assets/img/svg/icon_after.svg" height="25" />
+          <img class="icon-img" src="../assets/img/svg/icon_after.svg" height="25" />
         </button>
       </template>
     </div>
@@ -334,49 +331,41 @@ function tryFetchRange(startFullDate) {
 </script>
 
 <style scoped>
-.main {
+.main-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.now-date {
+.main-wrap .now-date-wrap {
   display: flex;
   align-items: center;
   flex-direction: row;
 
   color: #343434;
 }
-.now-date-icon {
-  width: auto;
-}
-.now-year {
+.now-date {
   font-size: 20px;
   font-weight: 400;
   text-align: center;
 }
-.now-month {
-  font-size: 20px;
-  font-weight: 800;
-  text-align: center;
-}
-.now-week {
+.now-week-wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
-.now-week > button {
+.now-week-wrap > button {
   width: 10%;
 }
-.now-week .now-week-one {
+.now-week-wrap .now-week-one {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 12%;
 }
-.now-week-day {
+.now-week-wrap .now-week-one .now-week-day {
   color: #343434;
   width: 40px;
   border-radius: 20px;
@@ -385,15 +374,12 @@ function tryFetchRange(startFullDate) {
   font-weight: 400;
   margin: 0.4rem;
 }
-/* 오늘 */
-.today {
+.now-week-wrap .now-week-one .now-week-day.today {
   color: #f2efe7;
   background-color: #343434;
-  border-radius: 20px;
-  font-size: 15px;
   font-weight: 600;
 }
-.now-week-date {
+.now-week-wrap .now-week-one .now-week-date {
   color: #343434;
   width: 45px;
   height: 45px;
@@ -402,31 +388,35 @@ function tryFetchRange(startFullDate) {
   font-size: 15px;
   font-weight: 400;
 }
-.now-week-selected {
-  width: 40px;
-  height: 1px;
-  text-align: center;
-}
-/* TODO 표현 변경 */
-/* 선택한 날 */
-.selected {
-  background-color: #343434;
-}
-/* 기록한 날 */
-.did {
+/* 기록 완료 */
+.now-week-wrap .now-week-one .now-week-date.did {
   font-weight: 600;
   color: #f2efe7;
   background-color: #343434;
 }
-.future {
+/* 미래 */
+.now-week-wrap .now-week-one .now-week-date.future {
   cursor: default;
   color: #bababa;
 }
-
+.now-week-wrap .now-week-one .now-week-selected {
+  width: 40px;
+  height: 1px;
+  text-align: center;
+}
+/* 선택한 날짜 */
+/* TODO 표현 변경 */
+.now-week-wrap .now-week-one .now-week-selected.selected {
+  background-color: #343434;
+}
 .line {
   width: 100%;
   border-bottom: 1px solid #bababa;
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+/* 아이콘 이미지 */
+.icon-img {
+  width: auto;
 }
 </style>

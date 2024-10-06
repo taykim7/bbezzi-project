@@ -9,9 +9,7 @@
         <div class="gram-limit">√</div>
       </template>
       <div class="gram-gram" :class="limitNumber ? 'limit' : ''">
-        <p>
-          {{ gram }}
-        </p>
+        <p>{{ gram }}</p>
       </div>
       <div class="gram-unit">kg</div>
     </div>
