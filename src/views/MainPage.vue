@@ -77,14 +77,18 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { usePostStore } from '@/stores/post'
+import { useLogin } from '@/composables/login'
 
 const { getMyInfo } = useUserStore()
 const { uid } = storeToRefs(useUserStore())
 const { fetchPosts, setPost, deletePost } = usePostStore()
 const { posts } = storeToRefs(usePostStore())
+const { logOut } = useLogin()
 
+const router = useRouter()
 const dayArr = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const dayArrKor = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일']
 const today = ref(new Date())
@@ -172,8 +176,7 @@ async function beforeWeek() {
         displayWeek.value[6].fullDate
       )
     } else {
-      // TODO 로그아웃
-      console.log('로그아웃 해라')
+      tryLogOut()
     }
   } catch (error) {
     console.log(error)
@@ -200,8 +203,7 @@ async function nextWeek() {
         displayWeek.value[6].fullDate
       )
     } else {
-      // TODO 로그아웃
-      console.log('로그아웃 해라')
+      tryLogOut()
     }
   } catch (error) {
     console.log(error)
@@ -227,8 +229,7 @@ async function onToday() {
         displayWeek.value[6].fullDate
       )
     } else {
-      // TODO 로그아웃
-      console.log('로그아웃 해라')
+      tryLogOut()
     }
   } catch (error) {
     console.log(error)
@@ -327,6 +328,17 @@ function tryDeleteData(standardDate) {
 function tryFetchRange(startFullDate) {
   rangeStartFullDate.value = startFullDate.value
   fetchPosts(uid.value, rangeStartFullDate.value, displayWeek.value[6].fullDate)
+}
+
+// 로그아웃
+const tryLogOut = async () => {
+  await logOut().then((response) => {
+    if (response) {
+      router.push({
+        path: '/'
+      })
+    }
+  })
 }
 </script>
 
