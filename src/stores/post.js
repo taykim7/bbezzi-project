@@ -43,7 +43,6 @@ export const usePostStore = defineStore('post', {
     // 생성
     async setPost(uid, postData) {
       try {
-        console.log(postData)
         const key = postData.standardDate
         const url = `${uid}/datas/${key}`
         const response = setDoc(doc(db, 'post', url), {
@@ -52,7 +51,6 @@ export const usePostStore = defineStore('post', {
           memo: postData.memo,
           gram: postData.gram
         }).then((response) => response)
-        console.log(response)
         return response
       } catch (error) {
         console.log(error)
