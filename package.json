@@ -20,7 +20,8 @@
     "swiper": "^11.1.14",
     "vue": "^3.4.21",
     "vue-chartjs": "^5.3.1",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.4.0",
+    "vuetify": "^3.7.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",

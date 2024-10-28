@@ -20,13 +20,27 @@ import {
   Tooltip,
   Legend
 } from 'chart.js'
+import { createVuetify } from 'vuetify'
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
+
+const vuetify = createVuetify({
+  defaults: {
+    VDialog: {
+      width: 'auto'
+    }
+  },
+  icons: {
+    defaultSet: 'mdi'
+  }
+})
 
 const app = createApp(App)
 
 // 등록
 app.use(router)
 app.use(createPinia())
+app.use(vuetify)
 
 // global components
 app.component('C-Input', CommonInput)
